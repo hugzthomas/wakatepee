@@ -1,0 +1,48 @@
+
+/* Your button CSS file */
+.btn-transparent {
+  color: #32485D;
+  border: 1px solid #32485D;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: lighter;
+}
+
+.btn-transparent:hover {
+  background: #32485D;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-orange {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #FD7F6B;
+  transition: background 0.3s ease;
+}
+
+.btn-orange:hover {
+  opacity: 1;
+  background: white;
+  text-decoration: none;
+  color: #FD7F6B;
+  border: 1px solid #FD7F6B;
+}
+
+.btn-normal {
+  color:white;
+  padding: 10px 40px;
+  border-radius: 50px;
+  background: #50A1AE;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn-normal:hover,
+.btn-normal:focus {
+  box-shadow: 3px 2px 12px #D6D6DB;
+  color:white;
+  text-decoration: none;
+}
