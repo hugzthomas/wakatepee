@@ -1,5 +1,4 @@
 .navbar-wagon {
-  margin-bottom: 70px;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
   transition: all 0.3s ease;
@@ -20,9 +19,28 @@
   width: 100%;
 }
 
+/* Transparent navbar */
+.navbar-wagon-transparent {
+  background: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  height: 70px;
+  padding: 0 6%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-wagon-transparent-link {
+  color: white;
+  font-size: 14px;
+ &:hover {
+    color: white;
+  }
+}
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 20px;
+  padding-top: 5px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -48,7 +66,6 @@
   color: #da552f;
   text-decoration: none;
 }
-
 
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
