@@ -8,11 +8,12 @@
   color: white;
   border: none !important;
 }
-.alert-info {
-  background: linear-gradient(to left, #085078, #85D8CE);
+.alert-info-white {
+  background: linear-gradient(to left, #085078, #85D8CE) !important;
   border: none !important;
+  padding-top: 86px;
 }
-.alert-warning {
-  background: linear-gradient(to left, #085078, #85D8CE);
+.alert-warning-white {
+  background: linear-gradient(to left, #085078, #85D8CE) !important;
   border: none !important;
 }

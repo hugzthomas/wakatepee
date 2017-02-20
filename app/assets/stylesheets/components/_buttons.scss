@@ -15,20 +15,18 @@
 }
 
 .btn-orange {
-  color: white;
+  color: #FD7F6B;;
   padding: 10px 15px;
-  border-radius: 4px;
-  font-weight: bold;
-  background: #FD7F6B;
+  background: white;
+  border: 1px solid #FD7F6B;
   transition: background 0.3s ease;
 }
 
 .btn-orange:hover {
   opacity: 1;
-  background: white;
+  background: #FD7F6B;;
   text-decoration: none;
-  color: #FD7F6B;
-  border: 1px solid #FD7F6B;
+  color: white;
 }
 
 .btn-normal {

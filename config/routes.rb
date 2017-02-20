@@ -13,5 +13,4 @@ Rails.application.routes.draw do
   end
 
   resources :milestones, only: [:update]
-
 end
