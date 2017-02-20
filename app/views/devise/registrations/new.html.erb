@@ -1,4 +1,4 @@
-<div class="banner">
+<div class="banner-home">
   <div class="banner-content">
     <div class="container">
       <div class="row">
@@ -17,6 +17,7 @@
               <div class="form-actions form-btn-center">
                 <%= f.button :submit, "Sign-up", class: "btn-orange" %>
               </div>
+                <%= render 'devise/shared/links' %>
             <% end %>
           </div>
         </div>
@@ -24,4 +25,3 @@
     </div>
   </div>
 </div>
-<%= render "devise/shared/links" %>
