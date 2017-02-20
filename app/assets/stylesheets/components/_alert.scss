@@ -6,10 +6,13 @@
   margin: 0;
   text-align: center;
   color: white;
+  border: none !important;
 }
 .alert-info {
-  background: $green;
+  background: linear-gradient(to left, #085078, #85D8CE);
+  border: none !important;
 }
 .alert-warning {
-  background: $red;
+  background: linear-gradient(to left, #085078, #85D8CE);
+  border: none !important;
 }

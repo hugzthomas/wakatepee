@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
-    <% if current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
+    <% if current_page?(root_path) %>
       <%= render 'shared/navbar-home' %>
       <%= render 'shared/flashes-home' %>
     <% else %>
