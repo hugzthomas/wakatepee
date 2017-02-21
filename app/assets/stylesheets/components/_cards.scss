@@ -1,5 +1,5 @@
 .card {
-  height: 220px;
+  height: 260px;
   background-size: cover !important;
   color: grey;
   position: relative;
@@ -48,21 +48,20 @@
 }
 .card-add{
   background-color:#F5F5F5;
-  height: 220px;
+  height: 260px;
   background-size: cover !important;
   color: grey;
   position: relative;
   padding: 60px;
   border: 1px solid #D6D6DB;
   text-align: center;
-  padding-top: 46px;
   transition: all 0.1s ease;
   cursor: pointer;
 }
 .card-add:hover{
   box-shadow: 2px 2px 8px #D6D6DB;
   img{
-    width: 137px;
+    // width: 137px;
   }
 }
 .card-plus{

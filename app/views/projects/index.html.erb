@@ -1,4 +1,25 @@
-
-
-
-<%= link_to "Create a project", new_project_path, class: "btn btn-primary"  %>
+<div class="big-padded">
+  <div class="container">
+    <div class="row">
+      <% @projects.each do |project| %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="card">
+          <div class="card-category"><%= project.title %></div>
+          <div class="card-description">
+            <h2><%= project.deadline %></h2>
+          </div>
+          <%#= image_tag project.logo , class: "card-user avatar" %>
+          <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+      <% end %>
+      <div class="col-xs-12 col-sm-6">
+        <%= link_to new_project_path do %>
+          <div class="card-add">
+            <%= image_tag "plus.svg", class: "card-plus" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
