@@ -1,0 +1,7 @@
+<%= simple_form_for [@project] do |f| %>
+ <%= f.input :title %>
+ <%= f.input :deadline, as: :date, html5: true %>
+ <%= f.input :logo %>
+ <%= f.input :photo %>
+ <%= f.submit "Edit", class: "btn btn-primary" %>
+<% end %>
