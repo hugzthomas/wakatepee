@@ -1,7 +1,19 @@
-<%= simple_form_for [@project] do |f| %>
- <%= f.input :title %>
- <%= f.input :deadline, as: :date, html5: true %>
- <%= f.input :logo %>
- <%= f.input :photo %>
- <%= f.submit "Edit", class: "btn btn-primary" %>
-<% end %>
+<div class="banner">
+  <div class="banner-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div class="card-form">
+            <%= simple_form_for [@project] do |f| %>
+              <%= f.input :title %>
+              <%= f.input :deadline, as: :date, html5: true %>
+              <%= f.input :photo %>
+              <%= f.input :photo_cache, as: :hidden %>
+              <%= f.submit "Edit your project", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
