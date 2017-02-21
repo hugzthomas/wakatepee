@@ -1,7 +1,8 @@
 <div class="big-padded">
   <div class="container">
     <div class="row">
-      <% @projects.each do |project| %>
+    <h1 class='text-center'>My projects</h1>
+      <% @projects_admin.each do |project| %>
       <div class="col-xs-12 col-sm-6">
         <%= link_to project_path(project) do %>
         <div class="card">
@@ -24,5 +25,21 @@
         <% end %>
       </div>
     </div>
+    <h1 class='text-center'>My contributions</h1>
+      <% @projects_collaborator.each do |project| %>
+      <div class="col-xs-12 col-sm-6">
+        <%= link_to project_path(project) do %>
+        <div class="card">
+          <div class="card-category">
+            <%= project.title %>
+          </div>
+          <div class="card-description">
+            <h2><%= project.deadline.strftime("%m/%d/%Y") %></h2>
+          </div>
+          <%= cl_image_tag project.admin.photo , class: "card-user avatar" %>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
   </div>
 </div>
