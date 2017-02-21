@@ -4,12 +4,13 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="card-form">
+          <h2 class="text-center">My new project</h2>
             <%= simple_form_for [@project] do |f| %>
               <%= f.input :title %>
-              <%= f.input :deadline, html5: true%>
+              <%= f.input :deadline, as: :date, html5: true %>
               <%= f.input :photo %>
               <%= f.input :photo_cache, as: :hidden %>
-              <%= f.submit "Create my project", class: "btn btn-primary" %>
+              <%= f.submit "Create it", class: "btn btn-primary" %>
             <% end %>
           </div>
         </div>
@@ -17,4 +18,3 @@
     </div>
   </div>
 </div>
-
