@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :projects, only: [:index, :show, :new, :create, :update] do
     resources :milestones, only: [:create]
+    resources :user_projects, only: [:new, :create]
   end
   resources :milestones, only: [] do
     resources :sub_milestones, only: [:create, :update]
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
   end
 
   resources :milestones, only: [:update]
+
 end
