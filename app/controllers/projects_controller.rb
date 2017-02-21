@@ -44,7 +44,7 @@ before_action :set_project, only: [:show, :edit, :update]
   end
 
   def project_params
-    params.require(:project).permit(:title, :deadline)
+    params.require(:project).permit(:title, :deadline, :photo, :photo_cache)
   end
 
 end
