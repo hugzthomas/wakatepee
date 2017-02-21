@@ -1,3 +1,8 @@
 <%= @project.title %>
 
+<% @project.users.each do |username| %>
+  <%= username.email %>
+  <% end %>
+
+
 <%= link_to "Edit", project_path(@project) %>

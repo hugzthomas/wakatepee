@@ -6,9 +6,16 @@ class UserProjectsController < ApplicationController
   end
 
   def create
-    @user_project = UserProject.new(user_project_params)
-    @user_project.user = current_user
-    authorize(@user_project)
+    @project = Project.find(params[:project_id])
+    params.keys.each do |u|
+      if u.include?("user")
+        @user = User.find(params[u])
+        @user_project = UserProject.new(user: @user, project: @project)
+        authorize(@user_project)
+        @user_project.save
+      end
+    end
+    redirect_to project_path(@project)
   end
 
   private

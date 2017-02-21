@@ -1,14 +1,9 @@
 
-
-<% User.all.each do |user| %>
-<%= user.first_name %>
-<% end %>
-
-
-
-<%= simple_form_for [@project, @user_project] do |f| %>
-  <%= f.select :user, options_for_select(User.all.map { |u| [u.first_name, u.id]}) %>
- <%= f.submit "Edit", class: "btn btn-primary" %>
+<%= form_tag(project_user_projects_path) do %>
+  <% User.all.each_with_index do |user, index| %>
+    <%= select_tag "user_#{index + 1}", options_for_select(User.all.map { |u| [u.first_name, u.id]}) %>
+  <% end %>
+  <%= submit_tag "Edit", class: "btn btn-primary" %>
 <% end %>
 
 
