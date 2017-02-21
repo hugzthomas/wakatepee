@@ -44,3 +44,52 @@
   color:white;
   text-decoration: none;
 }
+
+.btn-orange-home {
+  color: #FD7F6B;;
+  padding: 20px 25px;
+  background: white;
+  border: 1px solid #FD7F6B;
+  transition: all 0.2s ease;
+}
+
+.btn-orange-home:hover {
+  opacity: 1;
+  background: #FD7F6B;;
+  text-decoration: none;
+  color: white;
+  padding: 20px 80px;
+}
+
+.btn-blue-home {
+  color: $blue;;
+  padding: 20px 25px;
+  background: white;
+  border: 1px solid $blue;
+  transition: all 0.2s ease;
+}
+
+.btn-blue-home:hover {
+  opacity: 1;
+  background: $blue;;
+  text-decoration: none;
+  color: white;
+  padding: 20px 80px;
+}
+
+.btn-transparent-home {
+  color: white;;
+  padding: 20px 25px;
+  background: $green;
+  border: 1px solid white;
+  transition: all 0.2s ease;
+}
+
+.btn-transparent-home:hover {
+  opacity: 1;
+  background: white;;
+  text-decoration: none;
+  color: $green;
+  padding: 20px 80px;
+}
+

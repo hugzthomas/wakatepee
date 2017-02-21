@@ -15,12 +15,13 @@ before_action :set_project, only: [:show, :edit, :update]
   end
 
   def create
+
     @project = Project.new(project_params)
     @project.admin = current_user
     authorize(@project)
 
     if @project.save
-      redirect_to project_path(@project)
+      redirect_to new_project_user_project_path(@project)
     else
       render :new
     end

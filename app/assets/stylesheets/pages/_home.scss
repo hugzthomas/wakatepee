@@ -28,6 +28,123 @@
   justify-content: center;
   background-position: center center;
   background: #085078; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #085078 , #85D8CE);
   background: linear-gradient(to left, #085078 , #85D8CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+
+.tagline {
+  margin-bottom: 50px;
+}
+
+.wrapper-narrow {
+    max-width: 1100px;
+}
+
+.wrapper {
+    max-width: 1220px;
+    padding-left: 110px;
+    padding-right: 110px;
+    margin: 0 auto;
+}
+
+.wrapper-columns {
+    position: relative;
+    padding-top: 95px;
+    padding-bottom: 60px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper-column-grow {
+    flex-grow: 1;
+}
+
+.wrapper-column-main {
+    max-width: 605px;
+  h1 {
+  font-size: 44px;
+  line-height: 70px;
+  margin: 0;
+  color: $green;
+  }
+}
+
+.illustration--margin {
+    margin: 50px 25px;
+}
+
+.p-description{
+  display: block;
+  margin-before: 1em;
+  margin-after: 1em;
+  margin-bottom: 2em;
+  font-size: 20px;
+  color: $blue;
+}
+
+.features-block {
+  background: $gray;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.features-menu-container {
+  justify-content: center;
+  li{
+    list-style-type: none;
+  }
+}
+
+.features-block-images-container {
+  flex: 0 1 1052px;
+  position: relative;
+  background-color: inherit;
+  img{
+  margin-left: 450px;
+  margin-top: 64px;
+  width: 600px;
+  }
+}
+
+.features-block-navigation {
+  flex: 0 0 230px;
+  background: $blue;
+  color: white;
+  padding: 65px 108px 65px 50px;
+  position: relative;
+}
+
+
+.wrapper-columns-reverse {
+    flex-direction: row-reverse;
+}
+
+.wrapper-blue{
+  background: $green;
+  max-width: 1270px;
+  padding-left: 110px;
+  padding-right: 110px;
+  margin: 0 auto;
+  h1 {
+  font-size: 44px;
+  line-height: 70px;
+  margin: 0;
+  color: white;
+  }
+  p{
+  display: block;
+  margin-before: 1em;
+  margin-after: 1em;
+  margin-bottom: 2em;
+  font-size: 20px;
+  }
+}
+
+
+
+
+
+
+
