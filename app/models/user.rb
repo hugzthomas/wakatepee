@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :user_projects
   has_many :projects, through: :user_projects
   has_many :comments, dependent: :destroy
+  validates :photo, presence: true
+
 
   def self.from_omniauth(access_token)
     data = access_token.info
@@ -17,6 +19,9 @@ class User < ApplicationRecord
      password: Devise.friendly_token[0,20]
     )
   end
+
+  
+
 end
 
 #     user

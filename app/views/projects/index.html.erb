@@ -1,8 +1,10 @@
+
+
 <div class="big-padded">
   <div class="container">
     <div class="row">
     <h1 class='text-center'>My projects</h1>
-      <% @projects_admin.each do |project| %>
+      <% @projects_admin.sort_by(&:deadline).each do |project| %>
       <div class="col-xs-12 col-sm-6">
         <%= link_to project_path(project) do %>
         <div class="card">
@@ -12,7 +14,11 @@
           <div class="card-description">
             <h2><%= project.deadline.strftime("%m/%d/%Y") %></h2>
           </div>
-          <%= cl_image_tag project.admin.photo , class: "card-user avatar" %>
+          <% project.users.each do |user| %>
+            <% unless project.admin == user %>
+              <%= cl_image_tag user.photo , class: "card-user avatar" %>
+            <% end %>
+          <% end %>
         </div>
         <% end %>
       </div>
@@ -26,20 +32,29 @@
       </div>
     </div>
     <h1 class='text-center'>My contributions</h1>
-      <% @projects_collaborator.each do |project| %>
-      <div class="col-xs-12 col-sm-6">
-        <%= link_to project_path(project) do %>
-        <div class="card">
-          <div class="card-category">
-            <%= project.title %>
+      <% @projects_collaborator.sort_by(&:deadline).each do |project| %>
+        <% unless project.admin == current_user %>
+          <div class="col-xs-12 col-sm-6">
+            <%= link_to project_path(project) do %>
+              <div class="card">
+                <div class="card-category">
+                  <%= project.title %>
+                </div>
+                <div class="card-description">
+                  <h2><%= project.deadline.strftime("%m/%d/%Y") %></h2>
+                </div>
+                <% project.users.each do |user| %>
+                  <% unless project.admin == user %>
+                    <%= cl_image_tag user.photo , class: "card-user avatar" %>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
-          <div class="card-description">
-            <h2><%= project.deadline.strftime("%m/%d/%Y") %></h2>
-          </div>
-          <%= cl_image_tag project.admin.photo , class: "card-user avatar" %>
-        </div>
         <% end %>
-      </div>
       <% end %>
+    </div>
   </div>
-</div>
+
+
+
