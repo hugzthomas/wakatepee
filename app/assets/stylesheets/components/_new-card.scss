@@ -1,0 +1,36 @@
+.new-card {
+  box-shadow: 8px 6px 18px #D6D6DB;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.top-card {
+  height: 180px;
+  background: linear-gradient(to left, #085078, #85D8CE);
+  position: relative;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.company-card {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  top: 50px;
+  left: 230px;
+}
+
+.bottom-card {
+  height: 80px;
+  margin-bottom: 20px;
+  padding: 5px;
+  position: relative;
+ } 
+
+ .bottom-card a {
+  text-decoration:none !important;
+ }
+
+.users-card {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
