@@ -93,3 +93,24 @@
   padding: 20px 80px;
 }
 
+.button-google {
+  padding: 0px 20px;
+  line-height: 40px;
+  background-color: #dd4b39;
+  background-image: url(assets/images/google.png);
+  color: white;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.button-google:hover {
+  text-decoration: none;
+  color: white
+}
+
