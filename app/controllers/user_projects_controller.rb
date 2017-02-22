@@ -8,6 +8,7 @@ class UserProjectsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     members = params[:user_id]
+
     members.each do |member|
       @user = User.find(member)
       @user_project = UserProject.new(user: @user, project: @project)
