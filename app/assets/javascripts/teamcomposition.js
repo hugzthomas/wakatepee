@@ -8,17 +8,19 @@ $(document).ready(function() {
   });
 
   $( ".teamember" ).click(function() {
+    $(".user-id").each(function(){
+      $(this).remove();
+    })
+    var ids = [];
     $( this ).toggleClass( "teamemberselected" );
-  });
-
-  $( ".teamember" ).click(function() {
-    var Id = $(this.id);
-    var Idmember = Id.selector;
-    var membersfinal = $("#allmembers").val();
-    console.log(membersfinal)
-    $("#allmembers").val(membersfinal + (Idmember + ", "));
-    // $( this ).('<input type="textarea" style="width:50px">');
-    console.log(Idmember)
+    $(".teamemberselected").each(function(){
+      ids.push($(this).attr("id"))
+    })
+    console.log(ids)
+    ids.forEach(function(element){
+      console.log(element)
+      $("#user-projects").append("<input type='hidden' class='user-id' name='user_id[]' value='" + element + "'>" )
+    })
   });
 
 
