@@ -26,17 +26,17 @@
       </div>
     </div>
     <h1 class='text-center'>My contributions</h1>
-      <% @projects_collaborator.each do |project| %>
+      <% @projects_collaborator.each do |project_collaborator| %>
       <div class="col-xs-12 col-sm-6">
-        <%= link_to project_path(project) do %>
+        <%= link_to project_path(project_collaborator.project) do %>
         <div class="card">
           <div class="card-category">
-            <%= project.title %>
+            <%= project_collaborator.project.title %>
           </div>
           <div class="card-description">
-            <h2><%= project.deadline.strftime("%m/%d/%Y") %></h2>
+            <h2><%= project_collaborator.project.deadline.strftime("%m/%d/%Y") %></h2>
           </div>
-          <%= cl_image_tag project.admin.photo , class: "card-user avatar" %>
+          <%= cl_image_tag project_collaborator.project.admin.photo , class: "card-user avatar" %>
         </div>
         <% end %>
       </div>
