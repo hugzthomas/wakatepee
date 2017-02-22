@@ -2,8 +2,8 @@ class ProjectsController < ApplicationController
 before_action :set_project, only: [:show, :edit, :update]
 
   def index
-    @projects_admin = policy_scope(Project.where(admin: current_user)) # Projects.all whre the current user is admin
-    @projects_collaborator = policy_scope(UserProject.where(user: current_user))  #Projects.all whre the current user is a user
+    @projects_admin = policy_scope(Project.where(admin: current_user)) # Projects.all where the current user is admin
+    @projects_collaborator = policy_scope(UserProject.where(user: current_user)).map{ |user_project| user_project.project }  #UserProject.all where the current user is a user
   end
 
   def show
