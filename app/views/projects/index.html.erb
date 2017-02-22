@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
     <h1 class='text-center'>My projects</h1>
-      <% @projects_admin.each do |project| %>
+      <% @projects_admin.sort_by(&:deadline).each do |project| %>
       <div class="col-xs-12 col-sm-6">
         <%= link_to project_path(project) do %>
         <div class="card">
@@ -32,7 +32,7 @@
       </div>
     </div>
     <h1 class='text-center'>My contributions</h1>
-      <% @projects_collaborator.each do |project| %>
+      <% @projects_collaborator.sort_by(&:deadline).each do |project| %>
         <% unless project.admin == current_user %>
           <div class="col-xs-12 col-sm-6">
             <%= link_to project_path(project) do %>
