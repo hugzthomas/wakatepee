@@ -7,13 +7,12 @@ class UserProjectsController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    params.keys.each do |u|
-      if u.include?("user")
-        @user = User.find(params[u])
-        @user_project = UserProject.new(user: @user, project: @project)
-        authorize(@user_project)
-        @user_project.save
-      end
+    members = params[:allmembers].split(", ")
+    members.each do |member|
+      @user = User.find(member)
+      @user_project = UserProject.new(user: @user, project: @project)
+      @user_project.save
+      authorize(@user_project)
     end
     redirect_to project_path(@project)
   end
