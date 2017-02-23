@@ -1,13 +1,24 @@
-
-<%= form_tag(project_user_projects_path) do %>
-  <% User.all.each_with_index do |user, index| %>
-    <%= select_tag "user_#{index + 1}", options_for_select(User.all.map { |u| [u.first_name, u.id]}) %>
-  <% end %>
-  <%= submit_tag "Edit", class: "btn btn-primary" %>
-<% end %>
-
-
-
+<div class="banner">
+  <div class="banner-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="card-form">
+          <h2 class="text-center">Team time !</h2>
+             <%= form_tag(project_user_projects_path, id:"user-projects") do %>
+              <% User.all.each_with_index do |user, index| %>
+                <%= cl_image_tag user.photo, class: "teamember", id: user.id %>
+                <%=  %>
+                <%#= select_tag "user_#{index + 1}", options_for_select(User.all.map { |u| [u.first_name, u.id]}) %>
+              <% end %>
+          </div>
+              <%= submit_tag "Create the project", class: "btn btn-primary" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
