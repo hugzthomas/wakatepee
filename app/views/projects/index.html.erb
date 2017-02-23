@@ -8,7 +8,9 @@
         <%= link_to project_path(project), class: "no-underline" do %>
          <div class="new-card">
                 <div class="top-card">
-                    <%= cl_image_tag project.photo , class: "company-card" %>
+                  <% if project.photo? %>
+                    <%= image_tag project.photo.url(:standard), class: "company-card" %>
+                  <% end %>
                   <div class="deadline">
                     <p><%= project.deadline.strftime("%m/%d/%Y") %></p>
                   </div>
