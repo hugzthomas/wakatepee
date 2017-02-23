@@ -1,29 +1,59 @@
-<% @project.users.each do |user|  %>
-  <%= user.first_name %>
-<% end %>
-<div class="admin-panel">
-  <div class="slidebar">
-      <ul>
-          <li><a href="" name="tab1"><%= @project.title %><%= cl_image_tag(@project.photo, width: 150, height: 150, crop: :thumb, gravity: :face) %><%= @project.deadline.strftime("%m/%d/%Y") %></a></li>
-            <!-- Display Project's Milestone and Milestone's Submilestones  -->
-            <% @project.milestones.each do |milestone| %>
-              <li><a href="" name="tab2"><i class="fa fa-eyedropper"></i><%= milestone.title %></a></li>
-            <% end %>
-      </ul>
-  </div>
+<div class="container-general">
+    <div class="sidebar tabs">
+    <div class="ol-navigation">
+      <div class="li-navigation">
+        <li class="li-milestone-recap tab active" data-target="#recap">
+          <div class="logo-client"><%= cl_image_tag(@project.photo, width: 80, height: 40, crop: :thumb, gravity: :face) %></div>
+          <div class="project-title"><%= @project.title %></div>
+          <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
+        </li>
+      <li class="li-milestone tab" data-target="#design">
+        <i class="icon fa fa-eyedropper"></i>
+        <ul class="title">Design<li class="progress-bar"></li></ul>
+      </li>
+      <li class="li-milestone tab" data-target="#dev">
+        <i class="icon fa fa-eyedropper"></i>
+        <ul class="title">Developpement<li class="progress-bar"></li></ul>
+      </li>
+      <li class="li-milestone tab" data-target="#mkt">
+        <i class="icon fa fa-eyedropper"></i>
+        <ul class="title">Marketing<li class="progress-bar"></li></ul>
+      </li>
 
-<!-- On click of slide bar element -->
-  <div class="main">
-    <!-- First tab will display User's Project  -->
-       <div id="tab1"><h2 class="header">Dashboard</h2></div>
-        <!-- Other's tab will display submilestones element  -->
-        <% @project.milestones.each do |milestone| %>
-          <% milestone.sub_milestones.each do |sub_milestone| %>
-            <div id="tab2"><h2 class="header"><%= sub_milestone.title %></h2></div>
-          <% end %>
+      </div>
+    </div>
+    </div>
+  <div class="content-submilestones tab-content" id="recap">
+    <h2>Récap du projet</h2>
+    <div class="submilestones">
+      <% @project.users.each do |user|  %>
+        <%= user.first_name %>
+      <% end %>
+    </div>
+  </div>
+    <div class="content-submilestones tab-content hidden" id="design">
+    <h2>Design</h2>
+    <div class="submilestones">
+      <!-- Other's tab will display submilestones element  -->
+      <% @project.milestones.each do |milestone| %>
+        <% milestone.sub_milestones.each do |sub_milestone| %>
+          <%= sub_milestone.title %>
         <% end %>
+      <% end %>
+    </div>
+  </div>
+    <div class="content-submilestones tab-content hidden" id="dev">
+    <h2>Developpement</h2>
+    <div class="submilestones">
+    <h6>A submilestone</h6>
+    </div>
+  </div>
+    <div class="content-submilestones tab-content hidden" id="mkt">
+    <h2>Marketing</h2>
+    <div class="submilestones">
+    <h6>A submilestone</h6>
+    </div>
   </div>
 </div>
-
 
 

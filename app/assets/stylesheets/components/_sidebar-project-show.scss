@@ -1,83 +1,77 @@
-.admin-panel {
-  width: 100%;
-  max-width:1230px;
-  margin: 50px auto;
-  overflow: hidden;
-  background-color:#fff;
-  position:relative;
+.container-general{
+  background-color:white;
+  max-width: 1230px;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 60px;
 }
 
-.slidebar {
-  width:15%;
-  float: left;
-  background-color: #111;
-}
-.slidebar ul {
-  position:relative;
-  height:100%;
+.sidebar{
+  background-color:$green;
+  margin: 0 10px 0 0;
+  width: 240px;
 }
 
-.slidebar a{
-  color: #bbb;
-  text-decoration: none;
-  background-color: #F9F6F6;
-  border-bottom: 1px solid $green;
-}
-.slidebar li{
-  text-align:center;
-  padding: 0x 0px;
+.logo-client{
+  margin: 20px;
 }
 
-ul {
-  padding: 0;
-  margin:0;
+.project-title{
+  padding-top: 10px;
 }
-li {
-  list-style-type: none;
+
+.project-deadline{
+  padding-top: 20px;
+}
+
+.ol-navigation{
+  list-style: none;
   margin: 0;
-  position: relative;
-  text-align:center;
-  color:#B3B3B3;
-  width: 300px;
-}
-.slidebar i {
-  display:block;
-  text-align:center;
-  color: $green;
-  font-size: 40px;
-  margin-bottom: 8px;
+  padding: 0;
 }
 
-.slidebar ul a {
-  color: $blue;
-  text-decoration: none;
-  box-sizing:border-box;
-  display: block;
-  text-transform: capitalize;
+.li-milestone-recap{
+  border-bottom: 0.5px solid $blue;
+  height: 135px;
+  text-align:center;
+}
+
+.li-milestone{
+  border-bottom: 0.5px solid $blue;
+  height: 60px;
+  display:flex;
+}
+
+.icon{
   padding: 20px;
-}
-.slidebar li:hover a, li#active{
-  background-color: $green;
+  margin-right: 10px;
 }
 
-.slidebar li:hover i, li#active i{
-  color: $blue;
+.title {
+  list-style-type: none;
+  margin-top: 15px;
+  padding-left: 5px;
+}
+.progress-bar{
+  border: 0.2px solid black;
+  width: 155px;
+  height: 10px;
+  list-style-type: none;
+
 }
 
-.main {
-  float: left;
-  width: 58%;
-  background-color: white;
-  position: relative;
-  margin-left: 118px;
-}
-.main h2 {
-  margin: 0em 15px;
-  color:$blue;
-  font-size: 20px;
-  font-weight:600;
-  border-bottom: 1px solid #bbb;
-  padding: 0px 0px 10px 0px;
+.submilestones{
+  margin-left: 50px;
+  margin-top: 47px;
 }
 
+.content-submilestones{
+  background-color:$gray;
+  flex: 1;
+  border: 0.5px solid ;
+    h2{
+      margin-left: 30px;
+      border-bottom: 1px solid grey;
+    }
+}
 
