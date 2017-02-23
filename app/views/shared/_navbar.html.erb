@@ -19,7 +19,7 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.photo? %>
-            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+             <%= cl_image_tag current_user.photo, width: 50, height: 50, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
