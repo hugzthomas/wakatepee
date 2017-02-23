@@ -2,23 +2,28 @@
 <div class="big-padded">
   <div class="container">
     <div class="row">
-    <h1 class='text-center'>My projects</h1>
+    <h1 class='text-center small-padded'>My projects</h1>
       <% @projects_admin.sort_by(&:deadline).each do |project| %>
       <div class="col-xs-12 col-sm-6">
-        <%= link_to project_path(project) do %>
-        <div class="card">
-          <div class="card-category">
-            <%= project.title %>
-          </div>
-          <div class="card-description">
-            <h2><%= project.deadline.strftime("%m/%d/%Y") %></h2>
-          </div>
-          <% project.users.each do |user| %>
-            <% unless project.admin == user %>
-              <%= cl_image_tag user.photo , class: "card-user avatar" %>
-            <% end %>
-          <% end %>
-        </div>
+        <%= link_to project_path(project), class: "no-underline" do %>
+         <div class="new-card">
+                <div class="top-card">
+                    <%= cl_image_tag project.photo , class: "company-card" %>
+                  <div class="deadline">
+                    <p><%= project.deadline.strftime("%m/%d/%Y") %></p>
+                  </div>
+                </div>
+                <div class="bottom-card">
+                  <h4><%= project.title %></h4>
+                  <div class="users-card">
+                    <% project.users.each do |user| %>
+                      <% unless project.admin == user %>
+                        <%= cl_image_tag user.photo , class: "avatar" %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
         <% end %>
       </div>
       <% end %>
@@ -30,18 +35,20 @@
         <% end %>
       </div>
     </div>
-    <h1 class='text-center'>My contributions</h1>
+    <h1 class='text-center small-padded'>My contributions</h1>
       <% @projects_collaborator.sort_by(&:deadline).each do |project| %>
         <% unless project.admin == current_user %>
           <div class="col-xs-12 col-sm-6">
-            <%= link_to project_path(project) do %>
-            <div class="new-card">
-              <div class="top-card">
-                  <%= cl_image_tag project.photo , class: "company-card" %>
-              </div>
+            <%= link_to project_path(project), class: "no-underline" do %>
+              <div class="new-card">
+                <div class="top-card">
+                    <%= cl_image_tag project.photo , class: "company-card" %>
+                  <div class="deadline">
+                    <p><%= project.deadline.strftime("%m/%d/%Y") %></p>
+                  </div>
+                </div>
                 <div class="bottom-card">
                   <h4><%= project.title %></h4>
-                  <p><%= project.deadline.strftime("%m/%d/%Y") %></p>
                   <div class="users-card">
                     <% project.users.each do |user| %>
                       <% unless project.admin == user %>
@@ -50,13 +57,13 @@
                     <% end %>
                   </div>
                 </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
+  </div>
 
 
 

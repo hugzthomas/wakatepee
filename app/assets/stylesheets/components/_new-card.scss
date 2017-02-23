@@ -1,6 +1,21 @@
 .new-card {
   box-shadow: 8px 6px 18px #D6D6DB;
   border-radius: 0px 0px 5px 5px;
+  margin-bottom: 20px;
+}
+
+.new-card:hover {
+  .top-card {
+    height: 30px;
+    transition: 0.5s ease;
+  }
+  .bottom-card {
+    height: 230px;
+    transition: 0.5s ease;
+  }
+  img.company-card {
+    display: none;
+  }
 }
 
 .top-card {
@@ -20,17 +35,24 @@
 
 .bottom-card {
   height: 80px;
-  margin-bottom: 20px;
-  padding: 5px;
+  padding: 20px;
   position: relative;
- } 
-
- .bottom-card a {
-  text-decoration:none !important;
  }
 
 .users-card {
   position: absolute;
-  right: 10px;
-  top: 20px;
+  right: 30px;
+  bottom: 20px;
+  .avatar {
+    margin-right: -15px;
+    border: 2px solid white;
+  }
+}
+
+.deadline {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: white;
+  font-weight: bolder;
 }
