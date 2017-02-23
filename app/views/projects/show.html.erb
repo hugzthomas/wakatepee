@@ -1,28 +1,37 @@
 <div class="container-general">
     <div class="sidebar tabs">
-    <div class="ol-navigation">
-      <div class="li-navigation">
-        <li class="li-milestone-recap tab active" data-target="#recap">
-          <div class="logo-client"><%= cl_image_tag(@project.photo, width: 80, height: 40, crop: :thumb, gravity: :face) %></div>
-          <div class="project-title"><%= @project.title %></div>
-          <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
-        </li>
-      <li class="li-milestone tab" data-target="#design">
-        <i class="icon fa fa-eyedropper"></i>
-        <ul class="title">Design<li class="progress-bar"></li></ul>
-      </li>
-      <li class="li-milestone tab" data-target="#dev">
-        <i class="icon fa fa-eyedropper"></i>
-        <ul class="title">Developpement<li class="progress-bar"></li></ul>
-      </li>
-      <li class="li-milestone tab" data-target="#mkt">
-        <i class="icon fa fa-eyedropper"></i>
-        <ul class="title">Marketing<li class="progress-bar"></li></ul>
-      </li>
-
+      <div class="ol-navigation">
+        <div class="li-navigation">
+          <li class="li-milestone-recap tab active" data-target="#recap">
+            <div class="logo-client"><%= cl_image_tag(@project.photo, width: 80, height: 40, crop: :thumb, gravity: :face) %></div>
+            <div class="project-title"><%= @project.title %></div>
+            <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
+          </li>
+              <% @project.milestones.each do |milestone| %>
+              <li class="li-milestone tab" data-target="#<% milestone.title %>">
+                <i class="icon fa fa-eyedropper"></i>
+                <ul class="title"><%= milestone.title %>
+                <li class="progress-bar"></li>
+                </ul>
+              </li>
+              <%end %>
+          <li class="li-milestone tab" data-target="#dev">
+            <i class="icon fa fa-eyedropper"></i>
+            <ul class="title">Developpement<li class="progress-bar"></li></ul>
+          </li>
+          <li class="li-milestone tab" data-target="#mkt">
+            <i class="icon fa fa-eyedropper"></i>
+            <ul class="title">Marketing<li class="progress-bar"></li></ul>
+          </li>
+          <li class="li-milestone tab" data-target="#add">
+            <i class="icon fa fa-plus"></i>
+            <ul class="title">Add a milestone</ul>
+          </li>
+        </div>
       </div>
     </div>
-    </div>
+
+  <!-- Display submilestone content when click on the milestone on the sidebar -->
   <div class="content-submilestones tab-content" id="recap">
     <h2>Récap du projet</h2>
     <div class="submilestones">
@@ -32,27 +41,33 @@
     </div>
   </div>
     <div class="content-submilestones tab-content hidden" id="design">
-    <h2>Design</h2>
-    <div class="submilestones">
-      <!-- Other's tab will display submilestones element  -->
-      <% @project.milestones.each do |milestone| %>
-        <% milestone.sub_milestones.each do |sub_milestone| %>
-          <%= sub_milestone.title %>
-        <% end %>
-      <% end %>
+      <h2>Design</h2>
+        <div class="submilestones">
+          <!-- Other's tab will display submilestones element  -->
+          <% @project.milestones.each do |milestone| %>
+            <% milestone.sub_milestones.each do |sub_milestone| %>
+              <%= sub_milestone.title %>
+            <% end %>
+          <% end %>
+        </div>
     </div>
-  </div>
     <div class="content-submilestones tab-content hidden" id="dev">
-    <h2>Developpement</h2>
-    <div class="submilestones">
-    <h6>A submilestone</h6>
+      <h2>Developpement</h2>
+        <div class="submilestones">
+          <h6>A submilestone</h6>
+        </div>
     </div>
-  </div>
     <div class="content-submilestones tab-content hidden" id="mkt">
-    <h2>Marketing</h2>
-    <div class="submilestones">
-    <h6>A submilestone</h6>
+      <h2>Marketing</h2>
+        <div class="submilestones">
+          <h6>A submilestone</h6>
+        </div>
     </div>
-  </div>
+    <div class="content-submilestones tab-content hidden" id="add">
+      <h2>Add your milestone</h2>
+        <div class="submilestones">
+          <%= render "shared/create_milestone", project: @project, milestone: Milestone.new %>
+        </div>
+    </div>
 </div>
 
