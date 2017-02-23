@@ -5,5 +5,5 @@
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
-//= require teamcomposition
+//= require bootstrap-datepicker
 //= require_tree .
