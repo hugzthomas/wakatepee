@@ -1,0 +1,6 @@
+<%= simple_form_for project, remote: remote do |f| %>
+  <%= f.input :title %>
+  <%= f.input :deadline, as: :string, input_html: { class: "date_picker" } %>
+  <%= f.input :photo %>
+  <%= f.submit "Add your team", id: "registered", class: "btn btn-normal adding" , disabled: "disabled" %>
+<% end %>

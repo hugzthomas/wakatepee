@@ -7,7 +7,7 @@
           <h2 class="text-center">My new project</h2>
             <%= simple_form_for [@project] do |f| %>
               <%= f.input :title %>
-              <%= f.input :deadline, as: :date, html5: true %>
+              <%= f.input :deadline, as: :date_picker %>
               <%= f.input :photo %>
               <%= f.input :photo_cache, as: :hidden %>
               <%= f.submit "Add your team", class: "btn btn-primary" %>
@@ -18,3 +18,4 @@
     </div>
   </div>
 </div>
+
