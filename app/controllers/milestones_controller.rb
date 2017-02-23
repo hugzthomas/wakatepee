@@ -11,6 +11,11 @@ class MilestonesController < ApplicationController
     @milestone = Milestone.new(title: @title)
     authorize(@project)
     @milestone.save
+
+    @project_milestone = ProjectMilestone.new(milestone: @milestone, project: @project)
+    authorize(@project)
+    @project_milestone.save
+
     redirect_to project_path(@project)
   end
 
