@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  TeamComposition();
+  teamComposition();
 });
 
-function TeamComposition() {
+function teamComposition() {
   $( ".teamember" ).mouseover(function() {
     $( ".userteam" ).removeClass( "hidden" );
   });

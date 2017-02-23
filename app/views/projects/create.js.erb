@@ -6,6 +6,6 @@
   // $("#myModal").modal();
 <% else %>
   $("#myModal2 .modal-body").html("<%= j render 'shared/create-user_project', user_project: UserProject.new %>")
-  TeamComposition();
+  teamComposition();
   $('#myModal2').modal()
 <% end %>

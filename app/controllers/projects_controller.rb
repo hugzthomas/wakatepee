@@ -9,7 +9,6 @@ before_action :set_project, only: [:show, :edit, :update]
 
   def show
     authorize(@project)
-    raise
   end
 
   def new
