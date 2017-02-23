@@ -26,10 +26,10 @@
 }
 
 .company-card {
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
   position: absolute;
-  top: 50px;
+  top: 40px;
   left: 230px;
 }
 
@@ -55,4 +55,31 @@
   top: 5px;
   color: white;
   font-weight: bolder;
+}
+
+.card-add{
+  box-shadow: 8px 6px 18px #D6D6DB;
+  background-color:#F5F5F5;
+  height: 270px;
+  background-size: cover !important;
+  color: grey;
+  position: relative;
+  padding: 60px;
+  border: 1px solid #D6D6DB;
+  text-align: center;
+  transition: all 0.1s ease;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.card-plus {
+  width: 130px;
+  position: relative;
+}
+
+ .card-add:hover {
+  .card-plus {
+    transition: all 0.2s ease;
+    width: 135px;
+    }
 }
