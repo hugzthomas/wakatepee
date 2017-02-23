@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  TeamComposition();
+});
+
+function TeamComposition() {
   $( ".teamember" ).mouseover(function() {
     $( ".userteam" ).removeClass( "hidden" );
   });
@@ -22,6 +26,4 @@ $(document).ready(function() {
       $("#user-projects").append("<input type='hidden' class='user-id' name='user_id[]' value='" + element + "'>" )
     })
   });
-
-
-});
+}

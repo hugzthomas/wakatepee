@@ -1,0 +1,11 @@
+// Here you will write *javascript* that would be executed by the browser
+<% if @project.errors.any? %>
+  // Render new review form with errors
+  $('#new_project').html("<%= j render 'shared/create-project', project: @project, remote: true %>");
+
+  // $("#myModal").modal();
+<% else %>
+  $("#myModal2 .modal-body").html("<%= j render 'shared/create-user_project', user_project: UserProject.new %>")
+  TeamComposition();
+  $('#myModal2').modal()
+<% end %>

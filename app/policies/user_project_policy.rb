@@ -18,7 +18,7 @@ class UserProjectPolicy < ApplicationPolicy
   # current_user <=> user
   def update?
     # seul le createur d'un restau ou un admin peut le modifier
-    is_user_owner_or_admin?
+    #?
   end
 
   # def destroy?
