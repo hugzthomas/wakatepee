@@ -13,7 +13,7 @@
       <!-- Notification -->
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
+          <i class="fa fa-bell-o"></i>
           <div class="badge badge-blue">3</div>
         </div>
       <% end %>
@@ -33,7 +33,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to projects_path(current_user) do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
