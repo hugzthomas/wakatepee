@@ -1,7 +1,7 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require bootstrap-sprockets
-// app/assets/javascripts/application.js
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
