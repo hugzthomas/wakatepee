@@ -17,10 +17,10 @@
   background: linear-gradient(to left, #085078 , #85D8CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.banner-sign {
+.banner-sign-in {
   color: white;
   text-align: center;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  height: calc(100vh - 70px);
   background-size: cover !important;
   display: flex;
   align-items: center;
@@ -30,9 +30,54 @@
   background: linear-gradient(to left, #085078 , #85D8CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.banner-sign-up {
+  color: white;
+  text-align: center;
+
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center center;
+  background: #085078; /* fallback for old browsers */
+  background: linear-gradient(to left, #085078 , #85D8CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.title-wakatepee {
+  font-size:100px;
+  letter-spacing: 0.3em;
+  opacity: 0.5;
+  top: calc(50% - 21px);
+  left: 0;
+  text-transform: uppercase;
+  text-align: center;
+  font: 300  #{100px}/#{1};
+  opacity: 0;
+  animation: in 3s ease-out forwards;
+  animation-delay: 0.6s;
+}
 
 .tagline {
   margin-bottom: 50px;
+  left: 0;
+  text-align: center;
+  opacity: 0;
+  animation: in 3s ease-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes in{
+  0%{
+    letter-spacing: -17px;
+    opacity: 0;
+  }
+  30%{
+    opacity: 0.3;
+    letter-spacing: 0px;
+  }
+  100%{
+    opacity: 0.7;
+  }
 }
 
 .wrapper-narrow {
@@ -83,7 +128,7 @@
 }
 
 .features-block {
-  background: $gray;
+  background: #ACD0D1;
   display: flex;
   justify-content: center;
   position: relative;
@@ -93,6 +138,7 @@
   justify-content: center;
   li{
     list-style-type: none;
+    font-size: 21px;
   }
 }
 
@@ -100,19 +146,21 @@
   flex: 0 1 1052px;
   position: relative;
   background-color: inherit;
+  height: 490px;
   img{
-  margin-left: 450px;
-  margin-top: 64px;
-  width: 600px;
+  margin-left: 170px;
+  margin-top: 40px;
+  width: 570px;
   }
 }
 
 .features-block-navigation {
-  flex: 0 0 230px;
-  background: $blue;
+  background: #34485C;
   color: white;
-  padding: 65px 108px 65px 50px;
-  position: relative;
+    padding: 100px;
+  position: absolute;
+  margin-left: 425px;
+  width: 435px;
 }
 
 
@@ -141,6 +189,63 @@
   }
 }
 
+.row-entreprise {
+  align-items: center;
+  margin-top: 85px;
+  margin-left: 126px;
+  padding-bottom: 150px;
+
+}
+
+.tagline-center{
+  text-align:center;
+  padding-top: 45px;
+  color: $green;
+}
+
+.tagline-firm{
+  text-align:center;
+  padding-top: 10px;
+  color: $orange;
+}
+
+.container-wagon{
+  width: 100px;
+  margin: auto;
+}
+
+.wagon-pin img{
+  position: relative;
+  width: 90px;
+  height: 90px;
+  top: 20px;
+  left: 4px;
+  opacity: 0.7;
+  animation: wagon-rebond ease 2s infinite;
+  border-radius: 50px;
+}
+
+
+.shadow{
+  position: relative;
+  height:16px;
+  background: #999;
+  opacity:0.1;
+  border-radius:100%;
+  margin:0px 0px 0px 0px;
+  top:100px;
+  animation: shadow ease 2s infinite;
+}
+
+.text-white{
+  color:white;
+}
+
+
+@keyframes wagon-rebond { 50% { top: 100px; opacity: 1; } 100% { top: 20px; opacity: 0.7 scale(2); } }
+
+
+@keyframes shadow { 50% { margin:0px 20% 0px 20%; opacity:0.7; } 100% { margin:0px 0px 0px 0px; opacity:0.1;  } }
 
 
 

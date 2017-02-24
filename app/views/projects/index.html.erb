@@ -1,7 +1,9 @@
-
 <div class="big-padded">
   <div class="container">
     <div class="row">
+      <div class="btn-orange-index-projet" data-toggle="modal" data-target="#myModal">
+        <h4>Add a project</h4>
+      </div>
     <h1 class='text-center small-padded'>My projects</h1>
       <% @projects_admin.sort_by(&:deadline).each do |project| %>
       <div class="col-xs-12 col-sm-6">
