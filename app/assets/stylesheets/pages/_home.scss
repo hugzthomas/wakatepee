@@ -224,6 +224,10 @@
   animation: shadow ease 2s infinite;
 }
 
+.text-white{
+  color:white;
+}
+
 
 @keyframes wagon-rebond { 50% { top: 100px; opacity: 1; } 100% { top: 20px; opacity: 0.7 scale(2); } }
 
