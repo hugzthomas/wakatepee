@@ -30,6 +30,26 @@
   color: white;
 }
 
+.btn-orange-index-projet {
+  color: #FD7F6B;;
+  padding: 10px 15px;
+  background: white;
+  border: 1px solid #FD7F6B;
+  transition: background 0.3s ease;
+  width: 255px;
+  text-align:center;
+  cursor:pointer;
+  margin-left: 10px;
+}
+
+.btn-orange-index-projet:hover{
+  opacity: 1;
+  background: #FD7F6B;;
+  text-decoration: none;
+  border: 1px solid #FD7F6B;
+  color: white;
+}
+
 .btn-normal {
   color:white;
   padding: 10px 40px;
