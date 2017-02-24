@@ -46,21 +46,9 @@
           <!-- Other's tab will display submilestones element  -->
           <% @project.milestones.each do |milestone| %>
             <% milestone.sub_milestones.each do |sub_milestone| %>
-              <%= sub_milestone.title %>
+              <%= render 'shared/sub_milestone', sub_milestone: sub_milestone, id: "sub-#{sub_milestone.id}" %>
             <% end %>
           <% end %>
-        </div>
-    </div>
-    <div class="content-submilestones tab-content hidden" id="dev">
-      <h2>Developpement</h2>
-        <div class="submilestones">
-          <h6>A submilestone</h6>
-        </div>
-    </div>
-    <div class="content-submilestones tab-content hidden" id="mkt">
-      <h2>Marketing</h2>
-        <div class="submilestones">
-          <h6>A submilestone</h6>
         </div>
     </div>
     <div class="content-submilestones tab-content hidden" id="add">
@@ -70,4 +58,5 @@
         </div>
     </div>
 </div>
+
 
