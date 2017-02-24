@@ -13,14 +13,18 @@ class User < ApplicationRecord
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(:email => data["email"]).first
-    user = User.create!(first_name: data["name"].split(" ").first,
-     email: data["email"],
-     remote_photo_url: data["image"],
-     password: Devise.friendly_token[0,20]
-    )
+    if user
+      user.update(first_name: data["name"].split(" ").first)
+    else
+      user = User.create!(first_name: data["name"].split(" ").first,
+       email: data["email"],
+       remote_photo_url: data["image"],
+       password: Devise.friendly_token[0,20]
+      )
+     end
   end
 
-  
+
 
 end
 
