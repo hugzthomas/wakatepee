@@ -10,13 +10,21 @@ class MilestonesController < ApplicationController
     @title = params[:milestone][:title]
     @milestone = Milestone.new(title: @title)
     authorize(@project)
-    @milestone.save
+    if @milestone.save
+      @project_milestone = ProjectMilestone.new(milestone: @milestone, project: @project)
+      authorize(@project)
+      @project_milestone.save
+      respond_to do |format|
+        format.html { redirect_to project_path(@project) }
+        format.js  # <-- will render `app/views/projects/create_milestone.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'project/show' }
+        format.js  # <-- idem
+      end
+    end
 
-    @project_milestone = ProjectMilestone.new(milestone: @milestone, project: @project)
-    authorize(@project)
-    @project_milestone.save
-
-    redirect_to project_path(@project)
   end
 
   def edit

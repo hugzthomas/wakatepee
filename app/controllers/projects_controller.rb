@@ -10,6 +10,7 @@ before_action :set_project, only: [:show, :edit, :update]
 
   def show
     authorize(@project)
+    @selected_milestone_id = params[:selected_milestone_id].to_i
   end
 
   def new

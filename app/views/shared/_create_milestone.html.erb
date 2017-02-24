@@ -1,4 +1,4 @@
-<%= simple_form_for [project, milestone] do |f| %>
+<%= simple_form_for [project, milestone], remote: remote do |f| %>
   <%= f.input :title %>
-  <%= f.submit "Add a milestone", class: "btn btn-normal"%>
+  <%= f.submit "Add a milestone", class: "btn btn-normal milestoneadded"%>
 <% end %>

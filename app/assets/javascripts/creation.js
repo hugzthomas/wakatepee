@@ -6,6 +6,7 @@ $(document).ready(function() {
     $("#myModal").modal('toggle');
   });
 
+
 });
 
 function validate() {
@@ -19,4 +20,8 @@ function validate() {
     };
 
   });
+
+}
+function modalClose() {
+  $('#addAMilestone').modal('toggle');
 }

@@ -1,0 +1,6 @@
+<!-- Form comment remote: true => comments#create -->
+<%= simple_form_for [ project, SubMilestone.new ] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :milestone_id, as: :hidden, input_html: { value: milestone.id } %>
+  <%= f.submit "Add a sub milestone", class: "btn btn-normal"%>
+<% end %>

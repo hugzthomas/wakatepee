@@ -5,5 +5,9 @@ $(document).ready(function(){
     $(this).addClass('active');
     var tabContentID = $(this).data('target');
     $(tabContentID).removeClass('hidden');
+    history.pushState(null, null, tabContentID);
   });
+
+  $('.tab[data-target="' + window.location.hash + '"]').click();
+
 });
