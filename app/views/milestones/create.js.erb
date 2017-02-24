@@ -1,0 +1,6 @@
+<% if @milestone.errors.any? %>
+  // Render new review form with errors
+  $('#new_milestone').html("<%= j render 'shared/create_milestone', milestone: @milestone, remote: true %>");
+  <% else %>
+  modalClose();
+<% end %>
