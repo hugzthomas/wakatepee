@@ -25,8 +25,9 @@
 
   <!-- Display submilestone content when click on the milestone on the sidebar -->
   <div class="content-submilestones tab-content" id="recap">
-    <h2>Récap du projet</h2>
+    <h2>Project Brief</h2>
     <div class="submilestones">
+      <h5>They work on <%= @project.title %> : </h5>
       <% @project.users.each do |user|  %>
         <%= user.first_name %>
       <% end %>
