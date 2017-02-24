@@ -7,7 +7,8 @@
 }
 
 .sidebar{
-  background-color:$green;
+  background-color:#F1F1F1;
+  box-shadow: -5px 0px 12px #D6D6DB;
   margin: 0 10px 0 0;
   width: 240px;
 }
@@ -21,7 +22,10 @@
 }
 
 .project-deadline{
-  padding-top: 20px;
+  background-color: $orange;
+  padding-top: 12px;
+  color: white;
+  padding: 10px 20px;
 }
 
 .ol-navigation{
@@ -31,7 +35,6 @@
 }
 
 .li-milestone-recap{
-  border-bottom: 0.5px solid $blue;
   height: 135px;
   text-align:center;
 }
@@ -65,10 +68,12 @@
   margin-top: 47px;
 }
 
-.content-submilestones{
-  background-color:$gray;
+
+
+.content-milestones{
+  background-color: #F1F1F1;
+  box-shadow: 5px 0px 1px #D6D6DB;
   flex: 1;
-  border: 0.5px solid ;
     h2{
       margin-left: 30px;
       border-bottom: 1px solid grey;

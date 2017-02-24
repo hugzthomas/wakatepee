@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   resources :projects, only: [:index, :show, :new, :create, :update] do
     resources :milestones, only: [:create]
     resources :user_projects, only: [:new, :create]
-  end
-  resources :milestones, only: [] do
     resources :sub_milestones, only: [:create, :update]
   end
   resources :sub_milestones, only: [] do
