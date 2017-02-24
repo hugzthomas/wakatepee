@@ -17,10 +17,23 @@
   background: linear-gradient(to left, #085078 , #85D8CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.banner-sign {
+.banner-sign-in {
   color: white;
   text-align: center;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  height: calc(100vh - 70px);
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center center;
+  background: #085078; /* fallback for old browsers */
+  background: linear-gradient(to left, #085078 , #85D8CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.banner-sign-up {
+  color: white;
+  text-align: center;
+
   background-size: cover !important;
   display: flex;
   align-items: center;
