@@ -1,0 +1,5 @@
+<!-- Form comment remote: true => comments#create -->
+<%= simple_form_for [sub_milestone, Comment.new] do |f| %>
+<%= f.input :content %>
+<%= f.submit "Add a coment", class: "btn btn-normal"%>
+<% end %>
