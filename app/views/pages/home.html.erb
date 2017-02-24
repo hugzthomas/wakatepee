@@ -1,8 +1,11 @@
 <div class="banner-home">
   <div class="banner-content">
+    <h1 class="title">WAKATEPEE</h1>
     <h2 class="tagline">Keep your project on track</h2>
-    <a class="btn-orange-home" data-color-class="main">Start today</a>
+    <%= link_to t(".sign_in", default: "Start today"), new_user_registration_path, class: "btn-orange-home" %>
   </div>
+</div>
+<div class="arrow bounce">
 </div>
 
 <!-- First wrapper with feature-->
@@ -15,13 +18,11 @@
       </figure>
     </div>
   <div class="wrapper-column wrapper-column-main">
-    <h1>Title 1</h1>
-      <p class="p-description"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quidem, rem totam possimus, corporis provident.
-      </p>
-      <p data-ga-variation="1" style="display: none;"> The tool gives you a better understanding of your deadlines, what your team members are up to and whether or not someone needs a hand.
+    <h1>Collaborate</h1>
+      <p class="p-description"> Add team member easily and simplify your working process.
       </p>
       <p>
-      <a href="https://app.teamweek.com/#signup" class="btn-orange-home" data-color-class="main">Get started
+      <%= link_to t(".sign_in", default: "Get started"), new_user_registration_path, class: "btn-orange-home" %>
       </a>
       </p>
     </div>
@@ -37,10 +38,15 @@
 </div>
   <div class="features-block-navigation">
     <div class="features-menu-container">
-      <li>Create tasks super fast</li>
-      <li>Simply drag and drop to modify </li>
-      <li>See who’s booked and who’s available</li>
-      <li>Filter your calendar by projects</li>
+    <li>Create project super fast</li>
+    <br>
+    <li>Add team members easily</li>
+    <br>
+    <li>Keep people busy</li>
+    <br>
+    <li>React fast to your team’s needs's</li>
+    <br>
+    <li>Manage it in one click</li>
     </div>
   </div>
   </div>
@@ -55,11 +61,11 @@
       </figure>
     </div>
   <div class="wrapper-column wrapper-column-main">
-    <h1>Title 2</h1>
-      <p class="p-description"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quidem, rem totam possimus, corporis provident.
+    <h1>Track</h1>
+      <p class="p-description"> Track projects from start to finish. Responsibilities and next steps are clear, so you can shoot for the moon—and get there.
       </p>
       <p>
-      <a href="https://app.teamweek.com/#signup" class="btn-blue-home" data-color-class="main">Get started
+      <%= link_to t(".sign_in", default: "Learn more"), new_user_registration_path, class: "btn-orange-home" %>
       </a>
       </p>
     </div>
@@ -76,13 +82,41 @@
       </figure>
     </div>
     <div class="wrapper-column wrapper-column-main">
-      <h1 data-ga-variation="0">Title 3</h1>
-      <p class="p-description"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quidem, rem totam possimus, corporis provident.
+      <h1 data-ga-variation="0">Get result</h1>
+      <p class="p-description"> Everyone knows what they should be doing and why.
       </p>
       <p data-ga-variation="1" style="display: none;"> Share up-to-date project timelines with your most demanding clients. So they can look up the state of the project anytime.</p>
-      <p><span class="btn-transparent-home">Sign up</span></p>
+      <p><%= link_to t(".sign_in", default: "Sign up"), new_user_registration_path, class: "btn-transparent-home" %></p>
     </div>
   </div>
 </div>
+
+<div class="container">
+    <h2 class="tagline-center">Great teams get great results with</h2>
+    <h2 class="tagline-firm">WAKATEPEE</h2>
+  <div class="row-entreprise">
+    <div class="col-xs-6-col-md-2">
+      <img class="equal-elem" src="https://luna1.co/e9cd66.png" alt="The New Yorker" title="The New Yorker Logo" style="height: 42px;" data-eqh-postop="1039">
+
+      <img class="equal-elem" src="https://luna1.co/logos/salesforce.png" alt="Salesforce" title="Salesforce Logo" style="height: 42px;" data-eqh-postop="1039">
+
+      <img class="equal-elem" src="https://luna1.co/d10ad9.png" alt="Columbia" title="Columbia Logo" style="height: 42px;" data-eqh-postop="1039">
+
+      <img class="equal-elem" src="https://luna1.co/7edfdb.png" alt="TED" title="TED Logo" style="height: 42px;" data-eqh-postop="1039">
+
+      <img class="equal-elem" src="https://luna1.co/ce71c4.png" alt="Khan Academy" title="Khan Academy Logo" style="height: 42px;" data-eqh-postop="1039">
+
+      <img class="equal-elem" src="https://luna1.co/logos/uber.png" alt="Uber" title="Uber Logo" style="height: 42px;" data-eqh-postop="1039">
+    </div>
+  </div>
+</div>
+
+<div class="container-wagon">
+  <div class="wagon-pin">
+    <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t31.0-8/12140964_10156625825590137_255507492616331172_o.jpg?oh=950f524c562ed6394969bc71ca98bc02&oe=592C7E8D" />
+  </div>
+  <div class="shadow"></div>
+</div>
+
 
 

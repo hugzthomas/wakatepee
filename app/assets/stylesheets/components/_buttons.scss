@@ -26,6 +26,7 @@
   opacity: 1;
   background: #FD7F6B;;
   text-decoration: none;
+  border: 1px solid #FD7F6B;
   color: white;
 }
 
@@ -46,23 +47,23 @@
 }
 
 .btn-orange-home {
-  color: #FD7F6B;;
+  color: white;
   padding: 20px 25px;
-  background: white;
+  background: #FD7F6B;
   border: 1px solid #FD7F6B;
   transition: all 0.2s ease;
 }
 
 .btn-orange-home:hover {
   opacity: 1;
-  background: #FD7F6B;;
+  background: white;
   text-decoration: none;
-  color: white;
+  color: $orange;
   padding: 20px 80px;
 }
 
 .btn-blue-home {
-  color: $blue;;
+  color: $blue;
   padding: 20px 25px;
   background: white;
   border: 1px solid $blue;
@@ -71,7 +72,7 @@
 
 .btn-blue-home:hover {
   opacity: 1;
-  background: $blue;;
+  background: $blue;
   text-decoration: none;
   color: white;
   padding: 20px 80px;
@@ -87,14 +88,14 @@
 
 .btn-transparent-home:hover {
   opacity: 1;
-  background: white;;
+  background: white;
   text-decoration: none;
   color: $green;
+  border: 1px solid $blue;
   padding: 20px 80px;
 }
 
 .button-google {
-  padding: 0px 20px;
   line-height: 40px;
   background-color: #dd4b39;
   background-image: url(assets/images/google.png);
@@ -112,5 +113,27 @@
 .button-google:hover {
   text-decoration: none;
   color: white
+}
+
+.button-orange-sign {
+  padding: 0px 20px;
+  line-height: 40px;
+  background-color: $orange;
+  border: 1px solid $orange;
+  color: white;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.4;
+  border-radius: 2px;
+}
+.button-orange-sign:hover {
+  color: $orange;
+  background: white;
+  border: 1px solid $orange;
+  opacity: 0.8;
 }
 
