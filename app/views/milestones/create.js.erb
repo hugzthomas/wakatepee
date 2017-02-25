@@ -1,6 +1,21 @@
 <% if @milestone.errors.any? %>
   // Render new review form with errors
-  $('#new_milestone').html("<%= j render 'shared/create_milestone', milestone: @milestone, remote: true %>");
+  $('#milestone_title').html("<%= j render 'shared/create_milestone', milestone: @milestone, remote: true %>");
   <% else %>
   modalClose();
+<% end %>
+
+
+<% if @review.errors.any? %>
+  // Render new review form with errors
+  $('#new_review').html("<%= j render 'reviews/form', restaurant: @restaurant, review: @review %>");
+<% else %>
+  // Create a paragraph for the new review. But hide it.
+  var new_review = $("<%= j render 'reviews/show', review: @review %>").hide();
+  // Add it to the DOM, at the end of the existing reviews. It's still hidden.
+  $('#reviews').append(new_review);
+  // Show the new review with an animation!
+  new_review.slideDown();
+  // Reset the form
+  $('#new_review').html("<%= j render 'reviews/form', restaurant: @restaurant, review: Review.new %>");
 <% end %>
