@@ -6,4 +6,5 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require bootstrap-datepicker
+//= require alertify
 //= require_tree .
