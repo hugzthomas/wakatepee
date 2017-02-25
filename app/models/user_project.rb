@@ -1,7 +1,7 @@
 class UserProject < ApplicationRecord
   belongs_to :user
   belongs_to :project
-  after_create :send_welcome_email
+  # after_create :send_welcome_email # TO DO decomment after config prod mailer
 
   private
 

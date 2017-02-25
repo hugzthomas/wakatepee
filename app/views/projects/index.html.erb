@@ -1,37 +1,40 @@
-
 <div class="big-padded">
   <div class="container">
     <div class="row">
-    <h1 class='text-center small-padded'>My projects</h1>
+      <div class="btn-orange-index-projet" data-toggle="modal" data-target="#myModal">
+        <h4>Add a project</h4>
+      </div>
+      <h1 class='text-center small-padded'>My projects</h1>
       <% @projects_admin.sort_by(&:deadline).each do |project| %>
-      <div class="col-xs-12 col-sm-6">
-        <%= link_to project_path(project), class: "no-underline" do %>
-         <div class="new-card">
+        <div class="col-xs-12 col-sm-6">
+          <%= link_to project_path(project), class: "no-underline" do %>
+            <div class="new-card">
+              <div class="left-card">
                 <div class="top-card">
                   <% if project.photo? %>
                     <%= image_tag project.photo.url(:standard), class: "company-card" %>
                   <% end %>
-                  <div class="deadline">
-                    <p><%= project.deadline.strftime("%m/%d/%Y") %></p>
-                  </div>
-                </div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                    </div>
-                </div>
-                <div class="bottom-card">
                   <h4><%= project.title %></h4>
-                  <div class="users-card">
-                    <% project.users.each do |user| %>
-                      <% unless project.admin == user %>
-                        <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
-                      <% end %>
+                  <p>
+                    <%= project.deadline.strftime("%m/%d/%Y") %>
+                  </p>
+                </div>
+                <div class="users-card">
+                  <% project.users.each do |user| %>
+                    <% unless project.admin == user %>
+                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
                     <% end %>
-                  </div>
+                  <% end %>
                 </div>
               </div>
-        <% end %>
-      </div>
+              <div class="right-card">
+                <div class="progress-bar-home">
+                  <figure data-skill="72" data-skill-size="200"></figure>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
       <% end %>
       <div class="col-xs-12 col-sm-6">
         <div class="card-add" data-toggle="modal" data-target="#myModal">
@@ -40,40 +43,41 @@
       </div>
     </div>
     <h1 class='text-center small-padded'>My contributions</h1>
-      <% @projects_collaborator.sort_by(&:deadline).each do |project| %>
-        <% unless project.admin == current_user %>
-          <div class="col-xs-12 col-sm-6">
-            <%= link_to project_path(project), class: "no-underline" do %>
-              <div class="new-card">
+    <% @projects_collaborator.sort_by(&:deadline).each do |project| %>
+      <% unless project.admin == current_user %>
+        <div class="col-xs-12 col-sm-6">
+          <%= link_to project_path(project), class: "no-underline" do %>
+            <div class="new-card">
+              <div class="left-card">
                 <div class="top-card">
-                    <%= cl_image_tag project.photo , class: "company-card" %>
-                  <div class="deadline">
-                    <p><%= project.deadline.strftime("%m/%d/%Y") %></p>
-                  </div>
-                </div>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                  </div>
-                </div>
-                <div class="bottom-card">
+                  <% if project.photo? %>
+                    <%= image_tag project.photo.url(:standard), class: "company-card" %>
+                  <% end %>
                   <h4><%= project.title %></h4>
-                  <div class="users-card">
-                    <% project.users.each do |user| %>
-                      <% unless project.admin == user %>
-                         <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
-                      <% end %>
+                  <p>
+                    <%= project.deadline.strftime("%m/%d/%Y") %>
+                  </p>
+                </div>
+                <div class="users-card">
+                  <% project.users.each do |user| %>
+                    <% unless project.admin == user %>
+                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
                     <% end %>
-                  </div>
+                  <% end %>
                 </div>
               </div>
-            <% end %>
-          </div>
-        <% end %>
+              <div class="right-card">
+                <div class="progress-bar-home">
+                  <figure data-skill="72" data-skill-size="200"></figure>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
-
-
+</div>
 
 <!-- Modal Creation -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

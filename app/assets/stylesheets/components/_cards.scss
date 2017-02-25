@@ -1,75 +1,58 @@
 .new-card {
   box-shadow: 8px 6px 18px #D6D6DB;
-  border-radius: 0px 0px 5px 5px;
   margin-bottom: 20px;
+  height: 280px;
+  background: white;
+  padding: 30px;
+  position: relative;
+
+  h4 {
+    font-weight: 100;
+  }
 }
 
 .new-card:hover {
-  .top-card {
-    height: 30px;
-    transition: 0.5s ease;
-  }
-  .bottom-card {
-    height: 230px;
-    transition: 0.5s ease;
-  }
-  img.company-card {
-    display: none;
-  }
 }
 
+
 .top-card {
-  height: 180px;
-  background: linear-gradient(to left, #085078, #85D8CE);
-  position: relative;
-  border-radius: 5px 5px 0px 0px;
+  height: 160px;
+  width: 230px;
+  border-bottom: 1px solid rgba(93, 160, 162, 0.3);
+}
+
+.left-card {
+  height: 220px;
+  width: 230px;
+  border-right: 1px solid rgba(93, 160, 162, 0.3);
 }
 
 .company-card {
-  height: 100px;
-  width: 100px;
-  position: absolute;
-  top: 40px;
-  left: 230px;
-}
-
-.bottom-card {
   height: 80px;
-  padding: 20px;
-  position: relative;
- }
+  width: 100px;
+}
 
 .users-card {
   position: absolute;
-  right: 30px;
-  bottom: 20px;
+  bottom: 30px;
   .avatar {
     margin-right: -15px;
     border: 3px solid white;
   }
 }
 
-.deadline {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  color: white;
-  font-weight: bolder;
-}
-
 .card-add{
   box-shadow: 8px 6px 18px #D6D6DB;
   background-color:#F5F5F5;
-  height: 270px;
+  height: 280px;
   background-size: cover !important;
   color: grey;
   position: relative;
-  padding: 60px;
+  padding: 75px;
   border: 1px solid #D6D6DB;
   text-align: center;
   transition: all 0.1s ease;
   cursor: pointer;
-  border-radius: 5px;
 }
 
 .card-plus {
@@ -82,4 +65,24 @@
     transition: all 0.2s ease;
     width: 135px;
     }
+}
+
+.card-comment {
+  background-color: white;
+  height: 150px;
+  width: 200px;
+  color: black;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.card-form-sign{
+  background:#F5F5F5 ;
+  padding: 10px 60px;
+  margin-top: 64px;
+  font-size: 13px;
+  input {
+    height: 30px;
+    font-size: 13px;
+  }
 }

@@ -1,0 +1,35 @@
+.progress-bar-home {
+  top: 40px;
+  right: 50px;
+  position: absolute;
+}
+
+[data-skill] {
+  position: relative;
+  display: table;
+
+  h3 {
+    text-align: center;
+    margin: -.68rem 0 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+
+  svg {
+    transform: rotate(-90deg);
+
+    .back {
+      stroke: lightgrey;
+      stroke-width: 5;
+      fill: none;
+    }
+
+    .front {
+      stroke: #5DA0A2;
+      stroke-width: 5;
+      fill: none;
+      background: red;
+    }
+  }
+}
