@@ -23,17 +23,8 @@ before_action :set_project, only: [:show, :edit, :update]
     @project = Project.new(project_params)
     @project.admin = current_user
     authorize(@project)
-    if @project.save
-
-      members = params[:user_id]
-      members.each do |member|
-        @user = User.find(member)
-        @user_project = UserProject.new(user: @user, project: @project)
-        authorize(@user_project)
-        @user_project.save
-      end
+    @project.save
     redirect_to project_path(@project)
-    end
   end
 
   def edit

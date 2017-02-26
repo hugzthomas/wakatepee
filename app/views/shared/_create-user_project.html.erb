@@ -1,11 +1,11 @@
 <% if @project.id %>
   <%= form_tag(project_user_projects_path(@project), id:"user-projects") do %>
     <% User.all.each_with_index do |user, index| %>
-      <% unless @project.admin == user %>
+      <% unless current_user == user %>
         <%= cl_image_tag user.photo, width: 50, height: 50, class: "teamember", id: user.id %>
       <% end %>
     <% end %>
     <br>
-    <%= submit_tag "Create the project", class: "btn btn-normal" %>
+    <%= submit_tag "Add team members", class: "btn btn-normal" %>
   <% end %>
 <% end %>
