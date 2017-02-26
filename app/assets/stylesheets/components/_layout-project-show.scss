@@ -101,7 +101,6 @@ input[type="text"]:focus {
 
 .submilestones {
   margin: 50px;
-  position: relative;
   .form {
     width: 50%;
     input[type="text"] {
@@ -131,7 +130,7 @@ input[type="text"]:focus {
 }
 
 .form.new-comment {
-  width: 75%;
+  width: 100%;
 }
 
 .submilestones .form input[type="text"] {
@@ -153,10 +152,12 @@ input[type="text"]:focus {
 .content-milestones{
   background-color: white;
   box-shadow: 8px 6px 18px #D6D6DB;
+  position: relative;
   flex: 1;
     h2{
       margin-left: 30px;
       color: #5DA0A2;
     }
 }
+
 

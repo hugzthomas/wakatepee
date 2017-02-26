@@ -69,8 +69,8 @@
 
 .card-comment {
   background-color: white;
-  bottom : 0px;
-  right: 0px;
+  bottom : 20px;
+  right: 30px;
   height: auto;
   width: 350px;
   color: black;
@@ -78,8 +78,13 @@
   padding: 10px;
   display: none;
   position: absolute;
+  overflow-y: scroll;
   .comment {
     margin: 5px 0px;
+    background-color: #F4F7F7;
+    box-shadow: 3px 2px 6px #D6D6DB;
+    margin: 5px 0px;
+    padding: 3px;
   }
   .avatar {
     width: 30px;

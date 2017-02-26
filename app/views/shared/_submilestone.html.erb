@@ -1,10 +1,10 @@
 <!-- Form comment remote: true => comments#create -->
-  <div class="form">
-    <%= simple_form_for [ project, SubMilestone.new ] do |f| %>
-      <%= f.submit " + Add", class: "btn-orange add-task"%>
-      <%= f.input :title, label: false, placeholder: 'Your new task', class: "field-task" %>
-    </div>
+<div class="form">
+  <%= simple_form_for [ project, SubMilestone.new ], html: {class:"form-inline"}   do |f| %>
+    <%= f.input :title, label: false, placeholder: 'Your new task', class: "field-task" %>
     <%= f.input :milestone_id, as: :hidden, input_html: { value: milestone.id } %>
+    <%= f.submit " + ", class: "btn-orange add-task" %>
   <% end %>
+</div>
 
 

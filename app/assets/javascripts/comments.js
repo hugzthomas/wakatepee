@@ -3,5 +3,4 @@ $(document).ready(function(){
       $('.card-comment').hide();
       $(this).next('.card-comment').toggle('show');
     });
-
 });

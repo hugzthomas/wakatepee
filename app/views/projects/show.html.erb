@@ -49,26 +49,35 @@
   <% @project.milestones.each do |milestone| %>
     <div class="content-milestones tab-content hidden" id="<%= milestone.title %>">
       <h2><%= milestone.title %></h2>
-      <div class="submilestones">
+      <ul class="submilestones list-unstyled">
         <% milestone.sub_milestones.each do |sub_milestone| %>
           <div class="submilestone">
-            <h4><%= sub_milestone.title %></h4>
-            <p class="display-comment"> Comment (<%= sub_milestone.comments.count %>)</p>
-            <div class="card-comment">
-              <% sub_milestone.comments.each do |comment| %>
-                <div class="comment">
-                  <%= cl_image_tag comment.user.photo, class:"avatar" %>
-                  <%= comment.content %>
-                </div>
-              <% end %>
-              <%= render 'shared/comment', sub_milestone: sub_milestone %>
-            </div>
-          </div>
-        <% end %>
-        <%= render 'shared/submilestone', milestone: milestone, project: @project %>
-      </div>
-    </div>
-  <% end %>
+            <li>
+              <%= sub_milestone.title %>
+            </li>
+            <ul class='list-unstyled list-inline'>
+              <li>
+              <p class="display-comment"> Comment (<%= sub_milestone.comments.count %>)</p>
+              <div class="card-comment">
+                <% sub_milestone.comments.each do |comment| %>
+                  <div class="comment">
+                    <%= cl_image_tag comment.user.photo, class:"avatar" %>
+                    <%= comment.content %>
+                  </div>
+                <% end %>
+                <%= render 'shared/comment', sub_milestone: sub_milestone %>
+              </div>
+              </li>
+              <li>
+                <p class="display-files">File</p>
+              </li>
+            </ul>
+        </div>
+      <% end %>
+      <%= render 'shared/submilestone', milestone: milestone, project: @project %>
+    </ul>
+  </div>
+<% end %>
 </div>
 
 
