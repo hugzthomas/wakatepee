@@ -11,14 +11,13 @@
   <body>
     <% if current_page?(root_path) %>
       <%= render 'shared/navbar-home' %>
-      <%= render 'shared/flashes-home' %>
+      <%= alertify_flash %>
     <% else %>
       <%= render 'shared/navbar' %>
-      <%= render 'shared/flashes-home' %>
+      <%= alertify_flash %>
     <% end %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
-
   </body>
 </html>
