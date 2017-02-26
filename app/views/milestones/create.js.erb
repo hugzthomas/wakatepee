@@ -3,6 +3,8 @@
   $('#milestone_title').html("<%= j render 'shared/create_milestone', milestone: @milestone, remote: true %>");
   <% else %>
   modalClose();
+  var new_milestone = $("<%= j render 'project/show', milestone: @milestone %>").hide();
+  $("#")
 <% end %>
 
 

@@ -5,6 +5,10 @@ $(document).ready(function() {
   $(".adding").click(function(){
     $("#myModal").modal('toggle');
   });
+  $(".finalizeproject").click(function(){
+    $("#myModal").removeAttr('disabled');
+  });
+
 
 
 });
@@ -14,9 +18,11 @@ function validate() {
   $('#new_project input[required]').keyup(function() {
     if ($(this).val() != '') {
       $('#registered').removeAttr('disabled');
+      $('.finalizeproject').removeAttr('disabled');
     }
     else {
       $('#registered').attr('disabled', 'disabled');
+      $('.finalizeproject').removeAttr('disabled');
     };
 
   });
