@@ -1,0 +1,162 @@
+.container-general{
+  max-width: 1230px;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+.sidebar{
+  width: 240px;
+}
+
+.li-navigation {
+  margin: 15px 0px;
+  background-color: white;
+  box-shadow: 8px 6px 18px #D6D6DB;
+  padding: 50px 10px;
+  cursor: pointer;
+}
+
+.li-team {
+  margin: 15px 0px;
+  background-color: white;
+  box-shadow: 8px 6px 18px #D6D6DB;
+  padding: 20px 10px;
+}
+
+.add-milestone {
+  display: -webkit-box;
+}
+
+.project-title{
+  padding: 15px;
+}
+
+.project-deadline {
+  background: linear-gradient(to left, #085078, #85D8CE);
+  padding-top: 12px;
+  color: white;
+  padding: 10px 20px;
+}
+
+.ol-navigation {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.li-milestone-recap {
+  height: 135px;
+  text-align:center;
+}
+
+.li-milestone {
+  background-color: white;
+  box-shadow: 8px 6px 18px #D6D6DB;
+  padding: 10px;
+  height: 65px;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+
+.progress-bar {
+  background-color: #FD7F6B;
+}
+
+.content-milestones.tab-content {
+  margin: 15px 30px;
+}
+
+.team {
+  .avatar {
+    margin-right: -15px;
+    border: 3px solid white;
+  }
+}
+
+.icon{
+  padding: 20px;
+  margin-right: 10px;
+}
+
+.title {
+  list-style-type: none;
+  // margin-top: 15px;
+  padding-left: 5px;
+}
+
+input[type="text"] {
+  display: block;
+  margin: 0;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+}
+input[type="text"]:focus {
+  outline: none;
+}
+
+.submilestones {
+  margin: 50px;
+  position: relative;
+  .form {
+    width: 50%;
+    input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-bottom: solid 2px #c9c9c9;
+      transition: border 0.3s;
+    }
+    input[type="text"]:focus,
+    input[type="text"].focus {
+    border-bottom: solid 2px #969696;
+    }
+    input[type="text"] {
+      display: block;
+      margin: 0;
+      width: 100%;
+      font-family: sans-serif;
+      font-size: 18px;
+      appearance: none;
+      box-shadow: none;
+      border-radius: none;
+    }
+    input[type="text"]:focus {
+  outline: none;
+    }
+  }
+}
+
+.form.new-comment {
+  width: 75%;
+}
+
+.submilestones .form input[type="text"] {
+  font-size: 16px;
+  padding: 0px;
+}
+
+.submilestone {
+  p {
+    cursor: pointer;
+    font-size: 12px;
+  }
+}
+
+.btn-comment {
+  display:none;
+}
+
+.content-milestones{
+  background-color: white;
+  box-shadow: 8px 6px 18px #D6D6DB;
+  flex: 1;
+    h2{
+      margin-left: 30px;
+      color: #5DA0A2;
+    }
+}
+

@@ -1,64 +1,76 @@
-<br>
 <%= link_to  "Back to all projects", projects_path %>
-<div class="container-general">
-  <div class="sidebar tabs">
-    <div class="ol-navigation">
-      <div class="li-navigation">
-        <div class="li-milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
-          <div class="logo-client"><%= cl_image_tag(@project.photo, width: 80, height: 40, crop: :thumb, gravity: :face) %></div>
-          <div class="project-title"><%= @project.title %></div>
-          <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
+  <div class="container-general">
+    <div class="sidebar tabs">
+      <div class="ol-navigation">
+        <div class="li-navigation">
+          <div class="li-milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
+            <div class="logo-client"><%= cl_image_tag(@project.photo, width: 75, height: 75) %></div>
+            <div class="project-title"><strong><%= @project.title %></strong></div>
+            <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
+          </div>
         </div>
-
-        <% @project.milestones.each do |milestone| %>
-          <div class="li-milestone tab <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title %>">
-            <i class="icon fa fa-eyedropper"></i>
-            <div class="title">
-              <%= milestone.title %>
-              <span class="progress-bar"></span>
+          <% @project.milestones.each do |milestone| %>
+            <div class="li-milestone tab <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title %>">
+              <div class="title">
+                <%= milestone.title %>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                60%
+                </div>
+              </div>
+              </div>
+            <% end %>
+          <div class="li-milestone tab" data-toggle="modal" data-target="#addAMilestone">
+          <div class="title add-milestone">
+            <i class="icon fa fa-plus"></i>
+            Add a milestone
             </div>
           </div>
-        <% end %>
-
-        <div class="li-milestone tab" data-toggle="modal" data-target="#addAMilestone">
-          <i class="icon fa fa-plus"></i>
-          <div class="title">Add a milestone</div>
+        </div>
+             <div class="li-team">
+          <div class="text-center bold"><strong>Your team</strong></div>
+          <div class="team">
+            <% @project.users.each do |user| %>
+              <% unless @project.admin == user %>
+                <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
   <!-- Display submilestone content when click on the milestone on the sidebar -->
 
   <div class="content-milestones tab-content" id="recap">
     <h2>Project Brief</h2>
-    <div class="submilestones">
-      <h5>They work on <%= @project.title %> : </h5>
-      <% @project.users.each do |user|  %>
-        <%= user.first_name %>
-      <% end %>
-    </div>
   </div>
+
   <% @project.milestones.each do |milestone| %>
     <div class="content-milestones tab-content hidden" id="<%= milestone.title %>">
       <h2><%= milestone.title %></h2>
       <div class="submilestones">
-      <%= render 'shared/submilestone', milestone: milestone, project: @project %>
         <% milestone.sub_milestones.each do |sub_milestone| %>
-          <%= sub_milestone.title %>
-          <%= render 'shared/comment', sub_milestone: sub_milestone %>
-        <% end %>
-        <% milestone.comments.each do |comment| %>
-          <div class="card-comment">
-            <p><%= comment.content %></p>
-            <p><%= comment.user.first_name %></p>
-            <p><%= cl_image_tag comment.user.photo, class:"avatar" %></p>
+          <div class="submilestone">
+            <h4><%= sub_milestone.title %></h4>
+            <p class="display-comment"> Comment (<%= sub_milestone.comments.count %>)</p>
+            <div class="card-comment">
+              <% sub_milestone.comments.each do |comment| %>
+                <div class="comment">
+                  <%= cl_image_tag comment.user.photo, class:"avatar" %>
+                  <%= comment.content %>
+                </div>
+              <% end %>
+              <%= render 'shared/comment', sub_milestone: sub_milestone %>
+            </div>
           </div>
         <% end %>
+        <%= render 'shared/submilestone', milestone: milestone, project: @project %>
       </div>
     </div>
   <% end %>
 </div>
+
 
 <div class="modal fade" id="addAMilestone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -74,3 +86,4 @@
     </div>
   </div>
 </div>
+

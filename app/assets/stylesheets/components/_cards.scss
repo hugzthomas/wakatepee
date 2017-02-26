@@ -69,11 +69,24 @@
 
 .card-comment {
   background-color: white;
-  height: 150px;
-  width: 200px;
+  bottom : 0px;
+  right: 0px;
+  height: auto;
+  width: 350px;
   color: black;
   margin-bottom: 10px;
   padding: 10px;
+  display: none;
+  position: absolute;
+  .comment {
+    margin: 5px 0px;
+  }
+  .avatar {
+    width: 30px;
+  }
+  p {
+    font-size: 18px;
+  }
 }
 
 .card-form-sign{
