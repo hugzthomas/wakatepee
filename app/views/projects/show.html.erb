@@ -43,43 +43,46 @@
 
   <!-- Display submilestone content when click on the milestone on the sidebar -->
 
-  <div class="content-milestones tab-content" id="recap">
+  <div class="content-milestones tab-content " id="recap">
     <h2>Project Brief</h2>
   </div>
 
   <% @project.milestones.each do |milestone| %>
     <div class="content-milestones tab-content hidden" id="<%= milestone.title %>">
       <h2><%= milestone.title %></h2>
-      <ul class="submilestones list-unstyled">
-    
+      <p> There are <%= milestone.sub_milestones.count %> tasks to complete</p>
+
+
         <% milestone.sub_milestones.each do |sub_milestone| %>
           <div class="submilestone">
-            <li>
+            <div class="sub-title">
               <%= sub_milestone.title %>
-            </li>
-            <ul class='list-unstyled list-inline'>
-              <li>
+            </div>
+            <div class="sub-comment">
               <p class="display-comment"> Comment (<%= sub_milestone.comments.count %>)</p>
-              <div class="card-comment">
-                <% sub_milestone.comments.each do |comment| %>
-                  <div class="comment">
-                    <%= cl_image_tag comment.user.photo, class:"avatar" %>
-                    <%= comment.content %>
-                  </div>
-                <% end %>
-                <%= render 'shared/comment', sub_milestone: sub_milestone %>
-              </div>
-              </li>
-              <li>
-                <p class="display-files">File</p>
-              </li>
-            </ul>
-        </div>
+            </div>
+            <div class="card-comment">
+              <% sub_milestone.comments.each do |comment| %>
+                <div class="comment">
+                  <%= cl_image_tag comment.user.photo, class:"avatar" %>
+                  <%= comment.content %>
+                </div>
+              <% end %>
+              <%= render 'shared/comment', sub_milestone: sub_milestone %>
+            </div>
+            <div class="file">
+                <p class="display-file btn btn-primary">File</p>
+            </div>
+            <div class="card-delete">
+              <%= link_to "", sub_milestone_path(sub_milestone),
+               method: :delete,
+               data: { confirm: "Are you sure?" }, class:"fa fa-times" %>
+            </div>
+          </div>
       <% end %>
-      <%= render 'shared/submilestone', milestone: milestone, project: @project %>
-    </ul>
-  </div>
-<% end %>
+        <%= render 'shared/submilestone', milestone: milestone, project: @project %>
+    </div>
+  <% end %>
 </div>
 
 <div class="modal fade" id="addAMilestone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

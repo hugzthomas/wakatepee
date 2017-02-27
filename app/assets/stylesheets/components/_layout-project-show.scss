@@ -139,12 +139,19 @@ input[type="text"]:focus {
 }
 
 .submilestone {
+  width: 52%;
+  background-color: #EEEFF1;
+  margin-bottom: 10px;
+  margin-left : 40px;
+  padding: 10px;
+  position: relative;
   p {
     cursor: pointer;
     font-size: 12px;
 
   }
 }
+
 
 .btn-comment {
   display:none;
@@ -153,7 +160,7 @@ input[type="text"]:focus {
 .content-milestones{
   background-color: white;
   box-shadow: 8px 6px 18px #D6D6DB;
-  position: relative;
+  // position: relative;
   flex: 1;
     h2{
       margin-left: 30px;
