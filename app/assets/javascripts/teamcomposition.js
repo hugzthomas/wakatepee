@@ -40,7 +40,7 @@ function milestoneChoice() {
   console.log(milestoneids)
   milestoneids.forEach(function(element){
     console.log(element)
-    $("#miletones-project").append("<input type='hidden' class='milestone-id' name='milestoneids[]' value='" + element + "'>'")
+    $("#milestones-project").append("<input type='hidden' class='milestone-id' name='milestone_ids[]' value='" + element + "'>")
+  })
   });
-    })
 }
