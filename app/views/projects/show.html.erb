@@ -1,4 +1,5 @@
 
+<div id='show_project'>
 <%= link_to  "< Back to my projects", projects_path%>
   <div class="container-general">
     <div class="sidebar tabs">
@@ -15,11 +16,7 @@
                 <div class="title">
                   <%= milestone.title %>
                 </div>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                  60%
-                  </div>
-                </div>
+                  <%= render 'milestones/progress', milestone: milestone, remote: true  %>
                 </div>
               <% end %>
             <div class="li-milestone tab" data-toggle="modal" data-target="#addAMilestone">
@@ -52,9 +49,12 @@
       <h2><%= milestone.title %></h2>
       <ul class="submilestones list-unstyled">
 
-        <% milestone.sub_milestones.each do |sub_milestone| %>
+        <% milestone.sub_milestones.order(:id).each do |sub_milestone| %>
           <div class="submilestone">
             <li>
+              <%# if @project.admin == current_user %>
+                <%= render 'sub_milestones/checkbox', sub_milestone: sub_milestone, project: @project, milestone: sub_milestone.milestone  %>
+              <%# end %>
               <%= sub_milestone.title %>
             </li>
             <ul class='list-unstyled list-inline'>
@@ -111,4 +111,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

@@ -8,7 +8,7 @@ class MilestonesController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @title = params[:milestone][:title]
-    @milestone = Milestone.new(title: @title)
+    @milestone = Milestone.new(title: @title, progress: 0)
     authorize(@project)
     if @milestone.save
       @project_milestone = ProjectMilestone.new(milestone: @milestone, project: @project)
@@ -32,14 +32,13 @@ class MilestonesController < ApplicationController
   end
 
   def update
-
   end
 
 
   private
 
   def milestone_params
-    params.require(:milestone).permit(:title)
+    params.require(:milestone).permit(:id, :title)
   end
 
 end
