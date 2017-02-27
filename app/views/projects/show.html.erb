@@ -1,5 +1,6 @@
 <br>
 <%= link_to  "Back to all projects", projects_path %>
+
 <div class="container-general">
   <div class="sidebar tabs">
     <div class="ol-navigation">
@@ -43,6 +44,11 @@
     <div class="content-milestones tab-content hidden" id="<%= milestone.title %>">
       <h2><%= milestone.title %></h2>
       <div class="submilestones">
+        <% if current_user == @project.admin %>
+        <div class="btn-orange-index-projet" data-toggle="modal" data-target="#myModal2">
+          <h4>Who will work on this ?</h4>
+        </div>
+        <% end %>
       <%= render 'shared/submilestone', milestone: milestone, project: @project %>
         <% milestone.sub_milestones.each do |sub_milestone| %>
           <%= sub_milestone.title %>
@@ -70,6 +76,22 @@
       <div class="modal-body">
         <%= render "shared/create_milestone", project: @project, milestone: Milestone.new, remote: true %>
       </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Add Members -->
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Team time</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'shared/create-user_project', user_project: UserProject.new %>
       </div>
     </div>
   </div>

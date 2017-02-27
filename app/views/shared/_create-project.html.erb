@@ -1,5 +1,6 @@
-<%= simple_form_for project, remote: remote do |f| %>
+<%= simple_form_for project do |f| %>
   <%= f.input :title %>
   <%= f.input :deadline, as: :string, input_html: { class: "date_picker" } %>
-  <%= f.submit "Add your team", id: "registered", class: "btn btn-normal adding" , disabled: "disabled" %>
+  <br>
+  <%= f.submit "Create your project", id: "registered", class: "btn btn-normal adding" , disabled: "disabled" %>
 <% end %>

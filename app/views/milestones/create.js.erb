@@ -1,6 +1,8 @@
 <% if @milestone.errors.any? %>
   // Render new review form with errors
-  $('#new_milestone').html("<%= j render 'shared/create_milestone', milestone: @milestone, remote: true %>");
+  $('#milestone_title').html("<%= j render 'shared/create_milestone', milestone: @milestone %>");
   <% else %>
-  modalClose();
+  var new_milestone = $("<%= j render 'project/show', milestone: @milestone %>").hide();
+  $(".li-milestone tab").append(new_milestone)
+  new_milestone.slideDown();
 <% end %>

@@ -23,17 +23,8 @@ before_action :set_project, only: [:show, :edit, :update]
     @project = Project.new(project_params)
     @project.admin = current_user
     authorize(@project)
-    if @project.save
-      respond_to do |format|
-        format.html { redirect_to new_project_user_project_path(@project) }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
-      end
-    else
-      respond_to do |format|
-        format.html { render 'projects/index' }
-        format.js  # <-- idem
-      end
-    end
+    @project.save
+    redirect_to project_path(@project)
   end
 
   def edit
