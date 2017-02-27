@@ -1,7 +1,7 @@
 
 <%= link_to  "< Back to my projects", projects_path%>
   <div class="container-general">
-    <div class="sidebar tabs">
+    <div class="sidebar tabs" >
         <div class="ol-navigation">
           <div class="li-navigation">
             <div class="li-milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
@@ -10,8 +10,9 @@
               <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
             </div>
           </div>
+            <div class="ol-navigation" id="items">
             <% @project.milestones.each do |milestone| %>
-              <div class="li-milestone tab <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title %>">
+              <div class="li-milestone tab  <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title.parameterize %>" data-id="<%= milestone.id %>">
                 <div class="title">
                   <%= milestone.title %>
                 </div>
@@ -22,6 +23,7 @@
                 </div>
                 </div>
               <% end %>
+            </div>
             <div class="li-milestone tab" data-toggle="modal" data-target="#addAMilestone">
             <div class="title add-milestone">
               <i class="icon fa fa-plus"></i>
@@ -48,12 +50,11 @@
   </div> -->
 
   <% @project.milestones.each do |milestone| %>
-    <div class="content-milestones tab-content hidden" id="<%= milestone.title %>">
-      <div>
+    <div class="content-milestones tab-content hidden" id="<%= milestone.title.parameterize %>">
       <h2><%= milestone.title %></h2>
-      <p> There are <%= milestone.sub_milestones.count %> tasks to complete</p>
-      </div>
+
       <ul class="submilestones list-unstyled">
+
         <% milestone.sub_milestones.each do |sub_milestone| %>
           <div class="submilestone-card">
             <li>
@@ -90,6 +91,7 @@
 
     </div>
   <% end %>
+
 </div>
 
 <div class="modal fade" id="addAMilestone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -100,25 +102,11 @@
         <h4 class="modal-title" id="myModalLabel">Add your milestone</h4>
       </div>
       <div class="modal-body">
-        <%= render "shared/create_milestone", project: @project, milestone: Milestone.new, remote: true %>
+        <%= render "shared/create_milestone", project: @project, milestone: Milestone.new %>
       </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal Add Members -->
 
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Team time</h4>
-      </div>
-      <div class="modal-body">
-        <%= render 'shared/create-user_project', user_project: UserProject.new %>
-      </div>
-    </div>
-  </div>
-</div>

@@ -7,4 +7,6 @@
 //= require attachinary
 //= require bootstrap-datepicker
 //= require alertify
+//= require Sortable
 //= require_tree .
+
