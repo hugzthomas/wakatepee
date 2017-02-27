@@ -1,3 +1,4 @@
+
 <%= link_to  "< Back to my projects", projects_path%>
   <div class="container-general">
     <div class="sidebar tabs">
@@ -50,6 +51,7 @@
     <div class="content-milestones tab-content hidden" id="<%= milestone.title %>">
       <h2><%= milestone.title %></h2>
       <ul class="submilestones list-unstyled">
+    
         <% milestone.sub_milestones.each do |sub_milestone| %>
           <div class="submilestone">
             <li>
@@ -80,7 +82,6 @@
 <% end %>
 </div>
 
-
 <div class="modal fade" id="addAMilestone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -96,3 +97,18 @@
   </div>
 </div>
 
+<!-- Modal Add Members -->
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Team time</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'shared/create-user_project', user_project: UserProject.new %>
+      </div>
+    </div>
+  </div>
+</div>
