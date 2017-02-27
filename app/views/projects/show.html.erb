@@ -1,15 +1,17 @@
-
+<div class="projectshow">
 <%= link_to  "< Back to my projects", projects_path%>
 <br>
  <%= link_to "Destroy this project", project_path(@project), method: :delete, data: { confirm: "Are you sure ?"}, class: "btn btn-danger" %>
   <div class="container-general">
     <div class="sidebar tabs" >
         <div class="ol-navigation">
-          <div class="li-navigation">
-            <div class="li-milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
-              <div class="logo-client"><%= cl_image_tag(@project.photo, width: 75, height: 75) %></div>
-              <div class="project-title"><strong><%= @project.title %></strong></div>
-              <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
+          <div class= "shepherd-theme-arrows" id="hero-example">
+            <div class="li-navigation">
+              <div class="li-milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
+                <div class="logo-client"><%= cl_image_tag(@project.photo, width: 75, height: 75) %></div>
+                <div class="project-title"><strong><%= @project.title %></strong></div>
+                <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
+              </div>
             </div>
           </div>
             <div class="ol-navigation" id="items">
@@ -33,15 +35,16 @@
               </div>
             </div>
           </div>
-               <div class="li-team">
-            <div class="text-center bold"><strong>Your team</strong></div>
-            <div class="team">
-              <% @project.users.each do |user| %>
-                <% unless @project.admin == user %>
-                  <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
+
+            <div class="li-team" id="deudeu">
+              <div class="text-center bold"><strong>Your team</strong></div>
+              <div class="team">
+                <% @project.users.each do |user| %>
+                  <% unless @project.admin == user %>
+                    <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
+              </div>
           </div>
         </div>
 
@@ -109,6 +112,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
