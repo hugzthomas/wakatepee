@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :user_projects, only: [:new, :create]
     resources :sub_milestones, only: [:create, :update]
   end
-  resources :sub_milestones, only: [] do
+  resources :sub_milestones, only: :destroy do
     resources :comments, only: [:create]
   end
 
