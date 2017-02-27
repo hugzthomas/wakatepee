@@ -56,7 +56,7 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
-     authorize(@project)
+    authorize(@project)
   end
 
   def destroy
@@ -80,7 +80,7 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
   end
 
   def project_params
-    params.require(:project).permit(:title, :deadline, :photo, :photo_cache)
+    params.require(:project).permit(:title, :deadline, :photo, :photo_cache, :document)
   end
 
 
