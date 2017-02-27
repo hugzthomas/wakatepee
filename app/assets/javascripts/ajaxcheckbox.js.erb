@@ -1,6 +1,7 @@
 $(document).ready(function() {
   $('input[type="checkbox"]').click(function() {
-    var project_id = $(this).attr("class");
+    var project_id = $(this).data("project-id");
+    var milestone_id = $(this).data("milestone-id");
     var sub_milestone_id = $(this).attr("id");
     if ($(this).is(':checked')) {
       var done = true;
@@ -10,7 +11,10 @@ $(document).ready(function() {
     $.ajax({
       type: 'PATCH',
       url: "/projects/" + project_id + "/sub_milestones/" + sub_milestone_id,
-      data: {id: sub_milestone_id, done: done}
+      data: {id: sub_milestone_id, done: done},
+      success: function(data, textStatus, jqXHR) {
+        $("#milestone-progress-" + milestone_id).html(data);
+      }
     })
   });
 });

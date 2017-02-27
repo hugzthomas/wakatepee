@@ -1,1 +1,1 @@
-$("#<%= @milestone.id %>").html("<%= j render 'milestones/progress', sub_milestone: @sub_milestone, milestone: @sub_milestone.milestone %>");
+<%= j render 'milestones/progress', milestone: @sub_milestone.milestone %>

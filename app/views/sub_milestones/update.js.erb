@@ -1,1 +1,1 @@
-$("#<%= @sub_milestone.id %>").html("<%= j render 'sub_milestones/checkbox', sub_milestone: @sub_milestone, project: @project %>");
+<%= render 'milestones/progress', milestone: @sub_milestone.milestone %>

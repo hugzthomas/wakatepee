@@ -16,7 +16,9 @@
                 <div class="title">
                   <%= milestone.title %>
                 </div>
-                  <%= render 'milestones/progress', milestone: milestone, remote: true  %>
+                <div id="milestone-progress-<%= milestone.id %>">
+                  <%= render 'milestones/progress', milestone: milestone  %>
+                </div>
                 </div>
               <% end %>
             <div class="li-milestone tab" data-toggle="modal" data-target="#addAMilestone">

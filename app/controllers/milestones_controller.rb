@@ -38,7 +38,7 @@ class MilestonesController < ApplicationController
   private
 
   def milestone_params
-    params.require(:milestone).permit(:id, :title)
+    params.require(:milestone).permit(:id, :title, :progress)
   end
 
 end
