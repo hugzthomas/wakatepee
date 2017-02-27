@@ -12,6 +12,15 @@ class SubMilestonesController < ApplicationController
     redirect_to project_path(@sub_milestone.project, selected_milestone_id: @selected_milestone_id, anchor: @sub_milestone.milestone.title)
   end
 
+  def destroy
+    @sub_milestone = SubMilestone.find(params[:id])
+    authorize @sub_milestone
+    @project = @sub_milestone.project
+    @milestone = @sub_milestone.milestone
+    @sub_milestone.destroy
+    redirect_to project_path(@project, anchor: @milestone.title)
+  end
+
   private
 
   def submilestone_params
