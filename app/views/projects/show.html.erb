@@ -12,7 +12,7 @@
           </div>
             <div class="ol-navigation" id="items">
             <% @project.milestones.each do |milestone| %>
-              <div class="li-milestone tab  <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title %>" data-id="<%= milestone.id %>">
+              <div class="li-milestone tab  <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title.parameterize %>" data-id="<%= milestone.id %>">
                 <div class="title">
                   <%= milestone.title %>
                 </div>
@@ -50,7 +50,7 @@
   </div>
 
   <% @project.milestones.each do |milestone| %>
-    <div class="content-milestones tab-content hidden" id="<%= milestone.title %>">
+    <div class="content-milestones tab-content hidden" id="<%= milestone.title.parameterize %>">
       <h2><%= milestone.title %></h2>
 
       <ul class="submilestones list-unstyled">
