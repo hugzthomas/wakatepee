@@ -2,7 +2,7 @@
 <%= link_to  "< Back to my projects", projects_path%>
   <div class="container-general">
     <div class="sidebar tabs" >
-        <div class="ol-navigation" id="items">
+        <div class="ol-navigation">
           <div class="li-navigation">
             <div class="li-milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
               <div class="logo-client"><%= cl_image_tag(@project.photo, width: 75, height: 75) %></div>
@@ -10,6 +10,7 @@
               <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
             </div>
           </div>
+            <div class="ol-navigation" id="items">
             <% @project.milestones.each do |milestone| %>
               <div class="li-milestone tab  <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title %>" data-id="<%= milestone.id %>">
                 <div class="title">
@@ -22,6 +23,7 @@
                 </div>
                 </div>
               <% end %>
+            </div>
             <div class="li-milestone tab" data-toggle="modal" data-target="#addAMilestone">
             <div class="title add-milestone">
               <i class="icon fa fa-plus"></i>
