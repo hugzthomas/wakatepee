@@ -52,6 +52,7 @@
   <% @project.milestones.each do |milestone| %>
     <div class="content-milestones tab-content hidden" id="<%= milestone.title %>">
       <h2><%= milestone.title %></h2>
+
       <ul class="submilestones list-unstyled">
 
         <% milestone.sub_milestones.each do |sub_milestone| %>
@@ -78,6 +79,7 @@
             </ul>
         </div>
       <% end %>
+
       <%= render 'shared/submilestone', milestone: milestone, project: @project %>
     </ul>
   </div>

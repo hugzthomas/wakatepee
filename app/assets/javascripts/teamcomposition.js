@@ -1,5 +1,6 @@
 $(document).ready(function() {
   teamComposition();
+  milestoneChoice();
 });
 
 function teamComposition() {
@@ -16,7 +17,7 @@ function teamComposition() {
       $(this).remove();
     })
     var ids = [];
-    $( this ).toggleClass( "teamemberselected" );
+    $(this).toggleClass( "teamemberselected" );
     $(".teamemberselected").each(function(){
       ids.push($(this).attr("id"))
     })
@@ -28,3 +29,18 @@ function teamComposition() {
   });
 }
 
+
+function milestoneChoice() {
+  $(".tag").click(function(){
+    $(this).toggleClass("milestone-selected")
+  var milestoneids = []
+  $(".milestone-selected").each(function(){
+    milestoneids.push($(this).attr("id"))
+  })
+  console.log(milestoneids)
+  milestoneids.forEach(function(element){
+    console.log(element)
+    $("#miletones-project").append("<input type='hidden' class='milestone-id' name='milestoneids[]' value='" + element + "'>'")
+  });
+    })
+}
