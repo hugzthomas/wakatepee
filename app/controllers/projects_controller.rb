@@ -56,6 +56,7 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+     authorize(@project)
   end
 
   def destroy

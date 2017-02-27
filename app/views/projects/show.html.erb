@@ -2,6 +2,7 @@
 <%= link_to  "< Back to my projects", projects_path%>
 <br>
  <%= link_to "Destroy this project", project_path(@project), method: :delete, data: { confirm: "Are you sure ?"}, class: "btn btn-danger" %>
+ <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-success" %>
   <div class="container-general">
     <div class="sidebar tabs" >
         <div class="ol-navigation">
