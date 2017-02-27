@@ -29,7 +29,6 @@ function teamComposition() {
   });
 }
 
-
 function milestoneChoice() {
   $(".tag").click(function(){
     $(this).toggleClass("milestone-selected")

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-before_action :set_project, only: [:show, :edit, :update]
+before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -56,6 +56,12 @@ before_action :set_project, only: [:show, :edit, :update]
   end
 
   def edit
+  end
+
+  def destroy
+    authorize(@project)
+    @project.destroy
+    redirect_to projects_path
   end
 
   def update
