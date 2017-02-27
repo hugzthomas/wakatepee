@@ -44,11 +44,6 @@
     <div class="content-milestones tab-content hidden" id="<%= milestone.title %>">
       <h2><%= milestone.title %></h2>
       <div class="submilestones">
-        <% if current_user == @project.admin %>
-        <div class="btn-orange-index-projet" data-toggle="modal" data-target="#myModal2">
-          <h4>Who will work on this ?</h4>
-        </div>
-        <% end %>
       <%= render 'shared/submilestone', milestone: milestone, project: @project %>
         <% milestone.sub_milestones.each do |sub_milestone| %>
           <%= sub_milestone.title %>
