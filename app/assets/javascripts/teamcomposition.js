@@ -23,7 +23,7 @@ function teamComposition() {
     console.log(ids)
     ids.forEach(function(element){
       console.log(element)
-      $("#user-projects").append("<input type='hidden' class='user-id' name='user_id[]' value='" + element + "'>" )
+      $("#user-projects").append("<input type='hidden' class='user-id' name='user_ids[]' value='" + element + "'>" )
     })
   });
 }

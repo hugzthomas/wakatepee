@@ -1,4 +1,0 @@
-<% if @user_project.errors.any? %>
-  // Render new review form with errors
-  $('#new_user_project').html("<%= j render 'shared/create-user_project', user_project: @user_project, remote: true %>");
-<% end %>

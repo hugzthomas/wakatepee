@@ -90,25 +90,11 @@
         <h4 class="modal-title" id="myModalLabel">Add your milestone</h4>
       </div>
       <div class="modal-body">
-        <%= render "shared/create_milestone", project: @project, milestone: Milestone.new, remote: true %>
+        <%= render "shared/create_milestone", project: @project, milestone: Milestone.new %>
       </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal Add Members -->
 
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Team time</h4>
-      </div>
-      <div class="modal-body">
-        <%= render 'shared/create-user_project', user_project: UserProject.new %>
-      </div>
-    </div>
-  </div>
-</div>

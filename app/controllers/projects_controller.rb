@@ -19,12 +19,31 @@ before_action :set_project, only: [:show, :edit, :update]
   end
 
   def create
-
     @project = Project.new(project_params)
     @project.admin = current_user
     authorize(@project)
-    @project.save
-    redirect_to project_path(@project)
+
+    # add user projects
+    member_ids = params[:user_ids]
+
+    if member_ids
+      member_ids.each do |member_id|
+        @user = User.find(member_id)
+        @user_project = @project.user_projects.new(user: @user)
+      end
+    end
+
+    if @project.save
+      respond_to do |format|
+        format.html { redirect_to project_path(@project)}
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render 'projects/index'}
+        format.js
+      end
+    end
   end
 
   def edit
