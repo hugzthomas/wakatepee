@@ -33,6 +33,9 @@ function teamComposition() {
 function milestoneChoice() {
   $(".tag").click(function(){
     $(this).toggleClass("milestone-selected")
+    $(".milestone-id").each(function(){
+      $(this).remove();
+    })
   var milestoneids = []
   $(".milestone-selected").each(function(){
     milestoneids.push($(this).attr("id"))
