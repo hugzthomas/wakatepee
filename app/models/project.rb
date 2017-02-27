@@ -9,5 +9,14 @@ class Project < ApplicationRecord
   validates :title, presence: true
   validates :deadline, presence: true
 
-
+  def progress
+    return 0 if milestones.count.zero?
+    progress = 0
+    milestones.each do |milestone|
+      unless milestone.progress.nil?
+        progress += milestone.progress
+      end
+    end
+    (progress.fdiv(milestones.count)).round
+  end
 end

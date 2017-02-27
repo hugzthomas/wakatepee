@@ -29,11 +29,11 @@
             </div>
           </div>
                <div class="li-team">
-            <div class="text-center bold"><strong>Your team</strong></div>
+            <div class="text-center bold"><strong>Your dream team</strong></div>
             <div class="team">
               <% @project.users.each do |user| %>
                 <% unless @project.admin == user %>
-                  <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
+                  <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" , title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
                 <% end %>
               <% end %>
             </div>
@@ -65,7 +65,7 @@
               <div class="card-comment">
                 <% sub_milestone.comments.each do |comment| %>
                   <div class="comment">
-                    <%= cl_image_tag comment.user.photo, class:"avatar" %>
+                    <%= cl_image_tag comment.user.photo, class:"avatar" , title: comment.user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
                     <%= comment.content %>
                   </div>
                 <% end %>

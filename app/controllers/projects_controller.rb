@@ -19,7 +19,6 @@ before_action :set_project, only: [:show, :edit, :update]
   end
 
   def create
-
     @project = Project.new(project_params)
     @project.admin = current_user
     authorize(@project)
