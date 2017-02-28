@@ -53,6 +53,6 @@ class SubMilestonesController < ApplicationController
   private
 
   def submilestone_params
-    params.require(:sub_milestone).permit(:title, :project_id, :milestone_id, :file)
+    params.require(:sub_milestone).permit(:title, :project_id, :milestone_id, :file, :file_cache)
   end
 end
