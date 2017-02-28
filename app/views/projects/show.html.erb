@@ -56,10 +56,6 @@
 
   <!-- Display submilestone content when click on the milestone on the sidebar -->
 
-<!--   <div class="content-milestones tab-content" id="recap">
-    <h2>Project Brief</h2>
-  </div> -->
-
   <% @project.milestones.each do |milestone| %>
     <div class="content-milestones tab-content hidden" id="<%= milestone.title.parameterize %>">
       <h2><%= milestone.title %></h2>
@@ -69,9 +65,9 @@
         <% milestone.sub_milestones.order(:id).each do |sub_milestone| %>
           <div class="submilestone-card">
             <li>
-              <%# if @project.admin == current_user %>
+              <% if @project.admin == current_user %>
                 <%= render 'sub_milestones/checkbox', sub_milestone: sub_milestone, project: @project, milestone: sub_milestone.milestone  %>
-              <%# end %>
+              <% end %>
               <%= sub_milestone.title %>
             </li>
             <ul class='list-unstyled list-inline'>
@@ -79,7 +75,26 @@
                 <p class="display-comment" data-target="#comment-<%= sub_milestone.id %>"> Comment (<%= sub_milestone.comments.count %>)</p>
               </li>
               <li>
-                <p class="display-files">File</p>
+                <div class="display-files" data-toggle="modal" data-target="#deliverable">
+                  <span class="btn-orange ">Deliverable</span>
+                </div>
+                <% unless sub_milestone.file.nil? %>
+                    <a href="<%= sub_milestone.file.url%>", class="btn btn-orange">Download</a>
+                <% end %>
+                <div class="modal fade" id="deliverable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title text-center" id="myModalLabel">Submit your deliverable</h4>
+                      </div>
+                      <div class="modal-body">
+                        <%= render 'shared/deliverable', project: @project, sub_milestone: sub_milestone %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of modal fade -->
               </li>
               <li>
                 <div class="card-delete">
@@ -121,7 +136,6 @@
   </div>
 </div>
 
-
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -136,4 +150,6 @@
   </div>
 </div>
 </div>
+</div>
+
 
