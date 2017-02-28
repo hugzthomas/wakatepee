@@ -1,7 +1,7 @@
 <div class="big-padded">
   <div class="container">
     <div class="row">
-      <div class="btn-orange-index-projet" data-toggle="modal" data-target="#myModal">
+      <div class="btn-orange-index-projet" data-toggle="modal" data-target="#modal-project">
         <h4>Add a project</h4>
       </div>
       <h1 class='text-center small-padded'>My projects</h1>
@@ -22,14 +22,14 @@
                 <div class="users-card">
                   <% project.users.each do |user| %>
                     <% unless project.admin == user %>
-                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
+                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar", title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
                     <% end %>
                   <% end %>
                 </div>
               </div>
               <div class="right-card">
                 <div class="progress-bar-home">
-                  <figure data-skill="72" data-skill-size="200"></figure>
+                  <figure data-skill="<%= project.progress %> " data-skill-size="200"></figure>
                 </div>
               </div>
             </div>
@@ -61,14 +61,14 @@
                 <div class="users-card">
                   <% project.users.each do |user| %>
                     <% unless project.admin == user %>
-                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
+                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar", title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
                     <% end %>
                   <% end %>
                 </div>
               </div>
               <div class="right-card">
                 <div class="progress-bar-home">
-                  <figure data-skill="72" data-skill-size="200"></figure>
+                  <figure data-skill="<%= project.progress %>" data-skill-size="200"></figure>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@
 </div>
 
 <!-- Modal Creation -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="modal-project" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

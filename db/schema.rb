@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170227172333) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "progress"
   end
 
   create_table "project_milestones", force: :cascade do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170227172333) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "admin_id"
+    t.integer  "progress"
     t.string   "description"
     t.string   "brief"
     t.index ["admin_id"], name: "index_projects_on_admin_id", using: :btree
@@ -71,9 +73,10 @@ ActiveRecord::Schema.define(version: 20170227172333) do
   create_table "sub_milestones", force: :cascade do |t|
     t.string   "title"
     t.integer  "milestone_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "project_id"
+    t.boolean  "done",         default: false
     t.index ["milestone_id"], name: "index_sub_milestones_on_milestone_id", using: :btree
     t.index ["project_id"], name: "index_sub_milestones_on_project_id", using: :btree
   end

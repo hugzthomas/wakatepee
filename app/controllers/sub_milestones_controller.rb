@@ -12,6 +12,18 @@ class SubMilestonesController < ApplicationController
     redirect_to project_path(@sub_milestone.project, selected_milestone_id: @selected_milestone_id, anchor: @sub_milestone.milestone.title)
   end
 
+
+  def update
+    skip_authorization
+    @sub_milestone = SubMilestone.find(params[:id]);
+    @sub_milestone.done = params[:done]
+    @sub_milestone.save
+    @project = @sub_milestone.project
+    milestone = @sub_milestone.milestone
+    milestone.progress = milestone.perform_progress
+    milestone.save
+  end
+
   def destroy
     @sub_milestone = SubMilestone.find(params[:id])
     authorize @sub_milestone
