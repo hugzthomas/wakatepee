@@ -4,12 +4,27 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="card-form">
-            <%= simple_form_for [@project] do |f| %>
+              <%= simple_form_for @project do |f| %>
               <%= f.input :title %>
-              <%= f.input :deadline, as: :date, html5: true %>
+              <%= f.input :deadline, as: :string, input_html: { class: "date_picker" } %>
+              <%= f.input :description, as: :text %>
               <%= f.input :photo %>
               <%= f.input :photo_cache, as: :hidden %>
-              <%= f.submit "Edit your project", class: "btn btn-primary" %>
+
+              <% Milestone.all.each do |milestone| %>
+                <div class="tag" id="<%= milestone.id %>"><%= milestone.title %></div>
+                <% end %>
+                <br>
+              <% User.all.each_with_index do |user, index| %>
+                  <% unless current_user == user %>
+                    <%= cl_image_tag user.photo, width: 50, height: 50, class: "teamember", id: user.id %>
+                    <span class="hidden userteam"><%= user.first_name %></span>
+                  <% end %>
+                <% end %>
+              <br>
+              <div id="user-projects"><!-- used by js --></div>
+              <div id="milestones-project"><!-- used by js --></div>
+              <%= f.submit "Create your project", id: "registered", class: "btn btn-orange" %>
             <% end %>
           </div>
         </div>

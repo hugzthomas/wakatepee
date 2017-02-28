@@ -1,6 +1,10 @@
 $(document).ready(function() {
   teamComposition();
   milestoneChoice();
+  $(".teamember").popover({
+      html: true,
+      trigger: "hover",
+    });
 });
 
 function teamComposition() {

@@ -2,6 +2,14 @@
 <%= link_to  "< Back to my projects", projects_path%>
 <br>
  <%= link_to "Destroy this project", project_path(@project), method: :delete, data: { confirm: "Are you sure ?"}, class: "btn btn-danger" %>
+ <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-success" %>
+
+ <br>
+
+ <div>
+   <%= cl_image_tag "#{@project.document.public_id}.png", width: 300, height: 400, crop: :fill %>
+ </div>
+
   <div class="container-general">
     <div class="sidebar tabs" >
         <div class="ol-navigation">
