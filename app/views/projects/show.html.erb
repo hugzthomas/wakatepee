@@ -44,14 +44,15 @@
             </div>
           </div>
 
-               <div class="li-team">
-            <div class="text-center bold"><strong>Your dream team</strong></div>
+        <div class="li-team">
+          <div class="text-center bold"><strong>Your dream team</strong></div>
             <div class="team">
               <% @project.users.each do |user| %>
                 <% unless @project.admin == user %>
                   <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" , title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
                 <% end %>
-              </div>
+              <% end %>
+            </div>
           </div>
         </div>
 
@@ -106,7 +107,6 @@
 
     </div>
   <% end %>
-
 </div>
 
 <div class="modal fade" id="addAMilestone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
