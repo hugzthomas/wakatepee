@@ -1,0 +1,13 @@
+$(document).ready(function(){
+
+  $(".blabla").click(function(){
+    $(".contributor").hide();
+    $(".admin").show();
+  })
+  $(".contrib").click(function(){
+    $(".admin").hide();
+    $(".contributor").show();
+  })
+
+  $('.blabla').trigger("click");
+});

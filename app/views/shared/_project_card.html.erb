@@ -1,0 +1,34 @@
+<% admin_or_contributor = locals[:admin_or_contributor] %>
+<% project = locals[:project] %>
+
+<div class="<%= admin_or_contributor %>">
+  <div class="col-xs-12 col-sm-6">
+    <%= link_to project_path(project), class: "no-underline" do %>
+      <div class="new-card">
+        <div class="left-card">
+          <div class="top-card">
+            <% if project.photo? %>
+              <%= image_tag project.photo.url(:standard), class: "company-card" %>
+            <% end %>
+            <h4><%= project.title %></h4>
+            <p>
+              <%= project.deadline.strftime("%m/%d/%Y") %>
+            </p>
+          </div>
+          <div class="users-card">
+            <% project.users.each do |user| %>
+              <% unless project.admin == user %>
+                <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar", title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="right-card">
+          <div class="progress-bar-home">
+            <figure data-skill="<%= project.progress %> " data-skill-size="200"></figure>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

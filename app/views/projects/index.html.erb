@@ -1,81 +1,35 @@
 <div class="big-padded">
   <div class="container">
-    <div class="row">
+    <div class="row" id="index">
       <div class="btn-orange-index-projet" data-toggle="modal" data-target="#modal-project">
         <h4>Add a project</h4>
       </div>
-      <h1 class='text-center small-padded'>My projects</h1>
-      <% @projects_admin.sort_by(&:deadline).each do |project| %>
-        <div class="col-xs-12 col-sm-6">
-          <%= link_to project_path(project), class: "no-underline" do %>
-            <div class="new-card">
-              <div class="left-card">
-                <div class="top-card">
-                  <% if project.photo? %>
-                    <%= image_tag project.photo.url(:standard), class: "company-card" %>
-                  <% end %>
-                  <h4><%= project.title %></h4>
-                  <p>
-                    <%= project.deadline.strftime("%m/%d/%Y") %>
-                  </p>
-                </div>
-                <div class="users-card">
-                  <% project.users.each do |user| %>
-                    <% unless project.admin == user %>
-                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar", title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-              <div class="right-card">
-                <div class="progress-bar-home">
-                  <figure data-skill="<%= project.progress %> " data-skill-size="200"></figure>
-                </div>
-              </div>
-            </div>
+      <div class="filter">
+          <input type="radio" class="blabla" id="radio-1" name="project" value="my projects">
+          <label for="radio-1">My projects</label>
+          <input type="radio" class="contrib" id="radio-2" name="project" value="my contributions">
+          <label for="radio-2">My contributions</label>
+      </div>
+
+<!--
+      <h1 class='text-center small-padded'>My projects</h1> -->
+
+          <% @projects_admin.sort_by(&:deadline).each do |project| %>
+            <%= render "shared/project_card", locals: { admin_or_contributor: "admin", project: project } %>
+          <% end %><!-- end of project admin block -->
+            <% @projects_collaborator.sort_by(&:deadline).each do |project| %>
+          <% unless project.admin == current_user %>
+          <%= render "shared/project_card", locals: { admin_or_contributor: "contributor", project: project } %>
           <% end %>
-        </div>
-      <% end %>
+         <% end %>
+
+      <!-- ADD NEW PROJECT -->
       <div class="col-xs-12 col-sm-6">
         <div class="card-add" data-toggle="modal" data-target="#myModal">
           <%= image_tag "plus.svg", class: "card-plus" %>
         </div>
       </div>
     </div>
-    <h1 class='text-center small-padded'>My contributions</h1>
-    <% @projects_collaborator.sort_by(&:deadline).each do |project| %>
-      <% unless project.admin == current_user %>
-        <div class="col-xs-12 col-sm-6">
-          <%= link_to project_path(project), class: "no-underline" do %>
-            <div class="new-card">
-              <div class="left-card">
-                <div class="top-card">
-                  <% if project.photo? %>
-                    <%= image_tag project.photo.url(:standard), class: "company-card" %>
-                  <% end %>
-                  <h4><%= project.title %></h4>
-                  <p>
-                    <%= project.deadline.strftime("%m/%d/%Y") %>
-                  </p>
-                </div>
-                <div class="users-card">
-                  <% project.users.each do |user| %>
-                    <% unless project.admin == user %>
-                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar", title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-              <div class="right-card">
-                <div class="progress-bar-home">
-                  <figure data-skill="<%= project.progress %>" data-skill-size="200"></figure>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    <% end %>
   </div>
 </div>
 
