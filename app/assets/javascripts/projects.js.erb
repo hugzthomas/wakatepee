@@ -1,0 +1,15 @@
+$(document).ready(function(){
+
+  $(".blabla").click(function(){
+    $(".contributor").hide();
+    $(".admin").show();
+    $("#addAProject").show();
+  })
+  $(".contrib").click(function(){
+    $(".admin").hide();
+    $(".contributor").show();
+    $("#addAProject").hide();
+  })
+
+  $('.blabla').trigger("click");
+});

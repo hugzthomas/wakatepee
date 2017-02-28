@@ -35,8 +35,9 @@ class SubMilestonesController < ApplicationController
   end
 
   def destroy
+    skip_authorization
     @sub_milestone = SubMilestone.find(params[:id])
-    authorize @sub_milestone
+    # authorize @sub_milestone
     @project = @sub_milestone.project
     @milestone = @sub_milestone.milestone
     @sub_milestone.destroy
