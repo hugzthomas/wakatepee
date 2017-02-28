@@ -8,6 +8,7 @@ class Project < ApplicationRecord
   has_many :users, through: :user_projects
   validates :title, presence: true
   validates :deadline, presence: true
+  has_attachment :document, accept: [:pdf]
 
   def progress
     return 0 if milestones.count.zero?
