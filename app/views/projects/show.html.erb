@@ -63,45 +63,16 @@
   <% @project.milestones.each do |milestone| %>
     <div class="content-milestones tab-content hidden" id="<%= milestone.title.parameterize %>">
       <h2><%= milestone.title %></h2>
+     <%= link_to "Destroy this project", milestone_path(milestone), method: :delete, data: { confirm: "Are you sure ?", project_id: @project}, class: "btn btn-danger" %>
 
       <ul class="submilestones list-unstyled">
 
         <% milestone.sub_milestones.order(:id).each do |sub_milestone| %>
-          <div class="submilestone-card">
-            <li>
-              <%# if @project.admin == current_user %>
-                <%= render 'sub_milestones/checkbox', sub_milestone: sub_milestone, project: @project, milestone: sub_milestone.milestone  %>
-              <%# end %>
-              <%= sub_milestone.title %>
-            </li>
-            <ul class='list-unstyled list-inline'>
-              <li>
-                <p class="display-comment" data-target="#comment-<%= sub_milestone.id %>"> Comment (<%= sub_milestone.comments.count %>)</p>
-              </li>
-              <li>
-                <p class="display-files">File</p>
-              </li>
-              <li>
-                <div class="card-delete">
-                  <%= link_to "", sub_milestone_path(sub_milestone),
-                   method: :delete,
-                   data: { confirm: "Are you sure?" }, class:"fa fa-times sub-milestones-elm" %>
-                 </div>
-              </li>
-            </ul>
-          </div>
-          <div class="card-comment hidden" id="comment-<%= sub_milestone.id %>">
-            <% sub_milestone.comments.each do |comment| %>
-            <div class="comment">
-              <%= cl_image_tag comment.user.photo, class:"avatar", title: comment.user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
-              <%= comment.content %>
-            </div>
-            <% end %>
-            <%= render 'shared/comment', sub_milestone: sub_milestone %>
-          </div>
-        <% end %>
-        <%= render 'shared/submilestone', milestone: milestone, project: @project %>
+          <%= render 'shared/submilestone_ajax', sub_milestone: sub_milestone, remote: true %>
+        <% end %><!-- end of sub_miletones block -->
+
       </ul>
+      <%= render 'shared/submilestone', milestone: milestone, project: @project%>
     </div>
   <% end %>
 </div>
