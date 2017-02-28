@@ -1,0 +1,9 @@
+  // Create a paragraph for the new review. But hide it.
+  var new_sub_milestone = $("<%= j render 'project/show', sub_milestone: @sub_milestone %>").hide();
+  // Add it to the DOM, at the end of the existing reviews. It's still hidden.
+  $('#sub_milestone').append(new_review);
+  // Show the new review with an animation!
+  new_sub_milestone.slideDown();
+  // Reset the form
+  $('#sub_milestone').html("<%= j render 'reviews/form', restaurant: @restaurant, review: Review.new %>");
+

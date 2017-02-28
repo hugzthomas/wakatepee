@@ -10,6 +10,7 @@ class SubMilestonesController < ApplicationController
     @sub_milestone.save
     @selected_milestone_id = @sub_milestone.milestone_id
     redirect_to project_path(@sub_milestone.project, selected_milestone_id: @selected_milestone_id, anchor: @sub_milestone.milestone.title)
+
   end
 
 

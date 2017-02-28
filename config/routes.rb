@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
-  resources :milestones, only: [:update]
+  resources :milestones, only: [:update, :destroy]
 
 end
 
