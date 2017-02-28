@@ -6,9 +6,11 @@
 
  <br>
 
+  <% if @project.document %>
  <div>
    <%= cl_image_tag "#{@project.document.public_id}.png", width: 300, height: 400, crop: :fill %>
  </div>
+  <% end %>
 
   <div class="container-general">
     <div class="sidebar tabs" >
