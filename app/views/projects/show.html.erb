@@ -30,10 +30,8 @@
                 <div class="title">
                   <%= milestone.title %>
                 </div>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                  60%
-                  </div>
+                <div id="milestone-progress-<%= milestone.id %>">
+                  <%= render 'milestones/progress', milestone: milestone  %>
                 </div>
                 </div>
               <% end %>
@@ -46,13 +44,12 @@
             </div>
           </div>
 
-            <div class="li-team" id="deudeu">
-              <div class="text-center bold"><strong>Your team</strong></div>
-              <div class="team">
-                <% @project.users.each do |user| %>
-                  <% unless @project.admin == user %>
-                    <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
-                  <% end %>
+               <div class="li-team">
+            <div class="text-center bold"><strong>Your dream team</strong></div>
+            <div class="team">
+              <% @project.users.each do |user| %>
+                <% unless @project.admin == user %>
+                  <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" , title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
                 <% end %>
               </div>
           </div>
@@ -70,9 +67,12 @@
 
       <ul class="submilestones list-unstyled">
 
-        <% milestone.sub_milestones.each do |sub_milestone| %>
+        <% milestone.sub_milestones.order(:id).each do |sub_milestone| %>
           <div class="submilestone-card">
             <li>
+              <%# if @project.admin == current_user %>
+                <%= render 'sub_milestones/checkbox', sub_milestone: sub_milestone, project: @project, milestone: sub_milestone.milestone  %>
+              <%# end %>
               <%= sub_milestone.title %>
             </li>
             <ul class='list-unstyled list-inline'>
@@ -94,7 +94,7 @@
           <div class="card-comment hidden" id="comment-<%= sub_milestone.id %>">
             <% sub_milestone.comments.each do |comment| %>
             <div class="comment">
-              <%= cl_image_tag comment.user.photo, class:"avatar" %>
+              <%= cl_image_tag comment.user.photo, class:"avatar", title: comment.user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
               <%= comment.content %>
             </div>
             <% end %>
@@ -125,4 +125,18 @@
 </div>
 </div>
 
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Team time</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'shared/create-user_project', user_project: UserProject.new %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
