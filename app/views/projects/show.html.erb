@@ -2,16 +2,12 @@
 <br>
  <%= link_to "Destroy this project", project_path(@project), method: :delete, data: { confirm: "Are you sure ?"}, class: "btn btn-danger" %>
  <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-success" %>
-
  <br>
-
   <% if @project.document %>
  <div>
    <%= cl_image_tag "#{@project.document.public_id}.png", width: 300, height: 400, crop: :fill %>
  </div>
   <% end %>
-
-
 <div class="container-general">
   <!-- Sidebar -->
   <div class="sidebar tabs" >
@@ -58,7 +54,6 @@
             <% end %>
           </div>
       </div>
-
     </div>
   </div>
 
@@ -69,13 +64,11 @@
       <h2><%= milestone.title %></h2>
      <%= link_to "Destroy this milestone", milestone_path(milestone), method: :delete, data: { confirm: "Are you sure ?", project_id: @project}, class: "btn btn-danger" %>
       <ul class="submilestones list-unstyled">
-
         <div id="content-submilestone-<%=milestone.id%>">
           <% milestone.sub_milestones.order(:id).each do |sub_milestone| %>
             <%= render 'shared/submilestone_ajax', sub_milestone: sub_milestone %>
           <% end %><!-- end of sub_miletones block -->
         </div>
-
       </ul>
       <%= render 'shared/submilestone', milestone: milestone, project: @project%>
     </div>
@@ -97,9 +90,4 @@
       </div>
     </div>
   </div>
-
-
-
-
-
 

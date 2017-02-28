@@ -1,0 +1,5 @@
+<%= simple_form_for [@project, sub_milestone] do |f| %>
+Upload your deliverable bellow. The project manager check it soon.
+  <%= f.input :file, label: false%>
+  <%= f.submit "Submit it!", class: "btn btn-primary" %>
+<% end %>

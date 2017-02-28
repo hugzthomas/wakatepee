@@ -26,12 +26,18 @@ class SubMilestonesController < ApplicationController
   def update
     skip_authorization
     @sub_milestone = SubMilestone.find(params[:id]);
-    @sub_milestone.done = params[:done]
+    @sub_milestone.done = params[:done] unless params[:done].blank?
+    @sub_milestone.file = params[:sub_milestone][:file] if !params[:sub_milestone].nil? && !params[:sub_milestone][:file].blank?
     @sub_milestone.save
     @project = @sub_milestone.project
-    milestone = @sub_milestone.milestone
-    milestone.progress = milestone.perform_progress
-    milestone.save
+    @milestone = @sub_milestone.milestone
+    @milestone.progress = @milestone.perform_progress
+    @milestone.save
+    # redirect_to project_path(@project)
+    respond_to do |format|
+      format.html { redirect_to project_path(@project) }
+      format.js
+    end
   end
 
   def destroy
@@ -47,6 +53,6 @@ class SubMilestonesController < ApplicationController
   private
 
   def submilestone_params
-    params.require(:sub_milestone).permit(:title, :project_id, :milestone_id)
+    params.require(:sub_milestone).permit(:title, :project_id, :milestone_id, :file)
   end
 end
