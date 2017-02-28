@@ -1,11 +1,13 @@
 .teamember {
   width: 50px;
   border-radius: 50%;
-
+  margin-right: 10px;
+  margin-bottom: 40px;
 }
 
 .teamember:hover {
   opacity: 0.7;
+  cursor: pointer;
 }
 
 .teamemberselected {
@@ -13,3 +15,135 @@
   border: 2px solid orange;
 }
 
+.popover {
+  text-align: center;
+  padding: 3px 3px;
+}
+
+
+.tags li {
+  float: left;
+}
+
+.tag {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+}
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.milestone-selected {
+  background-color: red;
+  color: white;
+}
+
+.tag:hover::after {
+   border-left-color: red;
+}
+
+.project-creation{
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 50px;
+  padding-top: 10px;
+  position: relative;
+}
+
+.control-label {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.modal-title{
+  text-align: center;
+}
+
+#registered{
+  position: absolute;
+  right: 40px;
+}
+
+.validation-name {
+  float:left;
+}
+.validation-deadline {
+  float:right;
+}
+
+#project_description{
+  height: 100px;
+}
+
+
+#project_document {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  cursor: pointer;
+}
+
+.project_document label {
+  cursor:pointer;
+  padding: 10px;
+  font-weight: bold;
+  width: 150px;
+  height: 110px;
+  float: right;
+}
+
+.project_document label:hover {
+  opacity: 0.7;
+}
+
+.photo-of-the-project{
+  width: 80px;
+  height: 75px;
+  background-image: url("cloud-computing.png");
+  background-size: cover;
+  padding: 5px;
+  margin-bottom: 65px;
+}
+
+.photo-of-the-project:hover {
+  opacity: 0.7;
+}
+// .photolabel {
+//     font-size: 1.25em;
+//     font-weight: 700;
+//     color: white;
+//     background-color: black;
+//     display: inline-block;
+// }

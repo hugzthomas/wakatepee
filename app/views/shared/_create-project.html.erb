@@ -1,6 +1,37 @@
-<%= simple_form_for project do |f| %>
-  <%= f.input :title %>
-  <%= f.input :deadline, as: :string, input_html: { class: "date_picker" } %>
-  <br>
-  <%= f.submit "Create your project", id: "registered", class: "btn btn-normal adding" , disabled: "disabled" %>
-<% end %>
+<div class="project-creation">
+  <%= simple_form_for project, remote: remote do |f| %>
+  <div class="validation-name">
+    <%= f.input :title %>
+  </div>
+  <div class="validation-deadline">
+    <%= f.input :deadline, as: :string, input_html: { class: "date_picker" } %>
+  </div>
+  <div class="description-of-the-project">
+    <%= f.input :description, as: :text %>
+  </div>
+  <div class="photo-of-the-project">
+    <%= f.input :document, as: :photo, label: "Upload Logo of the Project", as: :attachinary%>
+  </div>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :document, as: :attachinary %>
+
+    <div><h4>You can select some milestone below for your first project</h4>
+      <% Milestone.all.each do |milestone| %>
+      <div class="tag" id="<%= milestone.id %>"><%= milestone.title %></div>
+      <% end %>
+    </div>
+
+    <div><h4>Team time !</h4>
+    <p>Select the members of your agency who will work on this project</p>
+      <% User.all.each_with_index do |user, index| %>
+          <% unless current_user == user %>
+            <%= cl_image_tag user.photo, width: 50, height: 50, class: "teamember", id: user.id, data: {:toggle => "popover", :placement => "top", :content => user.first_name} %>
+          <% end %>
+        <% end %>
+   </div>
+
+    <div id="user-projects"><!-- used by js --></div>
+    <div id="milestones-project"><!-- used by js --></div>
+    <%= f.submit "Create your project", id: "registered", class: "btn btn-orange" %>
+  <% end %>
+</div>
