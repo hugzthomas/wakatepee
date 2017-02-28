@@ -8,7 +8,5 @@
 //= require bootstrap-datepicker
 //= require alertify
 //= require Sortable
-//= require tether
-//= require tether-shepherd
 //= require_tree .
 
