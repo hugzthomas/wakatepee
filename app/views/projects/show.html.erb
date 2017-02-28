@@ -44,12 +44,13 @@
             </div>
           </div>
 
-               <div class="li-team">
+          <div class="li-team">
             <div class="text-center bold"><strong>Your dream team</strong></div>
-            <div class="team">
-              <% @project.users.each do |user| %>
-                <% unless @project.admin == user %>
-                  <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" , title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
+              <div class="team">
+                <% @project.users.each do |user| %>
+                  <% unless @project.admin == user %>
+                    <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" , title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
+                  <% end %>
                 <% end %>
               </div>
           </div>
@@ -103,7 +104,6 @@
         <% end %>
         <%= render 'shared/submilestone', milestone: milestone, project: @project %>
       </ul>
-
     </div>
   <% end %>
 
