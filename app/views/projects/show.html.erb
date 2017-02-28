@@ -11,70 +11,73 @@
  </div>
   <% end %>
 
-  <div class="container-general">
-    <div class="sidebar tabs" >
-        <div class="ol-navigation">
-          <div class= "shepherd-theme-arrows" id="hero-example">
-            <div class="li-navigation">
-              <div class="li-milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
-                <div class="logo-client"><%= cl_image_tag(@project.photo, width: 75, height: 75) %></div>
-                <div class="project-title"><strong><%= @project.title %></strong></div>
-                <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
-              </div>
+
+<div class="container-general">
+  <!-- Sidebar -->
+  <div class="sidebar tabs" >
+    <!-- This contains the summary of the project, the milestones, add milestone and team members-->
+    <div class="ol-navigation">
+      <!-- Display the summary of the project-->
+      <div class="li-navigation">
+        <div class="li-milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
+          <div class="logo-client"><%= cl_image_tag(@project.photo, width: 75, height: 75) %></div>
+          <div class="project-title"><strong><%= @project.title %></strong></div>
+          <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
+        </div>
+      </div>
+      <!-- Display all the submilestones of the project-->
+      <div class="ol-navigation" id="items">
+        <% @project.milestones.each do |milestone| %>
+          <div class="li-milestone tab  <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title.parameterize %>" data-id="<%= milestone.id %>">
+            <div class="title">
+              <%= milestone.title %>
+            </div>
+            <!-- Display progress bar of the milestone-->
+            <div id="milestone-progress-<%= milestone.id %>">
+              <%= render 'milestones/progress', milestone: milestone  %>
             </div>
           </div>
-            <div class="ol-navigation" id="items">
-            <% @project.milestones.each do |milestone| %>
-              <div class="li-milestone tab  <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title.parameterize %>" data-id="<%= milestone.id %>">
-                <div class="title">
-                  <%= milestone.title %>
-                </div>
-                <div id="milestone-progress-<%= milestone.id %>">
-                  <%= render 'milestones/progress', milestone: milestone  %>
-                </div>
-                </div>
+        <% end %>
+      </div>
+      <!-- Add a submilestone-->
+      <div class="li-milestone tab" data-toggle="modal" data-target="#addAMilestone">
+        <div class="title add-milestone">
+          <i class="icon fa fa-plus"></i>
+          Add a milestone
+        </div>
+      </div>
+
+      <!-- Display team members of the project-->
+      <div class="li-team">
+        <div class="text-center bold"><strong>Your dream team</strong></div>
+          <div class="team">
+            <% @project.users.each do |user| %>
+              <% unless @project.admin == user %>
+                <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" , title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
               <% end %>
-            </div>
-            <div class="li-milestone tab" data-toggle="modal" data-target="#addAMilestone">
-            <div class="title add-milestone">
-              <i class="icon fa fa-plus"></i>
-              Add a milestone
-              </div>
-            </div>
+            <% end %>
           </div>
-          <div class="li-team">
-            <div class="text-center bold"><strong>Your dream team</strong></div>
-              <div class="team">
-                <% @project.users.each do |user| %>
-                  <% unless @project.admin == user %>
-                    <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" , title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-           </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Display submilestone content when click on the milestone on the sidebar -->
-
-<!--   <div class="content-milestones tab-content" id="recap">
-    <h2>Project Brief</h2>
-  </div> -->
-
+  <div class="contentleft">
   <% @project.milestones.each do |milestone| %>
     <div class="content-milestones tab-content hidden" id="<%= milestone.title.parameterize %>">
       <h2><%= milestone.title %></h2>
-     <%= link_to "Destroy this project", milestone_path(milestone), method: :delete, data: { confirm: "Are you sure ?", project_id: @project}, class: "btn btn-danger" %>
-
+     <%= link_to "Destroy this milestone", milestone_path(milestone), method: :delete, data: { confirm: "Are you sure ?", project_id: @project}, class: "btn btn-danger" %>
       <ul class="submilestones list-unstyled">
-
         <% milestone.sub_milestones.order(:id).each do |sub_milestone| %>
           <%= render 'shared/submilestone_ajax', sub_milestone: sub_milestone, remote: true %>
-        <% end %><!-- end of sub_miletones block -->
-
+        <% end %> <!-- end of sub_miletones block -->
       </ul>
       <%= render 'shared/submilestone', milestone: milestone, project: @project%>
     </div>
   <% end %>
+  </div>
+<!-- End of the general container -->
 </div>
 
 <div class="modal fade" id="addAMilestone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -93,18 +96,5 @@
 </div>
 
 
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Team time</h4>
-      </div>
-      <div class="modal-body">
-        <%= render 'shared/create-user_project', user_project: UserProject.new %>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+
 
