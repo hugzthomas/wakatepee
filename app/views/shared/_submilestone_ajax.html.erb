@@ -1,32 +1,39 @@
-<div class="submilestone-card">
-  <li>
-    <%# if @project.admin == current_user %>
-      <%= render 'sub_milestones/checkbox', sub_milestone: sub_milestone, project: @project, milestone: sub_milestone.milestone  %>
-    <%# end %>
-    <%= sub_milestone.title %>
-  </li>
-  <ul class='list-unstyled list-inline'>
+<div class="submilestone-card" id="<%= sub_milestone.id %>">
     <li>
-      <p class="display-comment" data-target="#comment-<%= sub_milestone.id %>"> Comment (<%= sub_milestone.comments.count %>)</p>
+      <%# if @project.admin == current_user %>
+        <%= render 'sub_milestones/checkbox', sub_milestone: sub_milestone, project: @project, milestone: sub_milestone.milestone  %>
+      <%# end %>
+      <%= sub_milestone.title %>
     </li>
-    <li>
-      <p class="display-files">File</p>
-    </li>
-    <li>
-      <div class="card-delete">
-        <%= link_to "", sub_milestone_path(sub_milestone),
-         method: :delete,
-         data: { confirm: "Are you sure?" }, class:"fa fa-times sub-milestones-elm" %>
-       </div>
-    </li>
-  </ul>
+    <ul class='list-unstyled list-inline'>
+      <li>
+        <p class="display-comment" data-target="#comment-<%= sub_milestone.id %>"> Comment (<%= sub_milestone.comments.count %>)</p>
+      </li>
+      <li>
+        <p class="display-files">File</p>
+      </li>
+      <li>
+        <div class="card-delete">
+          <%= link_to "", sub_milestone_path(sub_milestone),
+           method: :delete,
+           data: { confirm: "Are you sure?" }, class:"fa fa-times sub-milestones-elm" %>
+        </div>
+      </li>
+    </ul>
 </div>
-<div class="card-comment hidden" id="comment-<%= sub_milestone.id %>">
-  <% sub_milestone.comments.each do |comment| %>
-  <div class="comment">
-    <%= cl_image_tag comment.user.photo, class:"avatar", title: comment.user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
-    <%= comment.content %>
+
+<div class="card-comment" id="comment-<%= sub_milestone.id %>">
+  <div class="commentslisting">
+    <% sub_milestone.comments.each do |comment| %>
+      <%= render 'shared/comment', comment: comment %>
+    <% end %>
   </div>
-  <% end %>
-  <%= render 'shared/comment', sub_milestone: sub_milestone %>
+  <div class="form new-comment">
+    <%= simple_form_for [sub_milestone, Comment.new], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: 'Write a comment and Press enter' %>
+    <%= f.submit "Send", class: "btn-comment"%>
+    <% end %>
+  </div>
 </div>
+
+

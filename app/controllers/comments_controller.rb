@@ -7,9 +7,19 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.sub_milestone = @sub_milestone
     @comment.user = current_user
-    @comment.save
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to project_path(@project)}
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render 'projects/index'}
+        format.js
+      end
     @selected_milestone_id = @sub_milestone.milestone_id
     redirect_to project_path(@sub_milestone.project, selected_milestone_id: @selected_milestone_id, anchor: @sub_milestone.milestone.title )
+    end
   end
 
   private
