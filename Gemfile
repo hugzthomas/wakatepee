@@ -29,6 +29,7 @@ gem 'remotipart', '~> 1.2'
 gem 'alertifyjs-rails'
 gem 'rails-assets-Sortable', source: 'https://rails-assets.org'
 
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'

@@ -22,14 +22,14 @@
                 <div class="users-card">
                   <% project.users.each do |user| %>
                     <% unless project.admin == user %>
-                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
+                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar", title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
                     <% end %>
                   <% end %>
                 </div>
               </div>
               <div class="right-card">
                 <div class="progress-bar-home">
-                  <figure data-skill="72" data-skill-size="200"></figure>
+                  <figure data-skill="<%= project.progress %> " data-skill-size="200"></figure>
                 </div>
               </div>
             </div>
@@ -61,14 +61,14 @@
                 <div class="users-card">
                   <% project.users.each do |user| %>
                     <% unless project.admin == user %>
-                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar" %>
+                      <%= cl_image_tag user.photo, width: 50, height: 50, class: "avatar", title: user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
                     <% end %>
                   <% end %>
                 </div>
               </div>
               <div class="right-card">
                 <div class="progress-bar-home">
-                  <figure data-skill="72" data-skill-size="200"></figure>
+                  <figure data-skill="<%= project.progress %>" data-skill-size="200"></figure>
                 </div>
               </div>
             </div>
