@@ -159,7 +159,7 @@ input[type="text"]:focus {
   background-color: white;
   box-shadow: 8px 6px 18px #D6D6DB;
   // position: relative;
-  flex: 1;
+  flex: 0.68;
     h2{
       margin-left: 30px;
       color: #5DA0A2;
@@ -169,4 +169,8 @@ input[type="text"]:focus {
     }
 }
 
+.contentleft{
+  display: flex;
+  flex: 1;
+}
 
