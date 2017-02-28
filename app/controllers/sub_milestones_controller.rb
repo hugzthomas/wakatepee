@@ -22,6 +22,7 @@ class SubMilestonesController < ApplicationController
     milestone = @sub_milestone.milestone
     milestone.progress = milestone.perform_progress
     milestone.save
+  end
 
   def destroy
     @sub_milestone = SubMilestone.find(params[:id])
