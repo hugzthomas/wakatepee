@@ -112,3 +112,47 @@
   right: 10px;
 }
 
+#index {
+  position: relative;
+}
+
+.filter {
+  position: absolute;
+    top: 25px;
+    right: 10px;
+}
+
+#radio-1 {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+#radio-2 {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+input[type=radio] {
+    display: none;
+  }
+
+    input[type=radio] + label {
+    width: 146px;
+    height: 41px;
+    border: 1px solid #4e5d71;
+    // border-radius: 6px;
+    color: #34485C;
+    color: $blue;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // margin-right: 20px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+    input[type=radio]:checked + label {
+    border: 1px solid #84D7CD;
+    color: #84D7CD;
+  }

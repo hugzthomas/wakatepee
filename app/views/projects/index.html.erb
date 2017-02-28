@@ -1,14 +1,18 @@
 <div class="big-padded">
   <div class="container">
-    <div class="row">
+    <div class="row" id="index">
       <div class="btn-orange-index-projet" data-toggle="modal" data-target="#modal-project">
         <h4>Add a project</h4>
       </div>
-      <form action="">
-          <input type="radio" class="blabla" name="project" value="my projects"> my projects
-          <input type="radio" class="contrib" name="project" value="my contributions"> my contributions
-      </form>
-      <h1 class='text-center small-padded'>My projects</h1>
+      <div class="filter">
+          <input type="radio" class="blabla" id="radio-1" name="project" value="my projects">
+          <label for="radio-1">My projects</label>
+          <input type="radio" class="contrib" id="radio-2" name="project" value="my contributions">
+          <label for="radio-2">My contributions</label>
+      </div>
+
+<!--
+      <h1 class='text-center small-padded'>My projects</h1> -->
 
           <% @projects_admin.sort_by(&:deadline).each do |project| %>
             <%= render "shared/project_card", locals: { admin_or_contributor: "admin", project: project } %>
