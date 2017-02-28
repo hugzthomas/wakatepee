@@ -1,0 +1,8 @@
+// Create a paragraph for the new review. But hide it.
+var new_sub_milestone = $("<%= j render 'shared/submilestone_ajax', sub_milestone: @sub_milestone%>").hide();
+// Add it to the DOM, at the end of the existing reviews. It's still hidden.
+$('#content-submilestone-<%=@milestone.id%>').append(new_sub_milestone);
+// Show the new review with an animation!
+new_sub_milestone.slideDown();
+// Reset the form
+

@@ -14,15 +14,7 @@ class MilestonesController < ApplicationController
       @project_milestone = ProjectMilestone.new(milestone: @milestone, project: @project)
       authorize(@project)
       @project_milestone.save
-      respond_to do |format|
-        format.html { redirect_to project_path(@project) }
-        format.js  # <-- will render `app/views/projects/create_milestone.js.erb`
-      end
-    else
-      respond_to do |format|
-        format.html { render 'project/show' }
-        format.js  # <-- idem
-      end
+      redirect_to project_path(@project)
     end
 
   end
@@ -32,6 +24,14 @@ class MilestonesController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
+    skip_authorization
+    @milestone = Milestone.find(params[:id])
+    @project = @milestone.project_milestones.first.project
+    @milestone.destroy
+    redirect_to project_path(@project)
   end
 
 

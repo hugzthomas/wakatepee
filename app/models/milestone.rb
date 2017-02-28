@@ -1,6 +1,7 @@
 class Milestone < ApplicationRecord
-  has_many :sub_milestones
+  has_many :sub_milestones, dependent: :destroy
   has_many :comments, through: :sub_milestones
+   has_many :project_milestones, dependent: :destroy
 
   def perform_progress
     return 0 if sub_milestones.count.zero?

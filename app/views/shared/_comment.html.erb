@@ -1,8 +1,4 @@
-<!-- Form comment remote: true => comments#create -->
-  <div class="form new-comment">
-    <%= simple_form_for [sub_milestone, Comment.new] do |f| %>
-      <%= f.input :content, label: false, placeholder: 'Write a comment and Press enter' %>
-    </div>
-    <%= f.submit "Send", class: "btn-comment"%>
-  <% end %>
-
+<div class="comment">
+    <%= cl_image_tag comment.user.photo, class: "avatar", title: comment.user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
+    <%= comment.content %>
+</div>

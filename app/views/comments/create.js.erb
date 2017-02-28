@@ -1,0 +1,9 @@
+// Create a paragraph for the new review. But hide it.
+var new_comment = $("<%= j render 'shared/comment', comment: @comment, sub_milestone: @sub_milestone%>").hide();
+// Add it to the DOM, at the end of the existing reviews. It's still hidden.
+
+$('#comment-<%= @sub_milestone.id %> .commentslisting').append(new_comment);
+// Show the new review with an animation!
+new_comment.slideDown();
+// Reset the form
+// $('#new-comment').html("<%= j render 'shared/comment', comment: Comment.new(user: current_user), sub_milestone: @sub_milestone %>");

@@ -1,20 +1,33 @@
 <div class="project-creation">
   <%= simple_form_for project, remote: remote do |f| %>
-  <div class="validation-name">
-    <%= f.input :title %>
-  </div>
-  <div class="validation-deadline">
-    <%= f.input :deadline, as: :string, input_html: { class: "date_picker" } %>
+  <div class="input-row">
+    <div class="validation-name">
+      <%= f.input :title %>
+    </div>
+    <div class="validation-deadline">
+      <%= f.input :deadline, as: :string, input_html: { class: "date_picker" } %>
+    </div>
   </div>
   <div class="description-of-the-project">
     <%= f.input :description, as: :text %>
   </div>
   <div class="photo-of-the-project">
-    <%= f.input :document, as: :photo, label: "Upload Logo of the Project", as: :attachinary%>
+    <%= f.input :photo, label: "Upload Logo of the Project"%>
   </div>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.input :document, as: :attachinary %>
-
+  <h4>Upload the logo of the project and the brief of your project</h4>
+  <div class="upload-row">
+    <div class="photo-of-the-project">
+      <%= f.input :photo, label: "        ."%>
+    </div>
+      <%= f.input :photo_cache, as: :hidden %>
+    <div class="brief-of-the-project">
+      <%= f.input :document, as: :attachinary, label: " ." %>
+    </div>
+  </div>
+  <div class="description-row">
+    <div class="description-of-action">Choose a logo...</div>
+    <div class="description-of-action">Choose a brief...</div>
+  </div>
     <div><h4>You can select some milestone below for your first project</h4>
       <% Milestone.all.each do |milestone| %>
       <div class="tag" id="<%= milestone.id %>"><%= milestone.title %></div>
@@ -32,6 +45,8 @@
 
     <div id="user-projects"><!-- used by js --></div>
     <div id="milestones-project"><!-- used by js --></div>
-    <%= f.submit "Create your project", id: "registered", class: "btn btn-orange" %>
+    <div class="text-right">
+      <%= f.submit "Create your project", id: "registered", class: "btn btn-orange" %>
+    </div>
   <% end %>
 </div>
