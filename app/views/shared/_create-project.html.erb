@@ -12,7 +12,7 @@
   <div class="description-of-the-project">
     <%= f.input :description, as: :text %>
   </div>
-  <h4 class="what-to-do-now">Time to upload the <strong>LOGO</strong> of the project and the <strong>BRIEF</strong> of your project</h4>
+  <h4 class="what-to-do-now">Time to upload the <strong class="BIGNAME">LOGO</strong> of the project and the <strong class="BIGNAME">BRIEF</strong> of your project</h4>
   <div class="upload-row">
     <div class="photo-of-the-project">
       <%= f.input :photo, label: " ."%>
@@ -27,9 +27,7 @@
     <div class="description-of-action">Choose a brief...</div>
   </div>
 
-
-    <h4 class="what-to-do-now">Team time !</h4>
-    <p>Select the members of your agency who will work on this project</p>
+    <h4 class="what-to-do-now">Select the members of your agency who will work on this project</h4>
     <div class="team-row">
         <% User.all.each_with_index do |user, index| %>
             <% unless current_user == user %>
