@@ -17,8 +17,8 @@
 
 .popover {
   text-align: center;
-  padding: 3px 3px;
-  color : $orange;
+  padding: 1px 1px;
+  color : white;
 }
 
 
@@ -101,9 +101,8 @@
 }
 
 .team-row {
-  border: 1px solid #80D3CA;
-  margin-bottom: 30px;
-  padding-top: 30px;
+  margin-bottom: 10px;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -189,6 +188,7 @@
 .what-to-do-now{
   font-size: 17px;
   margin-top: 30px;
+  text-align: center;
 }
 
 .attachinary_container {
@@ -197,6 +197,9 @@
   ul {
     list-style: none;
   }
+}
+.BIGNAME {
+  color: #FDA597;
 }
 // .photolabel {
 //     font-size: 1.25em;

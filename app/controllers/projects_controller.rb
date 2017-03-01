@@ -25,14 +25,6 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
 
     # add user projects
     member_ids = params[:user_ids]
-    milestone_ids = params[:milestone_ids]
-
-    if milestone_ids
-      milestone_ids.each do |milestone_id|
-        @milestone = Milestone.find(milestone_id)
-        @project_milestone = @project.project_milestones.new(milestone: @milestone)
-      end
-    end
 
 
     if member_ids
