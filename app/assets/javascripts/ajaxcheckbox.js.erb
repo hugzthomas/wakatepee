@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  $('input[type="checkbox"]').click(function() {
+  $( ".submilestones" ).on( "click", 'input[type="checkbox"]', function() {
+  // $('input[type="checkbox"]').click(function() {
     var project_id = $(this).data("project-id");
     var milestone_id = $(this).data("milestone-id");
     var sub_milestone_id = $(this).attr("id");

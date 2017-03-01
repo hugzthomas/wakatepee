@@ -2,7 +2,11 @@
 var new_sub_milestone = $("<%= j render 'shared/submilestone_ajax', sub_milestone: @sub_milestone%>").hide();
 // Add it to the DOM, at the end of the existing reviews. It's still hidden.
 $('#content-submilestone-<%=@milestone.id%>').append(new_sub_milestone);
+$('input#sub_milestone_title').closest('form').find("input[type=text], textarea").val("");
+
 // Show the new review with an animation!
 new_sub_milestone.slideDown();
 // Reset the form
 
+// Et mettre à jour la barre de progression
+$('#milestone-progress-<%= @milestone.id %>').html('<%= j render "milestones/progress", milestone: @sub_milestone.milestone %>');
