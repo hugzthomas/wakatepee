@@ -13,6 +13,8 @@
 
 .new-card:hover {
  border-right: 6px solid #FD7F6B;
+ transform: scale(0.98);
+ transition: all .2s ease-in-out;
 
 }
 
@@ -157,5 +159,6 @@ input[type=radio] {
 
     input[type=radio]:checked + label {
     border: 1px solid #84D7CD;
-    color: #84D7CD;
+    background-color: #0B547A;
+    color: white;
   }
