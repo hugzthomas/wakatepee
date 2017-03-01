@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    $('.display-comment').click(function(event) {
+  $( ".ajax-submilestone-card" ).on( "click", '.display-comment', function() {
+    // $('.display-comment').click(function(event) {
       $('.submilestone-card').css('border', 'none');
       $(this).parent().parent().parent().css('border', '1px solid #FD7F6B');
       var id = $(this).attr("data-target");
