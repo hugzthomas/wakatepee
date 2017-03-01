@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170228111548) do
     t.datetime "updated_at",  null: false
     t.integer  "admin_id"
     t.string   "description"
+    t.integer  "progress"
     t.string   "brief"
     t.integer  "progress"
     t.index ["admin_id"], name: "index_projects_on_admin_id", using: :btree
