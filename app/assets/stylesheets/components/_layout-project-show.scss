@@ -61,7 +61,8 @@
 }
 
 .content-milestones.tab-content {
-  margin: 15px 30px;
+  margin: 15px 0px;
+  width: 55%;
 }
 
 .team {
@@ -80,15 +81,13 @@
 .fa-trash{
   position: absolute;
   right: 10px;
-  bottom: 37px;
 }
 
 input[type="text"] {
   display: block;
   margin: 0;
-  width: 100%;
+  width: 75%;
   font-family: sans-serif;
-  font-size: 18px;
   appearance: none;
   box-shadow: none;
   border-radius: none;
@@ -138,11 +137,14 @@ input[type="text"]:focus {
 }
 
 .submilestone-card {
-    background-color: #EEEFF1;
+    background-color: #F1F1F1;
+    opacity: 0.9;
     margin-bottom: 10px;
     margin-left: 14px;
     margin-right: 25px;
     position: relative;
+    padding-top: 10px;
+    padding-bottom: 1px;
   p {
     cursor: pointer;
     font-size: 12px;
@@ -218,7 +220,7 @@ input[type="text"]:focus {
   height: 1px;
   margin-left: 15px;
   widht: 12px;
-  width: 400px;
+  width: 424px;
   background-color: $blue;
   opacity: 0.6;
   margin-bottom: 30px;
@@ -230,10 +232,38 @@ input[type="text"]:focus {
 
 .checkboxcard{
   padding-left: 10px;
+  padding-bottom: 12px;
 }
 
 .display-files{
   cursor:pointer;
 }
 
+.elements-card{
+  margin-left: 23px;
+  font-size: 12px;
+  font-family: avenir;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #34485C;
+}
+
+input#sub_milestone_title.form-control{
+  width: 384px !important;
+}
+
+.btn-plus{
+  background-color: $orange;
+  color: white;
+  padding: 6px 13px;
+}
+
+.btn-plus:hover{
+  background-color: white;
+  color: $orange;
+  border: 1px solid $orange;
+  padding: 6px 13px;
+  transform: scale(0.9);
+  transition: all .2s ease-in-out;
+}
 

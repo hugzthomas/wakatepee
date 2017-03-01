@@ -73,19 +73,20 @@
   background-color: white;
   position: absolute;
   top: 22px;
-  left: 622px;
-  height: 521px;
-  width: 50%;
+  left: 515px;
+  width: 40%;
   color: black;
   margin-bottom: 10px;
   padding: 10px;
   overflow-y: scroll;
+  box-shadow: 8px 6px 18px #D6D6DB;
   .comment {
     margin: 5px 0px;
     background-color: #F4F7F7;
     box-shadow: 3px 2px 6px #D6D6DB;
     margin: 5px 0px;
     padding: 3px;
+    overflow-y: scroll;
   }
   .avatar {
     width: 30px;
@@ -158,4 +159,8 @@ input[type=radio] {
     input[type=radio]:checked + label {
     border: 1px solid #84D7CD;
     color: #84D7CD;
+  }
+
+  input[type="text"]{
+    width:100%;
   }
