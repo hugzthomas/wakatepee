@@ -3,11 +3,7 @@
  <%= link_to "Destroy this project", project_path(@project), method: :delete, data: { confirm: "Are you sure ?"}, class: "btn btn-danger" %>
  <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-success" %>
  <br>
-  <% if @project.document %>
- <div>
-   <%= cl_image_tag "#{@project.document.public_id}.png", width: 300, height: 400, crop: :fill %>
- </div>
-  <% end %>
+
 <div class="container-general">
   <!-- Sidebar -->
   <div class="sidebar tabs" >
@@ -53,7 +49,21 @@
               <% end %>
             <% end %>
           </div>
-      </div>
+
+
+  <div class="content-milestones tab-content" id="recap">
+    <div class="content-milestones tab-content">
+    <h2>Project Brief</h2>
+      <% if @project.document %>
+        <div>
+        <%= cl_image_tag "#{@project.document.public_id}.png", width: 300, height: 400, crop: :fill %>
+        </div>
+      <% end %>
+      <% if @project.description %>
+        <div>
+        <%= project.description %>
+        </div>
+      <% end %>
     </div>
   </div>
 
