@@ -1,32 +1,19 @@
-<%= link_to  "< Back to my projects", projects_path%>
-<br>
- <%= link_to "Destroy this project", project_path(@project), method: :delete, data: { confirm: "Are you sure ?"}, class: "btn btn-danger" %>
- <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-success" %>
- <br>
-  <% if @project.document %>
- <div>
-   <%= cl_image_tag "#{@project.document.public_id}.png", width: 300, height: 400, crop: :fill %>
- </div>
-  <% end %>
-<div class="container-general">
-  <!-- Sidebar -->
-  <div class="sidebar tabs" >
-    <!-- This contains the summary of the project, the milestones, add milestone and team members-->
-    <div class="ol-navigation">
-      <!-- Display the summary of the project-->
-      <div class="li-navigation">
-        <div class="li-milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
-          <div class="logo-client"><%= cl_image_tag(@project.photo, width: 75, height: 75) %></div>
-          <div class="project-title"><strong><%= @project.title %></strong></div>
-          <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
-        </div>
+<div class="container showproject">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-xs-3 sidebar tabs">
+      <div class="milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
+        <div class="logo-client"><%= cl_image_tag(@project.photo, width: 125, height: 75) %></div>
+        <div class="project-title"><strong><%= @project.title %></strong></div>
       </div>
-      <!-- Display all the submilestones of the project-->
-      <div class="ol-navigation" id="items">
+      <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
+      <!-- Display all the milestones of the project-->
+      <div class="milestones navigation" id="items">
         <% @project.milestones.each do |milestone| %>
           <div class="li-milestone tab  <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title.parameterize %>" data-id="<%= milestone.id %>">
-            <div class="title">
+            <div class="title-milestone">
               <%= milestone.title %>
+            <%= link_to "", milestone_path(milestone), method: :delete, data: { confirm: "Are you sure ?", project_id: @project}, class: "fa fa-trash " %>
             </div>
             <!-- Display progress bar of the milestone-->
             <div id="milestone-progress-<%= milestone.id %>">
@@ -35,17 +22,16 @@
           </div>
         <% end %>
       </div>
-      <!-- Add a submilestone-->
-      <div class="li-milestone tab" data-toggle="modal" data-target="#addAMilestone">
-        <div class="title add-milestone">
-          <i class="icon fa fa-plus"></i>
-          Add a milestone
+        <!-- Add milestone-->
+        <div class="li-milestone tab" id="ActionAddingAmilestone", data-toggle="modal" data-target="#addAMilestone"">
+          <div class="title add-milestone">
+            <i class="icon fa fa-plus"></i>
+            Add a milestone
+          </div>
         </div>
-      </div>
-
-      <!-- Display team members of the project-->
-      <div class="li-team">
-        <div class="text-center bold"><strong>Your dream team</strong></div>
+        <!-- Display team members-->
+        <div class=" team-members text-center">They work on</div>
+        <div class="li-team">
           <div class="team">
             <% @project.users.each do |user| %>
               <% unless @project.admin == user %>
@@ -53,30 +39,105 @@
               <% end %>
             <% end %>
           </div>
+        </div>
+        <div class="editproject">
+          <%= link_to "Edit project", edit_project_path(@project) %>
+        </div>
+    </div>
+    <!-- content on the right -->
+    <div class="col-xs-9">
+      <!-- new row to build two elements inside -->
+      <div id="recap" class="content-milestones tab-content">
+        <h2><%= @project.title %></h2>
+        <%= @project.description %>
+        <% if @project.brief %>
+          <%= @project.brief %>
+        <% end %>
+      </div>
+      <div class="row">
+        <!-- content of the milestone  -->
+        <% @project.milestones.each do |milestone| %>
+          <div class="col-xs-9">
+            <div class="content-milestones tab-content hidden" id="<%= milestone.title.parameterize %>">
+            <h2><%= milestone.title %></h2>
+            <div class="border"></div>
+              <!-- this will build a submilestone of the milestone  -->
+              <% milestone.sub_milestones.order(:id).each do |sub_milestone| %>
+                <div id="content-submilestone-<%=milestone.id%>">
+                  <!-- display the card of submilestone-->
+                  <div class="submilestone-card" id="<%= sub_milestone.id %>">
+                    <li class="list-unstyled checkboxcard">
+                      <% if @project.admin == current_user %>
+                        <!--checkbox on a submilestone-->
+                        <%= render 'sub_milestones/checkbox', sub_milestone: sub_milestone, project: @project, milestone: sub_milestone.milestone  %>
+                      <% end %>
+                      <%= sub_milestone.title %>
+                    </li>
+                    <ul class='list-unstyled list-inline'>
+                        <!--add a comment to submilestone-->
+                      <li class="display-comment" data-target="#comment-<%= sub_milestone.id %>"> Comment (<%= sub_milestone.comments.count %>)
+                      </li>
+                      <!--add a file to a submileston-->
+                      <li class="display-files" data-toggle="modal" data-target="#deliverable">
+                        <span class="fa fa-upload" ">Upload</span>
+                      </li>
+                        <% unless sub_milestone.file.nil? %>
+                          <a href="<%= sub_milestone.file.url%>", class="fa fa-download no-underline">Download</a>
+                        <% end %>
+                        <!--modal when click on upload -->
+                        <div class="modal fade" id="deliverable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title text-center" id="myModalLabel">Submit your deliverable</h4>
+                              </div>
+                              <div class="modal-body">
+                                <%= render 'shared/deliverable', project: @project, sub_milestone: sub_milestone %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <!--delete a submilestone-->
+                      <li>
+                        <div class="card-delete">
+                          <%= link_to "", sub_milestone_path(sub_milestone),method: :delete, data: { confirm: "Are you sure?" }, class:"fa fa-times sub-milestones-elm" %>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- add a comment and display it -->
+                    <div class="card-comment hidden" id="comment-<%= sub_milestone.id %>">
+                      <div class="commentslisting">
+                        <% sub_milestone.comments.each do |comment| %>
+                          <%= render 'shared/comment', comment: comment %>
+                        <% end %>
+                      </div>
+                      <div class="form new-comment">
+                        <%= simple_form_for [sub_milestone, Comment.new], remote: true do |f| %>
+                          <%= f.input :content, label: false, placeholder: 'Write a comment and Press enter' %>
+                          <%= f.submit "Send", class: "btn-comment"%>
+                        <% end %>
+                      </div>
+                    </div>
+                </div>
+              <% end %>
+              <%= render 'shared/submilestone', milestone: milestone, project: @project%>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-
-  <!-- Display submilestone content when click on the milestone on the sidebar -->
-  <div class="contentleft">
-  <% @project.milestones.each do |milestone| %>
-    <div class="content-milestones tab-content hidden" id="<%= milestone.title.parameterize %>">
-      <h2><%= milestone.title %></h2>
-     <%= link_to "Destroy this milestone", milestone_path(milestone), method: :delete, data: { confirm: "Are you sure ?", project_id: @project}, class: "btn btn-danger" %>
-      <ul class="submilestones list-unstyled">
-        <div id="content-submilestone-<%=milestone.id%>">
-          <% milestone.sub_milestones.order(:id).each do |sub_milestone| %>
-            <%= render 'shared/submilestone_ajax', sub_milestone: sub_milestone %>
-          <% end %><!-- end of sub_miletones block -->
-        </div>
-      </ul>
-      <%= render 'shared/submilestone', milestone: milestone, project: @project%>
-    </div>
-  <% end %>
-  </div>
-<!-- End of the general container -->
 </div>
 
+
+
+
+
+
+<!-- modal add a milestone -->
 <div class="modal fade" id="addAMilestone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -87,7 +148,9 @@
       <div class="modal-body">
         <%= render "shared/create_milestone", project: @project, milestone: Milestone.new %>
       </div>
-      </div>
     </div>
   </div>
+</div>
+
+
 

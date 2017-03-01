@@ -1,0 +1,15 @@
+<!-- add a comment and display it -->
+<div class="card-comment hidden" id="comment-<%= sub_milestone.id %>">
+  <div class="commentslisting">
+    <% sub_milestone.comments.each do |comment| %>
+      <%= render 'shared/comment', comment: comment %>
+    <% end %>
+  </div>
+  <div class="form new-comment">
+    <%= simple_form_for [sub_milestone, Comment.new], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: 'Write a comment and Press enter' %>
+      <%= f.submit "Send", class: "btn-comment"%>
+    <% end %>
+  </div>
+</div>
+

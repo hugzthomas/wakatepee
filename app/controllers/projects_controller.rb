@@ -80,7 +80,7 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
   end
 
   def project_params
-    params.require(:project).permit(:title, :deadline, :photo, :photo_cache, :document)
+    params.require(:project).permit(:title, :deadline, :photo, :photo_cache, :document, :description)
   end
 
 

@@ -70,14 +70,13 @@
 .card-comment {
   background-color: white;
   position: absolute;
-  top: 0px;
-  right: 10px;
-  height: 450px;
+  top: 22px;
+  left: 622px;
+  height: 521px;
   width: 50%;
   color: black;
   margin-bottom: 10px;
   padding: 10px;
-  // display: none;
   overflow-y: scroll;
   .comment {
     margin: 5px 0px;
@@ -93,6 +92,8 @@
     font-size: 18px;
   }
 }
+
+
 
 .card-form-sign{
   background:#F5F5F5 ;

@@ -5,20 +5,7 @@
   margin-top: 60px;
 }
 
-.sidebar{
-  width: 240px;
-}
-
-.li-navigation {
-  margin: 15px 0px;
-  background-color: white;
-  box-shadow: 8px 6px 18px #D6D6DB;
-  padding: 50px 10px;
-  cursor: pointer;
-}
-
 .li-team {
-  margin: 15px 0px;
   background-color: white;
   box-shadow: 8px 6px 18px #D6D6DB;
   padding: 20px 10px;
@@ -29,14 +16,15 @@
 }
 
 .project-title{
-  padding: 15px;
+  margin-top: 20px;
 }
 
 .project-deadline {
-  background: linear-gradient(to left, #085078, #85D8CE);
-  padding-top: 12px;
-  color: white;
-  padding: 10px 20px;
+  background-color: $blue;
+  text-align:center;
+  color:white;
+  padding-top: 6px;
+  height: 32px;
 }
 
 .ol-navigation {
@@ -45,9 +33,13 @@
   padding: 0;
 }
 
-.li-milestone-recap {
-  height: 135px;
+.milestone-recap {
   text-align:center;
+  margin-top: 22px;
+  background-color: white;
+  box-shadow: 8px 6px 18px #D6D6DB;
+  padding: 10px 10px;
+  cursor: pointer;
 }
 
 .li-milestone {
@@ -55,12 +47,17 @@
   box-shadow: 8px 6px 18px #D6D6DB;
   padding: 10px;
   height: 65px;
-  margin: 5px 0px;
+  margin: 12px 0px;
   cursor: pointer;
+  position: relative;
 }
 
 .progress-bar {
   background-color: #FD7F6B;
+}
+
+.progress{
+  background-color: #D6D6D6;
 }
 
 .content-milestones.tab-content {
@@ -78,8 +75,14 @@
 
 .title {
   list-style-type: none;
-  // margin-top: 15px;
-  padding-left: 5px;
+  padding-left: 52px;
+  padding-top: 14px;
+}
+
+.fa-trash{
+  position: absolute;
+  right: 10px;
+  bottom: 37px;
 }
 
 input[type="text"] {
@@ -137,19 +140,16 @@ input[type="text"]:focus {
 }
 
 .submilestone-card {
-  background-color: #EEEFF1;
-  margin-bottom: 10px;
-  // margin-left : 40px;
-  padding: 10px;
-  width: 40%;
-  position: relative;
+    background-color: #EEEFF1;
+    margin-bottom: 10px;
+    margin-left: 14px;
+    margin-right: 25px;
+    position: relative;
   p {
     cursor: pointer;
     font-size: 12px;
-
   }
 }
-
 
 .btn-comment {
   display:none;
@@ -159,10 +159,11 @@ input[type="text"]:focus {
   background-color: white;
   box-shadow: 8px 6px 18px #D6D6DB;
   // position: relative;
-  flex: 0.68;
+  min-height: 588px;
     h2{
-      margin-left: 30px;
+      margin-left: 15px;
       color: #5DA0A2;
+      padding-top: 10px;
     }
     p{
       margin-left: 30px;
@@ -173,4 +174,68 @@ input[type="text"]:focus {
   display: flex;
   flex: 1;
 }
+
+#submilestone-create{
+  padding-bottom: 15px;
+}
+
+.team-members{
+  background-color: #ACD0D1;
+  text-align:center;
+  color:white;
+  padding-top: 6px;
+  height: 32px;
+}
+
+.showproject{
+  margin-bottom: 20px;
+}
+
+#ActionAddingAmilestone:hover{
+  background-color: $blue;
+  color: white;
+  transform: scale(0.9);
+  transition: all .2s ease-in-out;
+}
+
+.editproject{
+  background-color: white;
+  box-shadow: 8px 6px 18px #D6D6DB;
+  padding: 10px;
+  margin: 12px 0px;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+.destroyproject{
+  background-color: white;
+  box-shadow: 8px 6px 18px #D6D6DB;
+  padding: 10px;
+  margin: 12px 0px;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+.border{
+  height: 1px;
+  margin-left: 15px;
+  widht: 12px;
+  width: 400px;
+  background-color: $blue;
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+.formsubmilestone{
+  margin-left: 15px;
+}
+
+.checkboxcard{
+  padding-left: 10px;
+}
+
+.display-files{
+  cursor:pointer;
+}
+
 
