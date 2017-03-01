@@ -1,8 +1,8 @@
 <div class="submilestone-card" id="<%= sub_milestone.id %>">
     <li>
-      <%# if @project.admin == current_user %>
+      <% if @project.admin == current_user %>
         <%= render 'sub_milestones/checkbox', sub_milestone: sub_milestone, project: @project, milestone: sub_milestone.milestone  %>
-      <%# end %>
+      <% end %>
       <%= sub_milestone.title %>
     </li>
     <ul class='list-unstyled list-inline'>
@@ -10,7 +10,25 @@
         <p class="display-comment" data-target="#comment-<%= sub_milestone.id %>"> Comment (<%= sub_milestone.comments.count %>)</p>
       </li>
       <li>
-        <p class="display-files">File</p>
+        <div class="display-files" data-toggle="modal" data-target="#deliverable">
+          <span class="btn-orange ">Deliverable</span>
+        </div>
+        <% unless sub_milestone.file.nil? %>
+          <a href="<%= sub_milestone.file.url%>", class="btn btn-orange">Download</a>
+        <% end %>
+        <div class="modal fade" id="deliverable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">Submit your deliverable</h4>
+              </div>
+              <div class="modal-body">
+                <%= render 'shared/deliverable', project: @project, sub_milestone: sub_milestone %>
+              </div>
+            </div>
+          </div>
+        </div>
       </li>
       <li>
         <div class="card-delete">
@@ -20,20 +38,19 @@
         </div>
       </li>
     </ul>
-</div>
-
-<div class="card-comment" id="comment-<%= sub_milestone.id %>">
-  <div class="commentslisting">
-    <% sub_milestone.comments.each do |comment| %>
-      <%= render 'shared/comment', comment: comment %>
-    <% end %>
   </div>
-  <div class="form new-comment">
-    <%= simple_form_for [sub_milestone, Comment.new], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: 'Write a comment and Press enter' %>
-    <%= f.submit "Send", class: "btn-comment"%>
-    <% end %>
+  <div class="card-comment" id="comment-<%= sub_milestone.id %>">
+    <div class="commentslisting">
+      <% sub_milestone.comments.each do |comment| %>
+        <%= render 'shared/comment', comment: comment %>
+      <% end %>
+    </div>
+    <div class="form new-comment">
+      <%= simple_form_for [sub_milestone, Comment.new], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: 'Write a comment and Press enter' %>
+      <%= f.submit "Send", class: "btn-comment"%>
+      <% end %>
+    </div>
   </div>
-</div>
 
 

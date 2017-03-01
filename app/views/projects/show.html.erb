@@ -2,10 +2,7 @@
 <br>
  <%= link_to "Destroy this project", project_path(@project), method: :delete, data: { confirm: "Are you sure ?"}, class: "btn btn-danger" %>
  <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-success" %>
-
  <br>
-
-
 
 <div class="container-general">
   <!-- Sidebar -->
@@ -53,6 +50,7 @@
             <% end %>
           </div>
 
+
   <div class="content-milestones tab-content" id="recap">
     <div class="content-milestones tab-content">
     <h2>Project Brief</h2>
@@ -66,7 +64,6 @@
         <%= project.description %>
         </div>
       <% end %>
-
     </div>
   </div>
 
@@ -77,13 +74,11 @@
       <h2><%= milestone.title %></h2>
      <%= link_to "Destroy this milestone", milestone_path(milestone), method: :delete, data: { confirm: "Are you sure ?", project_id: @project}, class: "btn btn-danger" %>
       <ul class="submilestones list-unstyled">
-
         <div id="content-submilestone-<%=milestone.id%>">
           <% milestone.sub_milestones.order(:id).each do |sub_milestone| %>
             <%= render 'shared/submilestone_ajax', sub_milestone: sub_milestone %>
           <% end %><!-- end of sub_miletones block -->
         </div>
-
       </ul>
       <%= render 'shared/submilestone', milestone: milestone, project: @project%>
     </div>
@@ -105,9 +100,4 @@
       </div>
     </div>
   </div>
-
-
-
-
-
 

@@ -10,11 +10,12 @@ $(document).ready(function() {
     }
     $.ajax({
       type: 'PATCH',
+      dataType: 'script',
       url: "/projects/" + project_id + "/sub_milestones/" + sub_milestone_id,
-      data: {id: sub_milestone_id, done: done},
-      success: function(data, textStatus, jqXHR) {
-        $("#milestone-progress-" + milestone_id).html(data);
-      }
+      data: {id: sub_milestone_id, done: done}
+      // success: function(data, textStatus, jqXHR) {
+      //   $("#milestone-progress-" + milestone_id).html(data);
+      // }
     })
   });
 });
