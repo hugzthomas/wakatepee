@@ -4,10 +4,13 @@ class SubMilestonesController < ApplicationController
     skip_authorization
     @project = Project.find(params[:project_id])
     @milestone = Milestone.find(params[:sub_milestone][:milestone_id])
-    @sub_milestone = SubMilestone.new(submilestone_params)
+    @sub_milestone = @milestone.sub_milestones.new(submilestone_params)
     @sub_milestone.project = @project
-    @sub_milestone.milestone = @milestone
+
     if @sub_milestone.save
+      @milestone.progress = @milestone.perform_progress
+      @milestone.save
+
       respond_to do |format|
         format.html { redirect_to project_path(@project)}
         format.js
@@ -47,6 +50,8 @@ class SubMilestonesController < ApplicationController
     @project = @sub_milestone.project
     @milestone = @sub_milestone.milestone
     @sub_milestone.destroy
+    @milestone.progress = @milestone.perform_progress
+    @milestone.save
     redirect_to project_path(@project, anchor: @milestone.title)
   end
 
