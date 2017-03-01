@@ -11,10 +11,10 @@
   <div class="description-of-the-project">
     <%= f.input :description, as: :text %>
   </div>
-  <h4>Upload the logo of the project and the brief of your project</h4>
+  <h4 class="what-to-do-now">Time to upload the <strong>LOGO</strong> of the project and the <strong>BRIEF</strong> of your project</h4>
   <div class="upload-row">
     <div class="photo-of-the-project">
-      <%= f.input :photo, label: "        ."%>
+      <%= f.input :photo, label: " ."%>
     </div>
       <%= f.input :photo_cache, as: :hidden %>
     <div class="brief-of-the-project">
@@ -27,12 +27,13 @@
   </div>
 
 
-    <div><h4>Team time !</h4>
+    <h4 class="what-to-do-now">Team time !</h4>
     <p>Select the members of your agency who will work on this project</p>
-      <% User.all.each_with_index do |user, index| %>
-          <% unless current_user == user %>
-            <%= cl_image_tag user.photo, width: 50, height: 50, class: "teamember", id: user.id, data: {:toggle => "popover", :placement => "top", :content => user.first_name} %>
-          <% end %>
+    <div class="team-row">
+        <% User.all.each_with_index do |user, index| %>
+            <% unless current_user == user %>
+              <%= cl_image_tag user.photo, width: 50, height: 50, class: "teamember", id: user.id, data: {:toggle => "popover", :placement => "top", :content => user.first_name} %>
+            <% end %>
         <% end %>
    </div>
 
