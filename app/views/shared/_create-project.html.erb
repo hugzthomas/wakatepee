@@ -1,5 +1,6 @@
+<!-- changement de julie : suppression du remote: remote sur le formulaire -->
 <div class="project-creation">
-  <%= simple_form_for project, remote: remote do |f| %>
+  <%= simple_form_for project do |f| %>
   <div class="input-row">
     <div class="validation-name">
       <%= f.input :title %>
@@ -11,13 +12,10 @@
   <div class="description-of-the-project">
     <%= f.input :description, as: :text %>
   </div>
-  <div class="photo-of-the-project">
-    <%= f.input :photo, label: "Upload Logo of the Project"%>
-  </div>
-  <h4>Upload the logo of the project and the brief of your project</h4>
+  <h4 class="what-to-do-now">Time to upload the <strong class="BIGNAME">LOGO</strong> of the project and the <strong class="BIGNAME">BRIEF</strong> of your project</h4>
   <div class="upload-row">
     <div class="photo-of-the-project">
-      <%= f.input :photo, label: "        ."%>
+      <%= f.input :photo, label: " ."%>
     </div>
       <%= f.input :photo_cache, as: :hidden %>
     <div class="brief-of-the-project">
@@ -28,18 +26,13 @@
     <div class="description-of-action">Choose a logo...</div>
     <div class="description-of-action">Choose a brief...</div>
   </div>
-    <div><h4>You can select some milestone below for your first project</h4>
-      <% Milestone.all.each do |milestone| %>
-      <div class="tag" id="<%= milestone.id %>"><%= milestone.title %></div>
-      <% end %>
-    </div>
 
-    <div><h4>Team time !</h4>
-    <p>Select the members of your agency who will work on this project</p>
-      <% User.all.each_with_index do |user, index| %>
-          <% unless current_user == user %>
-            <%= cl_image_tag user.photo, width: 50, height: 50, class: "teamember", id: user.id, data: {:toggle => "popover", :placement => "top", :content => user.first_name} %>
-          <% end %>
+    <h4 class="what-to-do-now">Select the members of your agency who will work on this project</h4>
+    <div class="team-row">
+        <% User.all.each_with_index do |user, index| %>
+            <% unless current_user == user %>
+              <%= cl_image_tag user.photo, width: 50, height: 50, class: "teamember", id: user.id, data: {:toggle => "popover", :placement => "top", :content => user.first_name} %>
+            <% end %>
         <% end %>
    </div>
 

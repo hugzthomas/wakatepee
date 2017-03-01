@@ -4,6 +4,7 @@ $(document).ready(function() {
   $(".teamember").popover({
       html: true,
       trigger: "hover",
+      placement: "bottom",
     });
 });
 

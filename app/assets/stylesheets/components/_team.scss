@@ -17,7 +17,8 @@
 
 .popover {
   text-align: center;
-  padding: 3px 3px;
+  padding: 1px 1px;
+  color : white;
 }
 
 
@@ -95,7 +96,14 @@
   align-items: center;
   justify-content: space-between;
   margin-left: 80px;
-  margin-right: 120px;
+  margin-right: 110px;
+  margin-bottom: 20px;
+}
+
+.team-row {
+  margin-bottom: 10px;
+  padding-top: 20px;
+  text-align: center;
 }
 
 .validation-name, .validation-deadline {
@@ -117,6 +125,22 @@
   cursor: pointer;
 }
 
+#project_photo {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  cursor: pointer;
+}
+
+.project_photo label {
+  cursor:pointer;
+  padding: 10px;
+  width: 150px;
+  height: 55px;
+}
 
 
 .project_document label {
@@ -161,6 +185,11 @@
   opacity: 1;
 }
 
+.what-to-do-now{
+  font-size: 17px;
+  margin-top: 30px;
+  text-align: center;
+}
 
 .attachinary_container {
   display:flex;
@@ -168,6 +197,9 @@
   ul {
     list-style: none;
   }
+}
+.BIGNAME {
+  color: #FDA597;
 }
 // .photolabel {
 //     font-size: 1.25em;
