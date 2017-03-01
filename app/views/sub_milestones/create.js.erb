@@ -1,13 +1,12 @@
+
 // Create a paragraph for the new review. But hide it.
-var new_sub_milestone = $("<%= j render 'sub_milestones/submilestones_card', sub_milestone: @sub_milestone%>").hide();
+var new_sub_milestone = $("<%= j render 'sub_milestones/submilestones_card', sub_milestone: @sub_milestone, milestone: @milestone%>").hide();
 // Add it to the DOM, at the end of the existing reviews. It's still hidden.
-$('#content-submilestone-<%=@milestone.id%>').append(new_sub_milestone);
+$('#generation-<%=@milestone.title.parameterize%>').append(new_sub_milestone);
 $('input#sub_milestone_title').closest('form').find("input[type=text], textarea").val("");
 
 // Show the new review with an animation!
 new_sub_milestone.slideDown();
-
-
 
 // Et mettre à jour la barre de progression
 $('#milestone-progress-<%= @milestone.id %>').html('<%= j render "milestones/progress", milestone: @sub_milestone.milestone %>');

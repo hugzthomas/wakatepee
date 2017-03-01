@@ -1,4 +1,59 @@
-
-
-
-
+<div id="content-submilestone-<%=sub_milestone.id%>">
+    <!-- display the card of submilestone-->
+    <div class="submilestone-card" id="<%= sub_milestone.id %>">
+      <li class="list-unstyled checkboxcard">
+        <% if @project.admin == current_user %>
+          <!--checkbox on a submilestone-->
+          <%= render 'sub_milestones/checkbox', sub_milestone: sub_milestone, project: @project, milestone: sub_milestone.milestone  %>
+        <% end %>
+        <%= sub_milestone.title %>
+      </li>
+      <ul class='list-unstyled list-inline'>
+          <!--add a comment to submilestone-->
+        <li class="display-comment" data-target="#comment-<%= sub_milestone.id %>"> Comment (<%= sub_milestone.comments.count %>)
+        </li>
+        <!--add a file to a submileston-->
+        <li class="display-files" data-toggle="modal" data-target="#deliverable">
+          <span class="fa fa-upload" ">Upload</span>
+        </li>
+          <% unless sub_milestone.file.nil? %>
+            <a href="<%= sub_milestone.file.url%>", class="fa fa-download no-underline">Download</a>
+          <% end %>
+          <!--modal when click on upload -->
+          <div class="modal fade" id="deliverable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title text-center" id="myModalLabel">Submit your deliverable</h4>
+                </div>
+                <div class="modal-body">
+                  <%= render 'shared/deliverable', project: @project, sub_milestone: sub_milestone %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!--delete a submilestone-->
+        <li>
+          <div class="card-delete">
+            <%= link_to "", sub_milestone_path(sub_milestone),method: :delete, data: { confirm: "Are you sure?" }, class:"fa fa-times sub-milestones-elm" %>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- add a comment and display it -->
+    <div class="card-comment hidden" id="comment-<%= sub_milestone.id %>">
+      <div class="commentslisting">
+        <% sub_milestone.comments.each do |comment| %>
+          <%= render 'shared/comment', comment: comment %>
+        <% end %>
+      </div>
+      <div class="form new-comment">
+        <%= simple_form_for [sub_milestone, Comment.new], remote: true do |f| %>
+          <%= f.input :content, label: false, placeholder: 'Write a comment and Press enter' %>
+          <%= f.submit "Send", class: "btn-comment"%>
+        <% end %>
+      </div>
+    </div>
+</div>
