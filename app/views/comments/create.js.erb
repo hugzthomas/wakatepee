@@ -3,6 +3,8 @@ var new_comment = $("<%= j render 'shared/comment', comment: @comment, sub_miles
 // Add it to the DOM, at the end of the existing reviews. It's still hidden.
 
 $('#comment-<%= @sub_milestone.id %> .commentslisting').append(new_comment);
+$('input#comment_content').closest('form').find("input[type=text], textarea").val("");
+
 // Show the new review with an animation!
 new_comment.slideDown();
 // Reset the form
