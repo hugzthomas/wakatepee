@@ -14,7 +14,7 @@
 <!--
       <h1 class='text-center small-padded'>My projects</h1> -->
 
-          <% @projects_admin.sort_by(&:deadline).each do |project| %>
+          <% @projects_admin.each do |project| %>
             <%= render "shared/project_card", locals: { admin_or_contributor: "admin", project: project } %>
           <% end %><!-- end of project admin block -->
             <% @projects_collaborator.sort_by(&:deadline).each do |project| %>
