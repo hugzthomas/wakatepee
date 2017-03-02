@@ -1,8 +1,11 @@
 // app/views/reviews/create.js.erb
 // Here you will write *javascript* that would be executed by the browser
 <% if @project.errors.any? %>
-  // Render new review form with errors
-
-  $('#new_project').html("<%= j render 'shared/create-project', project: @project, remote: true %>");
-  // $('#myModal').modal('show');
+  $('#new_project').html("<%= j render 'shared/create-project', project: @project %>").
+    find("input.date_picker").datepicker({
+      format: "yyyy/mm/dd",
+      autoclose: true
+    });
+<% else %>
+  window.location = '<%= project_path(@project) %>';
 <% end %>
