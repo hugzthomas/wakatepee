@@ -13,7 +13,7 @@
         <li class="display-comment" data-target="#comment-<%= sub_milestone.id %>"> Comment (<%= sub_milestone.comments.count %>)
         </li>
         <!--add a file to a submileston-->
-        <li class="display-files" data-toggle="modal" data-target="#deliverable">
+        <li class="display-files" data-toggle="modal" data-target="#deliverable" class="activatemodalupload">
           <span class="fa fa-upload" ">Upload</span>
         </li>
           <% unless sub_milestone.file.nil? %>
