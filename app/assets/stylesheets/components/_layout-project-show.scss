@@ -34,7 +34,7 @@
 }
 
 #recap {
-  height: 600px;
+  height: 588px;
   text-align: center;
   h2 {
     color: #0A5279;
@@ -98,25 +98,25 @@
   right: 10px;
 }
 
-input[type="text"] {
-  display: block;
-  margin: 0;
-  width: 75%;
-  font-family: sans-serif;
-  appearance: none;
-  box-shadow: none;
-  border-radius: none;
-}
-input[type="text"]:focus {
-  outline: none;
-}
+// input[type="text"] {
+//   display: block;
+//   margin: 0;
+//   width: 75%;
+//   font-family: sans-serif;
+//   appearance: none;
+//   box-shadow: none;
+//   border-radius: none;
+// }
+// input[type="text"]:focus {
+//   outline: none;
+// }
 
 .submilestones {
   margin: 50px;
   position: relative;
 }
 
-input[type="text"] {
+ input[type="text"] {
   display: block;
   margin: 0;
   width: 75%;
@@ -133,6 +133,7 @@ input[type="text"]:focus, input[type="text"].focus {
   border-bottom: solid 2px #969696;
   box-shadow: none;
 }
+
 
   // .form {
   //   width: 50%;
@@ -255,7 +256,7 @@ ul.list-unstyled.list-inline {
   transition: all .2s ease-in-out;
 }
 
-.editproject{
+.editproject {
   background-color: white;
   box-shadow: 8px 6px 18px #D6D6DB;
   padding: 10px;
@@ -263,8 +264,14 @@ ul.list-unstyled.list-inline {
   cursor: pointer;
   position: relative;
   text-align: center;
+  color: #597B9D;
 }
-.destroyproject{
+
+.editproject a:hover {
+  text-decoration: none;
+}
+
+.destroyproject {
   background-color: white;
   box-shadow: 8px 6px 18px #D6D6DB;
   padding: 10px;
@@ -335,15 +342,35 @@ input#sub_milestone_title.form-control{
   margin-top: 15px;
 }
 
+#backtomyprojects:hover {
+  background-color: #FD7F6B;
+
+}
+
 ul.list-unstyled.list-inline {
     line-height: 1.1;
   }
 
 #project-firsttime{
-  h2 {
-    padding-top: 100px;
-    padding-right: 30px;
-    padding-left: 30px;
+  padding: 20px 20px;
+  h3 {
     text-align: center;
+    padding-bottom: 15px;
   }
+  h4 {
+    padding-bottom: 15px;
+    padding-left: 15px;
+  }
+}
+
+.project-deadline {
+  color: #597B9D;
+}
+
+.editproject a{
+  color: #597B9D;
+}
+
+#backtomyprojects {
+  background-color: #F4F7F7;
 }
