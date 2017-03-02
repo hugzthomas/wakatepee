@@ -13,7 +13,9 @@
           <div class="li-milestone tab  <%= set_active_milestone(milestone) %>" data-target="#<%= milestone.title.parameterize %>" data-id="<%= milestone.id %>">
             <div class="title-milestone">
               <%= milestone.title %>
-            <%= link_to "", milestone_path(milestone), method: :delete, data: { confirm: "Are you sure ?", project_id: @project}, class: "fa fa-trash " %>
+              <% if current_user == @project.admin %>
+                <%= link_to "", milestone_path(milestone), method: :delete, data: { confirm: "Are you sure ?", project_id: @project}, class: "fa fa-trash " %>
+              <% end %>
             </div>
             <!-- Display progress bar of the milestone-->
             <div id="milestone-progress-<%= milestone.id %>">
@@ -30,7 +32,7 @@
           </div>
         </div>
         <!-- Display team members-->
-        <div class=" team-members text-center">They work on</div>
+        <div class=" team-members text-center">Your dream team</div>
         <div class="li-team">
           <div class="team">
             <% @project.users.each do |user| %>
@@ -40,9 +42,11 @@
             <% end %>
           </div>
         </div>
-        <div class="editproject">
-          <%= link_to "Edit project", edit_project_path(@project) %>
-        </div>
+        <% if current_user == @project.admin %>
+          <div class="editproject">
+            <%= link_to "Edit project", edit_project_path(@project) %>
+          </div>
+        <% end %>
     </div>
     <!-- content on the right -->
     <div class="col-xs-9">

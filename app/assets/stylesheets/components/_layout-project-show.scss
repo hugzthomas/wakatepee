@@ -137,7 +137,8 @@ input[type="text"]:focus {
 }
 
 .submilestone-card {
-    background-color: #F1F1F1;
+    border-left: 3px solid #34485C !important;
+    padding: 5px;
     opacity: 0.9;
     margin-bottom: 10px;
     margin-left: 14px;
@@ -151,11 +152,24 @@ input[type="text"]:focus {
   }
 }
 
+.police-icon {
+  font-family:"Avenir", "Helvetica", "sans-serif";
+}
+
+.fa-check {
+  color: #5DA0A2
+}
+
+.submilestone-card:hover {
+  background: rgba(0,0,0,0.04);
+  transition: 0.6s ease;
+}
+
 .btn-comment {
   display:none;
 }
 
-.content-milestones{
+.content-milestones {
   background-color: white;
   box-shadow: 8px 6px 18px #D6D6DB;
   // position: relative;
@@ -168,6 +182,11 @@ input[type="text"]:focus {
     p{
       margin-left: 30px;
     }
+}
+
+ul.list-unstyled.list-inline {
+  font-size: 14px;
+  padding-left: 15px;
 }
 
 .contentleft{
@@ -250,7 +269,9 @@ input[type="text"]:focus {
 
 input#sub_milestone_title.form-control{
   width: 384px !important;
+  margin: 15px 0px;
 }
+
 
 .btn-plus{
   background-color: $orange;

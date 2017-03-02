@@ -1,4 +1,4 @@
 <div class="comment">
-    <%= cl_image_tag comment.user.photo, class: "avatar", title: comment.user.first_name, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
+    <%= cl_image_tag comment.user.photo, class: "avatar", title: comment.created_at, 'data-toggle' => 'tooltip', 'data-placement' => 'bottom' %>
     <%= comment.content %>
 </div>

@@ -6,6 +6,9 @@
           <!--checkbox on a submilestone-->
           <%= render 'sub_milestones/checkbox', sub_milestone: sub_milestone, project: @project, milestone: sub_milestone.milestone  %>
         <% end %>
+        <% if sub_milestone.done && @project.admin != current_user %>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        <% end %>
         <%= sub_milestone.title %>
       </li>
       <ul class='list-unstyled list-inline'>
@@ -13,12 +16,24 @@
         <li class="display-comment" data-target="#comment-<%= sub_milestone.id %>"> Comment (<%= sub_milestone.comments.count %>)
         </li>
         <!--add a file to a submileston-->
-        <li class="display-files" data-toggle="modal" data-target="#deliverable">
-          <span class="fa fa-upload" ">Upload</span>
-        </li>
-          <% unless sub_milestone.file.nil? %>
-            <a href="<%= sub_milestone.file.url%>", class="fa fa-download no-underline">Download</a>
+        <% unless current_user == sub_milestone.project.admin %>
+          <% if sub_milestone.file.file.nil? %>
+            <li class="display-files" data-toggle="modal" data-target="#deliverable">
+              <span class="fa fa-upload" "><span class="police-icon"> Submit your deliverable</span></span>
+            </li>
           <% end %>
+          <% unless sub_milestone.file.file.nil? %>
+            <li class="display-files" data-toggle="modal" data-target="#deliverable">
+              <span class="fa fa-upload" "><span class="police-icon"> Submit a new deliverable</span></span>
+            </li>
+            <a href="<%= sub_milestone.file.url%>", class="fa fa-download no-underline"><span class="police-icon"> Download</span></a>
+          <% end %>
+        <% end %>
+        <% if current_user == sub_milestone.project.admin %>
+          <% unless sub_milestone.file.file.nil? %>
+            <a href="<%= sub_milestone.file.url%>", class="fa fa-download no-underline"> <span class="police-icon"> Download the deliverable</span></a>
+          <% end %>
+        <% end %>
           <!--modal when click on upload -->
           <div class="modal fade" id="deliverable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
