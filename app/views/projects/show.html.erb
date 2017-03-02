@@ -44,7 +44,7 @@
           </div>
         </div>
         <% if current_user == @project.admin %>
-          <div class="editproject">
+          <div class="editproject no-underline">
             <%= link_to "Edit project", edit_project_path(@project) %>
           </div>
         <% end %>
@@ -55,21 +55,29 @@
       <div id="recap" class="card-comment">
         <h2><%= @project.title %></h2>
         <p><%= @project.description %></p>
-        <% if @project.brief %>
-          <%= @project.brief %>
+      </div>
+      <div class="content-milestones tab-content" id="project-firsttime">
+        <% if current_user == @project.admin %>
+          <h3>Welcome to your project dashboard</h3>
+          <h4>As the <strong>creator</strong> of this project, you can: </h4>
+          <p><i class="fa fa-check" aria-hidden="true"></i> Add a milestone on the sidebar</p>
+          <p><i class="fa fa-check" aria-hidden="true"></i> Add tasks to each one of your milestone</p>
+          <p><i class="fa fa-check" aria-hidden="true"></i> Download deliverables </p>
+          <p><i class="fa fa-check" aria-hidden="true"></i> Validate tasks</p>
+          <p><i class="fa fa-check" aria-hidden="true"></i> Leave comments to your peers</p>
+          <p><i class="fa fa-smile-o" aria-hidden="true"></i> Share Wakatepee with your friends</p>
+        <% else %>
+            <h3>Welcome to the <%= @project.admin.first_name %> project dashboard</h3>
+            <h4>As a <strong>member</strong> of this project, you can: </h4>
+            <p><i class="fa fa-check" aria-hidden="true"></i> Follow the lead </p>
+            <p><i class="fa fa-check" aria-hidden="true"></i> Add a milestone on the sidebar</p>
+            <p><i class="fa fa-check" aria-hidden="true"></i> Add tasks to each one of milestones</p>
+            <p><i class="fa fa-check" aria-hidden="true"></i> Complete the tasks you've been assigned to</p>
+            <p><i class="fa fa-check" aria-hidden="true"></i> Submit your work</p>
+            <p><i class="fa fa-check" aria-hidden="true"></i> Leave comments to your peers</p>
+            <p><i class="fa fa-smile-o" aria-hidden="true"></i> Share Wakatepee with your friends</p>
         <% end %>
       </div>
-    <div class="content-milestones tab-content" id="project-firsttime">
-      <h2> Welcome to the control page of your project </h2>
-      <h3>Don't forget that you can: </h3>
-      <p>Add a milestone</p>
-      <p>Add a submilstone</p>
-      <p>Upload a document</p>
-      <p>Download a document</p>
-      <p>And of course, leave comments</p>
-      <p>Have fun !</p>
-    </div>
-
       <div class="row">
 
 
