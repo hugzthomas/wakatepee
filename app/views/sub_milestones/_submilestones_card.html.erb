@@ -16,24 +16,25 @@
         <li class="display-comment" data-target="#comment-<%= sub_milestone.id %>"> Comment (<%= sub_milestone.comments.count %>)
         </li>
         <!--add a file to a submileston-->
-        <% unless current_user == sub_milestone.project.admin %>
-          <% if sub_milestone.file.file.nil? %>
-            <li class="display-files" data-toggle="modal" data-target="#deliverable">
-              <span class="fa fa-upload" "><span class="police-icon"> Submit your deliverable</span></span>
-            </li>
+        <div class="icons-right">
+          <% unless current_user == sub_milestone.project.admin %>
+            <% if sub_milestone.file.file.nil? %>
+              <li class="display-files" data-toggle="modal" data-target="#deliverable">
+                <span class="fa fa-upload float_right" "><span class="police-icon"> Submit your deliverable</span></span>
+              </li>
+            <% end %>
+            <% unless sub_milestone.file.file.nil? %>
+              <li class="display-files" data-toggle="modal" data-target="#deliverable">
+                <span class="fa fa-upload float_right" "><span class="police-icon"> Submit a new deliverable</span></span>
+              </li>
+              <a href="<%= sub_milestone.file.url%>", class="fa fa-download no-underline "><span class="police-icon"> Download</span></a
+            <% end %>
           <% end %>
-          <% unless sub_milestone.file.file.nil? %>
-            <li class="display-files" data-toggle="modal" data-target="#deliverable">
-              <span class="fa fa-upload" "><span class="police-icon"> Submit a new deliverable</span></span>
-            </li>
-            <a href="<%= sub_milestone.file.url%>", class="fa fa-download no-underline"><span class="police-icon"> Download</span></a
+          <% if current_user == sub_milestone.project.admin %>
+            <% unless sub_milestone.file.file.nil? %>
+              <a href="<%= sub_milestone.file.url%>", class="fa fa-download no-underline"><span class="police-icon"> Download the deliverable</span></a>
+            <% end %>
           <% end %>
-        <% end %>
-        <% if current_user == sub_milestone.project.admin %>
-          <% unless sub_milestone.file.file.nil? %>
-            <a href="<%= sub_milestone.file.url%>", class="fa fa-download no-underline"> <span class="police-icon"> Download the deliverable</span></a>
-          <% end %>
-        <% end %>
           <!--modal when click on upload -->
           <div class="modal fade" id="deliverable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -49,6 +50,7 @@
             </div>
           </div>
         </li>
+        </div>
         <!--delete a submilestone-->
         <li>
           <div class="card-delete">
