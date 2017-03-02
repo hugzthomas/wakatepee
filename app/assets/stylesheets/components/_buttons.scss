@@ -117,14 +117,14 @@
 }
 
 .button-google {
-  line-height: 40px;
+  line-height: 28px;
   background-color: #dd4b39;
   background-image: url(assets/images/google.png);
   color: white;
   font-size: 20px;
   display: block;
   width: 100%;
-  height: 50px;
+  height: 36px;
   padding: 6px 12px;
   font-size: 13px;
   border-radius: 2px;
@@ -147,9 +147,10 @@
   width: 100%;
   height: 36px;
   padding: 6px 12px;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.4;
   border-radius: 2px;
+  margin-bottom: 8px;
 }
 .button-orange-sign:hover {
   color: $orange;

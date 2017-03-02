@@ -12,11 +12,9 @@
                 <%= f.input :email, required: false, autofocus: true %>
                 <%= f.input :password, required: false %>
                 <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-              </div>
-              <div class="form-actions form-btn-center">
                 <%= f.button :submit, "Log In", class: "button-orange-sign" %>
-              </div>
                 <%= render 'devise/shared/links' %>
+              </div>
             <% end %>
           </div>
         </div>
