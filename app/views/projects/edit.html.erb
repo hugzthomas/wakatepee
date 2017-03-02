@@ -11,10 +11,6 @@
               <%= f.input :photo %>
               <%= f.input :photo_cache, as: :hidden %>
 
-              <% Milestone.all.each do |milestone| %>
-                <div class="tag" id="<%= milestone.id %>"><%= milestone.title %></div>
-                <% end %>
-                <br>
               <% User.all.each_with_index do |user, index| %>
                   <% unless current_user == user %>
                     <%= cl_image_tag user.photo, width: 50, height: 50, class: "teamember", id: user.id %>
