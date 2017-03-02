@@ -31,16 +31,18 @@
 }
 
 .btn-orange-index-projet {
-  color: #FD7F6B;;
-  padding: 10px 15px;
+  color: #FD7F6B;
+  padding: 0px 2px;
   background: #F4F7F7;
   border: 1px solid #FD7F6B;
+  -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
-  width: 255px;
-  text-align:center;
-  cursor:pointer;
-  margin-left: 10px;
-  margin-bottom: 40px;
+  width: 207px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 14px;
+  margin-bottom: 46px;
+  margin-top: 25px;
 }
 
 .btn-orange-index-projet:hover{

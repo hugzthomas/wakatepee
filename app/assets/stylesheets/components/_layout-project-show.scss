@@ -5,9 +5,9 @@
   margin-top: 60px;
 }
 
+
 .li-team {
   background-color: white;
-  box-shadow: 8px 6px 18px #D6D6DB;
   padding: 20px 10px;
 }
 
@@ -20,9 +20,9 @@
 }
 
 .project-deadline {
-  background-color: $blue;
+  background-color: white;
   text-align:center;
-  color:white;
+  color:$blue;
   padding-top: 6px;
   height: 32px;
 }
@@ -33,13 +33,27 @@
   padding: 0;
 }
 
+#recap {
+  height: 600px;
+  text-align: center;
+  h2 {
+    color: #0A5279;
+    margin-bottom: 30px;
+  }
+  p {
+    text-align: justify;
+    color: #597B9D;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 14px;
+  }
+}
+
 .milestone-recap {
   text-align:center;
-  margin-top: 22px;
+  margin-top: 11px;
   background-color: white;
-  box-shadow: 8px 6px 18px #D6D6DB;
   padding: 10px 10px;
-  cursor: pointer;
 }
 
 .li-milestone {
@@ -63,6 +77,7 @@
 .content-milestones.tab-content {
   margin: 15px 0px;
   width: 55%;
+  margin-top: 70px;
 }
 
 .team {
@@ -99,33 +114,52 @@ input[type="text"]:focus {
 .submilestones {
   margin: 50px;
   position: relative;
-  .form {
-    width: 50%;
-    input[type="text"] {
-      padding: 10px;
-      border: none;
-      border-bottom: solid 2px #c9c9c9;
-      transition: border 0.3s;
-    }
-    input[type="text"]:focus,
-    input[type="text"].focus {
-    border-bottom: solid 2px #969696;
-    }
-    input[type="text"] {
-      display: block;
-      margin: 0;
-      width: 100%;
-      font-family: sans-serif;
-      font-size: 18px;
-      appearance: none;
-      box-shadow: none;
-      border-radius: none;
-    }
-    input[type="text"]:focus {
-  outline: none;
-    }
-  }
 }
+
+input[type="text"] {
+  display: block;
+  margin: 0;
+  width: 75%;
+  font-family: sans-serif;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+input[type="text"]:focus, input[type="text"].focus {
+  outline: none;
+  border-bottom: solid 2px #969696;
+  box-shadow: none;
+}
+
+  // .form {
+  //   width: 50%;
+  //   input[type="text"] {
+  //     padding: 10px;
+  //     border: none;
+  //     border-bottom: solid 2px #c9c9c9;
+  //     transition: border 0.3s;
+  //   }
+  //   input[type="text"]:focus,
+  //   input[type="text"].focus {
+  //   border-bottom: solid 2px #969696;
+  //   }
+  //   input[type="text"] {
+  //     display: block;
+  //     margin: 0;
+  //     width: 100%;
+  //     font-family: sans-serif;
+  //     font-size: 18px;
+  //     appearance: none;
+  //     box-shadow: none;
+  //     border-radius: none;
+  //   }
+  //   input[type="text"]:focus {
+  // outline: none;
+  //   }
+  // }
 
 .form.new-comment {
   width: 100%;
@@ -173,6 +207,7 @@ input[type="text"]:focus {
 .content-milestones {
   background-color: white;
   box-shadow: 8px 6px 18px #D6D6DB;
+  margin-top: 50px;
   // position: relative;
   min-height: 588px;
     h2{
@@ -182,6 +217,8 @@ input[type="text"]:focus {
     }
     p{
       margin-left: 30px;
+      margin-right: 30px;
+      text-align: justify;
     }
 }
 
@@ -200,9 +237,9 @@ ul.list-unstyled.list-inline {
 }
 
 .team-members{
-  background-color: #ACD0D1;
-  text-align:center;
-  color:white;
+  background-color: white;
+  text-align: center;
+  color: #597B9D;
   padding-top: 6px;
   height: 32px;
 }
@@ -239,7 +276,7 @@ ul.list-unstyled.list-inline {
 .border{
   height: 1px;
   margin-left: 15px;
-  widht: 12px;
+  // widht: 12px;
   width: 424px;
   background-color: $blue;
   opacity: 0.6;
@@ -294,6 +331,19 @@ input#sub_milestone_title.form-control{
   display: inline-flex;
 }
 
+#backtomyprojects {
+  margin-top: 15px;
+}
+
 ul.list-unstyled.list-inline {
     line-height: 1.1;
   }
+
+#project-firsttime{
+  h2 {
+    padding-top: 100px;
+    padding-right: 30px;
+    padding-left: 30px;
+    text-align: center;
+  }
+}

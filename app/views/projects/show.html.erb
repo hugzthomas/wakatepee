@@ -2,7 +2,8 @@
   <div class="row">
     <!-- Sidebar -->
     <div class="col-xs-3 sidebar tabs">
-      <div class="milestone-recap tab <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
+      <%= link_to "Back to my projects", projects_path, class: "btn btn-orange", id: "backtomyprojects"  %>
+      <div class="milestone-recap <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
         <div class="logo-client"><%= cl_image_tag(@project.photo, width: 125, height: 75) %></div>
         <div class="project-title"><strong><%= @project.title %></strong></div>
       </div>
@@ -51,14 +52,23 @@
     <!-- content on the right -->
     <div class="col-xs-9">
       <!-- new row to build two elements inside -->
-      <div id="recap" class="content-milestones tab-content">
+      <div id="recap" class="card-comment">
         <h2><%= @project.title %></h2>
         <p><%= @project.description %></p>
         <% if @project.brief %>
           <%= @project.brief %>
         <% end %>
       </div>
-
+    <div class="content-milestones tab-content" id="project-firsttime">
+      <h2> Welcome to the control page of your project </h2>
+      <h3>Don't forget that you can: </h3>
+      <p>Add a milestone</p>
+      <p>Add a submilstone</p>
+      <p>Upload a document</p>
+      <p>Download a document</p>
+      <p>And of course, leave comments</p>
+      <p>Have fun !</p>
+    </div>
 
       <div class="row">
 

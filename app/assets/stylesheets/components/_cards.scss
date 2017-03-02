@@ -59,6 +59,10 @@
   cursor: pointer;
 }
 
+.active {
+  background-color: #ACD0D1;
+  color: white;
+}
 .card-plus {
   width: 130px;
   position: relative;
@@ -78,6 +82,7 @@
   left: 515px;
   width: 40%;
   color: black;
+  margin-top: 48px;
   margin-bottom: 10px;
   padding: 10px;
   overflow-y: scroll;
@@ -98,11 +103,9 @@
   }
 }
 
-  li.display-comment {
-    cursor: pointer;
-  }
-
-
+li.display-comment {
+  cursor: pointer;
+}
 
 .card-form-sign{
   background:#F5F5F5 ;
@@ -114,7 +117,6 @@
     font-size: 13px;
   }
 }
-
 
 .card-delete {
   position: absolute;
@@ -129,7 +131,7 @@
 .filter {
   position: absolute;
     top: 25px;
-    right: 10px;
+    right: 15px;
 }
 
 #radio-1 {
