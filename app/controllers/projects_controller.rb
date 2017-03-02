@@ -26,7 +26,6 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
     # add user projects
     member_ids = params[:user_ids]
 
-
     if member_ids
       member_ids.each do |member_id|
         @user = User.find(member_id)
@@ -34,8 +33,9 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
       end
     end
 
-    @project.save
-
+    if @project.save
+      redirect_to project_path(@project)
+    end
   end
 
   def edit
