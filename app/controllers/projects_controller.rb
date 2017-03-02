@@ -3,7 +3,7 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    @projects_admin = policy_scope(Project.where(admin: current_user)) # Projects.all where the current user is admin
+    @projects_admin = policy_scope(Project).where(admin: current_user).order(:deadline) # Projects.all where the current user is admin
     @projects_collaborator = policy_scope(UserProject.where(user: current_user)).map{ |user_project| user_project.project }  #UserProject.all where the current user is a user
     @project = Project.new
   end
@@ -34,17 +34,8 @@ before_action :set_project, only: [:show, :edit, :update, :destroy]
       end
     end
 
-    if @project.save
-      respond_to do |format|
-        format.html { redirect_to project_path(@project)}
-        format.js
-      end
-    else
-      respond_to do |format|
-        format.html { render 'projects/index'}
-        format.js
-      end
-    end
+    @project.save
+
   end
 
   def edit
