@@ -46,3 +46,8 @@ source "https://rails-assets.org" do
 end
 
 
+group :development do
+  gem 'rails_real_favicon'
+end
+
+
