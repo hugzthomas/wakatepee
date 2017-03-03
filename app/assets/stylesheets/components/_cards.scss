@@ -60,8 +60,11 @@
 }
 
 .active {
-  background-color: #ACD0D1;
+  background: linear-gradient(to left, #085078, #85D8CE);
   color: white;
+  .fa-trash {
+  color: white;
+  }
 }
 .card-plus {
   width: 130px;

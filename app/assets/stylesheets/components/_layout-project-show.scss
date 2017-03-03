@@ -249,11 +249,21 @@ ul.list-unstyled.list-inline {
   margin-bottom: 20px;
 }
 
-#ActionAddingAmilestone:hover{
-  background-color: $blue;
+#ActionAddingAmilestone{
+   background-color: white;
+  box-shadow: 8px 6px 18px #D6D6DB;
+  padding: 10px;
+  height: 65px;
+  margin: 12px 0px;
+  cursor: pointer;
+  position: relative;
+}
+#ActionAddingAmilestone:hover {
+  background-color: $blue !important;
   color: white;
   transform: scale(0.9);
   transition: all .2s ease-in-out;
+
 }
 
 .editproject {
