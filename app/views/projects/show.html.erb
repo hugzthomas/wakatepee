@@ -4,7 +4,7 @@
     <div class="col-xs-3 sidebar tabs">
       <%= link_to "Back to my projects", projects_path, class: "btn btn-orange", id: "backtomyprojects"  %>
       <div class="milestone-recap <%= @selected_milestone_id ? nil : 'active' %>" data-target="#recap">
-        <div class="logo-client"><%= cl_image_tag(@project.photo, width: 125, height: 75) %></div>
+        <div class="logo-client"><%= cl_image_tag(@project.photo, width: 75, height: 75) %></div>
         <div class="project-title"><strong><%= @project.title %></strong></div>
       </div>
       <div class="project-deadline"><%= @project.deadline.strftime("%m/%d/%Y") %></div>
