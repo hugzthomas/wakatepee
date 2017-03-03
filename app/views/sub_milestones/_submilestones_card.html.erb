@@ -19,7 +19,7 @@
         <div class="icons-right">
           <% unless current_user == sub_milestone.project.admin %>
             <% if sub_milestone.file.file.nil? %>
-              <li class="display-files" data-toggle="modal" data-target="#deliverable">
+              <li class="display-files" data-toggle="modal" data-target="#deliverable_<%= sub_milestone.id %>">
                 <span class="fa fa-upload float_right" "><span class="police-icon"> Submit your deliverable</span></span>
               </li>
             <% end %>
@@ -63,7 +63,7 @@
       </div>
     </div>
 
-    <div class="modal fade" id="deliverable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="deliverable_<%= sub_milestone.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
